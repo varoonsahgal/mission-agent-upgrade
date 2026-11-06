@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mission 03: Workflow Power: From Talk to Action · Mission: Agent Upgrade</title>
+<meta name="description" content="Build a digital-service issue triage workflow that turns a conversation into a structured, repeatable business action.">
+<meta property="og:title" content="Mission 03: Workflow Power: From Talk to Action · Mission: Agent Upgrade">
+<meta property="og:description" content="Build a digital-service issue triage workflow that turns a conversation into a structured, repeatable business action.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#04061a">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-mission="3" style="--accent:#a78bfa">
+<a class="skip" href="#main">Skip to content</a>
+<canvas id="stars" aria-hidden="true"></canvas>
+<header class="topbar"><div class="wrap">
+<a class="brand" href="../index.html" aria-label="Mission: Agent Upgrade home"><svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="bl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff6b2c"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs><circle cx="20" cy="20" r="18" fill="none" stroke="url(#bl)" stroke-width="2"/><ellipse cx="20" cy="20" rx="18" ry="6.5" fill="none" stroke="#22d3ee" stroke-opacity=".6" stroke-width="1.2" transform="rotate(-28 20 20)"/><path d="M20 9c3 2 4.6 5.4 4.6 8.8l-1.6 3.4h-6l-1.6-3.4C15.4 14.4 17 11 20 9z" fill="#fff"/><path d="M17.6 22.6 16 26.5l2.6-1M22.4 22.6 24 26.5l-2.6-1" stroke="#ff6b2c" stroke-width="1.4" fill="none" stroke-linecap="round"/><circle cx="20" cy="16.4" r="1.6" fill="#8b5cf6"/></svg>
+<span>MISSION: AGENT UPGRADE<small>Copilot Studio · Contoso Digital</small></span></a>
+<button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
+<nav class="nav" id="nav"><a href="../index.html#flight-plan">Flight Plan</a><a href="../index.html#missions" aria-current=page>Missions</a><a href="../resources.html">Resources</a><a href="../facilitator.html">Facilitator</a><a class="cta" href="../missions/m01.html">Launch Mission 01 →</a></nav>
+<div class="telemetry" aria-hidden="true"><span class="dot"></span><span>SYS NOMINAL</span><span>·</span><span id="met">--:--:-- ET</span></div>
+</div></header>
+<main id="main">
+<section class="mhero"><div class="wrap">
+<div class="patch" data-patch="3" aria-hidden="true"></div>
+<div>
+<div class="crumbs"><a href="../index.html">Mission: Agent Upgrade</a><span>/</span><a href="../index.html#flight-plan">Day 1 · Give Your Agent Superpowers</a><span>/</span><span>Mission 03</span></div>
+<h1><span class="mnum">MISSION 03 · LAB</span>Workflow Power: From Talk to Action</h1>
+<div class="facts"><span class="fact"><b>Day</b>1 of 2</span><span class="fact"><b>Duration</b>35 min</span><span class="fact"><b>AM slot</b>10:45–11:20 ET</span><span class="fact"><b>Format</b>Lab</span></div>
+<div class="objective-box"><b>MISSION OBJECTIVE</b>Build a digital-service issue triage workflow that turns a conversation into a structured, repeatable business action.</div>
+</div></div></section>
+<div class="wrap mbody">
+<article class="prose">
+<section id="briefing">
+  <h2 id="briefing-h">Briefing <span class="tag">Discover</span></h2>
+  <p class="lead">Conversation gets you understanding. A <strong>workflow</strong> gets you action. This is the mission where Mission Control stops saying “please open a ticket” and starts opening the ticket itself.</p>
+
+  <div class="analogy">
+    <div class="ic">🚀</div>
+    <div><b>Analogy</b><p>The agent is the flight crew: it talks, reasons, and decides. The workflow is the launch sequence: a fixed, checkable series of steps that runs the same way every time. Crews improvise. Launch sequences don't.</p></div>
+  </div>
+
+  <h3 id="anatomy" class="toc-include">Anatomy of a workflow</h3>
+  <div class="flow">
+    <div class="fstep"><span class="k">Trigger</span><h4>What starts it</h4><p>The agent calls it, a schedule fires, or a record changes</p></div>
+    <div class="fstep"><span class="k">Inputs</span><h4>What it receives</h4><p>Typed values: service, symptom, error code…</p></div>
+    <div class="fstep"><span class="k">Actions</span><h4>What it does</h4><p>Connector steps, AI steps, data operations</p></div>
+    <div class="fstep"><span class="k">Logic</span><h4>How it decides</h4><p>Conditions, switches, loops, expressions</p></div>
+    <div class="fstep"><span class="k">Outputs</span><h4>What it returns</h4><p>Issue ID, severity, next step</p></div>
+  </div>
+  <p>In Copilot Studio, workflows live under <span class="ui">Workflows</span> in the left rail. These <strong>agent flows</strong> are built on the same engine as Power Automate. An agent can call a flow as a <strong>tool</strong>: it fills in the flow's inputs from the conversation, waits for the flow to respond, and then uses the outputs in its reply.</p>
+
+  <h3 id="contract" class="toc-include">The contract: inputs and outputs</h3>
+  <p>Think of the inputs and outputs as a contract between the agent and the workflow. If the contract is clear, the agent can call the workflow reliably. If it's vague, the agent will guess. Here is the contract for our triage workflow:</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Direction</th><th>Name</th><th>Type</th><th>Description (the orchestrator reads this!)</th></tr></thead>
+      <tbody>
+        <tr><td>Input</td><td><code>Service</code></td><td>Text</td><td>Service code: MOB, OLB, P2P, RDC, BIL, MFA or NTF</td></tr>
+        <tr><td>Input</td><td><code>Symptom</code></td><td>Text</td><td>What the member sees, including any error code</td></tr>
+        <tr><td>Input</td><td><code>MembersAffected</code></td><td>Text</td><td>How many members are affected: One, Some, or Many</td></tr>
+        <tr><td>Input</td><td><code>FundsOrDataRisk</code></td><td>Yes/No</td><td>Is there any risk to member funds or data?</td></tr>
+        <tr><td>Output</td><td><code>Severity</code></td><td>Text</td><td>Sev 1–4, from the Contoso severity matrix</td></tr>
+        <tr><td>Output</td><td><code>Route</code></td><td>Text</td><td>What the agent must do next, e.g. “STOP — escalate to on-call”</td></tr>
+        <tr><td>Output <span class="sev s3">Day 2</span></td><td><code>IssueId</code></td><td>Text</td><td>Added in Mission 06 when the workflow writes to the SharePoint register</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="diagram" role="img" aria-label="Triage workflow: the agent calls the flow, a condition checks for funds or data risk, an expression sets severity, and Severity and Route are returned to the agent.">
+    <svg viewBox="0 0 900 250" xmlns="http://www.w3.org/2000/svg">
+      <defs><marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#a78bfa"/></marker></defs>
+      <g stroke="#a78bfa" stroke-width="2" fill="none" marker-end="url(#a3)"><path d="M190 125h48"/><path d="M420 125h48"/><path d="M650 125h48"/></g>
+      <g font-family="Space Grotesk" font-weight="600" fill="#fff">
+        <rect x="20" y="70" width="170" height="110" rx="16" fill="#0c1236" stroke="#a78bfa"/><text x="40" y="100" font-family="JetBrains Mono" font-size="10" letter-spacing="2" fill="#a78bfa">TRIGGER</text><text x="40" y="128" font-size="16">Agent calls</text><text x="40" y="148" font-size="16">the flow</text><text x="40" y="168" font-family="Inter" font-weight="400" font-size="11" fill="#8f9ac2">4 typed inputs</text>
+        <rect x="240" y="70" width="180" height="110" rx="16" fill="#0c1236" stroke="#fbbf24"/><text x="260" y="100" font-family="JetBrains Mono" font-size="10" letter-spacing="2" fill="#fbbf24">CONDITION</text><text x="260" y="128" font-size="16">Funds or</text><text x="260" y="148" font-size="16">data risk?</text><text x="260" y="168" font-family="Inter" font-weight="400" font-size="11" fill="#8f9ac2">True → Sev 1 · STOP</text>
+        <rect x="470" y="70" width="180" height="110" rx="16" fill="#0c1236" stroke="#22d3ee"/><text x="490" y="100" font-family="JetBrains Mono" font-size="10" letter-spacing="2" fill="#22d3ee">EXPRESSION</text><text x="490" y="128" font-size="16">Severity from</text><text x="490" y="148" font-size="16">members hit</text><text x="490" y="168" font-family="Inter" font-weight="400" font-size="11" fill="#8f9ac2">Many→2 · Some→3 · One→4</text>
+        <rect x="700" y="70" width="180" height="110" rx="16" fill="#0c1236" stroke="#34d399"/><text x="720" y="100" font-family="JetBrains Mono" font-size="10" letter-spacing="2" fill="#34d399">RESPOND</text><text x="720" y="128" font-size="16">Return to</text><text x="720" y="148" font-size="16">the agent</text><text x="720" y="168" font-family="Inter" font-weight="400" font-size="11" fill="#8f9ac2">Severity · Route</text>
+      </g>
+    </svg>
+    <div class="cap">Fig. 03-A · The digital-service issue triage workflow</div>
+  </div>
+
+  <h3 id="where-logic" class="toc-include">Where should the logic live?</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Put it in…</th><th>When…</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Instructions</strong></td><td>It's judgment, tone, or a soft rule</td><td>“Be concise. Use the member's language.”</td></tr>
+        <tr><td><strong>A topic</strong></td><td>The conversation itself must follow a path</td><td>Ask for the error code before continuing</td></tr>
+        <tr><td><strong>A workflow</strong></td><td>It must happen the same way every time, and be auditable</td><td>Calculate severity, create the record, notify on-call</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout warn"><strong>Don't let the model do arithmetic with consequences</strong> Severity, IDs, routing, and anything else a business rule depends on belong in deterministic workflow steps, not in a model's best guess.</div>
+</section>
+
+<section id="lab">
+  <div class="lab" style="--accent:#a78bfa">
+    <div class="lab-head">
+      <div>
+        <div class="codename">Lab 03 · Codename LIFTOFF</div>
+        <h2 id="lab-h">Build the issue triage workflow</h2>
+        <div class="modes"><span class="mode-badge builder">Builder</span><span class="mode-badge team">Team</span><span class="mode-badge observer">Observer</span></div>
+      </div>
+      <div class="timer"><div class="t">25:00</div><div class="l">Minutes</div></div>
+    </div>
+    <div class="build-summary">
+      <div>
+        <h4>What you'll build</h4>
+        <ul>
+          <li>An agent flow, <strong>Triage Digital Issue</strong>, that the agent calls as a tool</li>
+          <li>Typed inputs that match the contract above</li>
+          <li>A risk <strong>Condition</strong> with two branches and a severity <strong>expression</strong></li>
+          <li>Outputs returned to the agent, and a first end-to-end test</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Pre-flight</h4>
+        <ul>
+          <li>Mission 02 complete: Mission Control has instructions and knowledge</li>
+          <li>Keep the input/output contract table open</li>
+          <li>Team mode: the Designer reads the contract aloud while the Builder configures it</li>
+        </ul>
+      </div>
+    </div>
+    <!-- LAB-STEPS:m03:BEGIN -->
+    <ol class="steps">
+      <li class="step">
+        <h4>Start a new workflow from the agent</h4>
+        <p>In Mission Control, open <span class="ui">Tools</span> → <span class="ui">Add a tool</span> → <span class="ui">Add new · Workflows</span>. The agent-flow designer opens with the two blocks every agent flow needs: <strong>When an agent calls the flow</strong> (the trigger) and <strong>Respond to the agent</strong> (the return).</p>
+        <figure class="shot" data-label="Agent flows › Designer">
+          <img src="../assets/img/shots/m03-01-new-workflow.webp" alt="New agent flow with trigger and respond blocks" loading="lazy">
+        </figure>
+      </li>
+      <li class="step">
+        <h4>Define the input contract</h4>
+        <p>Select the trigger card, then <span class="ui">Add an input</span>. You can choose from six input types: Text, Yes/No, File, Email, Number, and Date.</p>
+        <figure class="shot" data-label="Trigger › Add an input">
+          <img src="../assets/img/shots/m03-03-input-types.webp" alt="Input type chooser with Text, Yes/No, File, Email, Number, Date" loading="lazy">
+        </figure>
+        <p>Create the four inputs from the contract. The descriptions matter: the orchestrator reads them to decide what to pass in.</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Type</th><th>Name</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td>Text</td><td><code>Service</code></td><td>Service code: MOB, OLB, P2P, RDC, BIL, MFA or NTF</td></tr>
+            <tr><td>Text</td><td><code>Symptom</code></td><td>What the member sees, including any error code</td></tr>
+            <tr><td>Text</td><td><code>MembersAffected</code></td><td>How many members are affected: One, Some, or Many</td></tr>
+            <tr><td>Yes/No</td><td><code>FundsOrDataRisk</code></td><td>Is there any risk to member funds or data?</td></tr>
+          </tbody>
+        </table></div>
+        <figure class="shot" data-label="Trigger · 4 typed inputs">
+          <img src="../assets/img/shots/m03-04-trigger-inputs.webp" alt="Trigger card showing the four inputs with descriptions" loading="lazy">
+        </figure>
+      </li>
+      <li class="step">
+        <h4>Add the decision point: a Condition</h4>
+        <p>Select the <span class="ui">+</span> between the trigger and the response, search for <code>Condition</code>, and pick <span class="ui">Control · Condition</span>.</p>
+        <figure class="shot" data-label="Add an action">
+          <img src="../assets/img/shots/m03-05-add-action-condition.webp" alt="Add an action search box with Condition typed" loading="lazy">
+        </figure>
+        <p>Click into the left <span class="ui">Choose a value</span> box and type <kbd>/</kbd>, then choose <span class="ui">Insert dynamic content</span> and pick <strong>FundsOrDataRisk</strong> under <em>When an agent calls the flow</em>.</p>
+        <figure class="shot" data-label="Dynamic content">
+          <img src="../assets/img/shots/m03-06-dynamic-content.webp" alt="Dynamic content picker listing Service, Symptom, MembersAffected, FundsOrDataRisk" loading="lazy">
+          <figcaption>Press <kbd>/</kbd> in any field to insert a dynamic value or an expression.</figcaption>
+        </figure>
+        <p>Leave the operator as <span class="ui">is equal to</span>. On the right side, type <kbd>/</kbd> → <span class="ui">Insert expression</span>, enter <code>true</code>, and select <span class="ui">Add</span>.</p>
+        <figure class="shot" data-label="Expression editor">
+          <img src="../assets/img/shots/m03-07-expression-true.webp" alt="Expression editor with true typed" loading="lazy">
+        </figure>
+        <div class="callout warn"><strong>Classic trap</strong> If you <em>type</em> the word <code>true</code> straight into the field, it's stored as the text “true”, so the condition compares a Yes/No with a string and never matches. Use an <strong>expression</strong> to get a real Boolean.</div>
+        <figure class="shot" data-label="Condition configured">
+          <img src="../assets/img/shots/m03-08-condition-set.webp" alt="Condition: FundsOrDataRisk is equal to true, with True and False branches" loading="lazy">
+        </figure>
+      </li>
+      <li class="step">
+        <h4>True branch: STOP and route to a human</h4>
+        <p>Select the <span class="ui">+</span> inside <span class="badge-true">True</span>, add <span class="ui">Respond to the agent</span>, and add two <strong>Text</strong> outputs:</p>
+        <pre class="copy" data-lang="True branch outputs"><code>Severity = Sev 1 - Critical
+Route    = STOP - escalate to Digital Operations on-call for human approval</code></pre>
+      </li>
+      <li class="step">
+        <h4>False branch: calculate severity with an expression</h4>
+        <p>In <span class="badge-false">False</span>, add another <span class="ui">Respond to the agent</span>. For <code>Severity</code>, type <kbd>/</kbd> → <span class="ui">Insert expression</span> and paste:</p>
+        <pre class="copy" data-lang="Severity expression"><code>if(equals(triggerBody()?['text_2'],'Many'),'Sev 2 - High',if(equals(triggerBody()?['text_2'],'Some'),'Sev 3 - Medium','Sev 4 - Low'))</code></pre>
+        <figure class="shot" data-label="Severity expression">
+          <img src="../assets/img/shots/m03-11-severity-expression.webp" alt="Expression editor with nested if() severity logic" loading="lazy">
+        </figure>
+        <div class="callout intel"><strong>What's text_2?</strong> Agent-flow inputs get internal names by type and order: <code>text</code>, <code>text_1</code>, <code>text_2</code>, <code>boolean</code>. <code>MembersAffected</code> is the third Text input, so it's <code>text_2</code>. You can check this in the trigger's <span class="ui">Code view</span>.</div>
+        <p>Add <code>Route</code> = <code>Check the Digital Issue Register, then share approved guidance or log a new issue</code>. Finally, delete the original <span class="ui">Respond to the agent</span> that sits after the Condition. Each branch now returns its own answer.</p>
+        <figure class="shot" data-label="Two branches, two truthful responses">
+          <img src="../assets/img/shots/m03-12-branches.webp" alt="Workflow with condition and Respond to the agent in both True and False branches" loading="lazy">
+          <figcaption>The whole workflow: one trigger, one decision, two truthful responses.</figcaption>
+        </figure>
+      </li>
+      <li class="step">
+        <h4>Peek under the hood</h4>
+        <p>Open the Condition's side panel (<span class="ui">Open panel</span>) → <span class="ui">Code view</span>. Every visual block is JSON underneath. Being able to read it is a real troubleshooting skill.</p>
+        <figure class="shot" data-label="Condition › Code view">
+          <img src="../assets/img/shots/m03-10-code-view.webp" alt="Code view of the Condition showing equals triggerBody boolean true" loading="lazy">
+        </figure>
+      </li>
+      <li class="step">
+        <h4>Save, name, and publish</h4>
+        <p>Select <span class="ui">Save draft</span>. Then open the flow's <span class="ui">Overview</span> → <span class="ui">Edit</span>. Name it <code>Triage Digital Issue</code> and give it a description.</p>
+        <figure class="shot" data-label="Flow details">
+          <img src="../assets/img/shots/m03-13-flow-details.webp" alt="Flow details panel with name Triage Digital Issue and description" loading="lazy">
+        </figure>
+        <p>Run <span class="ui">Flow checker</span>. It's common to see <strong>warnings</strong> such as “never been published” or “insufficient Copilot Credits”. Warnings don't block you; <strong>errors</strong> do. Then select <span class="ui">Publish</span>.</p>
+        <figure class="shot" data-label="Flow checker">
+          <img src="../assets/img/shots/m03-14-flow-checker.webp" alt="Flow checker panel with 0 errors and 2 warnings" loading="lazy">
+        </figure>
+        <figure class="shot" data-label="Published">
+          <img src="../assets/img/shots/m03-15-published.webp" alt="Your agent flow published successfully dialog" loading="lazy">
+          <figcaption>Choose <span class="ui">Stay in Flow</span> so you can test it first.</figcaption>
+        </figure>
+      </li>
+      <li class="step">
+        <h4>Test the workflow on its own</h4>
+        <p>Select <span class="ui">Test</span> → <span class="ui">Manually</span> → <span class="ui">Test</span>, fill in the inputs, and select <span class="ui">Run flow</span>. Test runs don't consume capacity.</p>
+        <figure class="shot" data-label="Run flow">
+          <img src="../assets/img/shots/m03-16-run-flow-inputs.webp" alt="Run flow panel with Service, Symptom, MembersAffected, and FundsOrDataRisk" loading="lazy">
+        </figure>
+        <figure class="shot" data-label="Activity › run">
+          <img src="../assets/img/shots/m03-17-run-result.webp" alt="Run view: flow ran successfully, condition evaluated False, True branch skipped" loading="lazy">
+          <figcaption>Observable proof: the condition evaluated <strong>False</strong>, so the True branch was skipped. Every run is recorded under <span class="ui">Activity</span>.</figcaption>
+        </figure>
+      </li>
+      <li class="step">
+        <h4>Give the workflow to the agent</h4>
+        <p>Go back to Mission Control → <span class="ui">Tools</span> → <span class="ui">Add a tool</span> → filter <span class="ui">Workflows</span>, pick <strong>Triage Digital Issue</strong>, then select <span class="ui">Add and configure</span>.</p>
+        <figure class="shot" data-label="Add tool › Workflows">
+          <img src="../assets/img/shots/m03-18-add-workflow-tool.webp" alt="Add tool dialog filtered to Workflows showing Triage Digital Issue" loading="lazy">
+        </figure>
+        <p>In the tool's <span class="ui">Details</span>, rewrite the <strong>Description</strong>. This is what the orchestrator reads when it decides whether to call the tool. Leave every input as <span class="ui">Dynamically fill with AI</span> and select <span class="ui">Save</span>.</p>
+        <pre class="copy" data-lang="Tool description"><code>Use this tool to triage a problem that a member reported with a Contoso digital service once you know the service, the symptom, and how many members are affected. Set FundsOrDataRisk to true if there is any chance of duplicate debits, missing money, or exposed member data. Returns Severity and Route. Always follow the Route exactly.</code></pre>
+        <figure class="shot" data-label="Tool configuration">
+          <img src="../assets/img/shots/m03-20-tool-config.webp" alt="Tool configuration page with name, description, and inputs set to Dynamically fill with AI" loading="lazy">
+        </figure>
+      </li>
+      <li class="step">
+        <h4>The wow moment: talk becomes action</h4>
+        <p>Start a <span class="ui">New test session</span> and send:</p>
+        <div class="prompt">Some Android members report Bill Pay payee search spins and then times out with error BIL-408. No money has moved. Please triage this issue.</div>
+        <p>Open the activity map. The agent <strong>decided on its own</strong> to call <em>Triage Digital Issue</em>, extracted every input from your sentence (<code>Service = BIL</code>, <code>MembersAffected = Some</code>, <code>FundsOrDataRisk = false</code>), ran the workflow, and used the returned <code>Severity</code> in its answer.</p>
+        <figure class="shot" data-label="Activity map · tool call">
+          <img src="../assets/img/shots/m03-21-agent-calls-tool.webp" alt="Activity map showing Triage Digital Issue tool call with AI-filled inputs and outputs, and the agent's triage result" loading="lazy">
+          <figcaption>From a single sentence to a structured workflow call to a verifiable result, Sev 3 – Medium.</figcaption>
+        </figure>
+      </li>
+    </ol>
+    <details class="reveal"><summary>Stuck? Let the designer's Copilot help (and why to double-check it)</summary><div class="inner">
+      <p>The agent-flow designer has a <span class="ui">Copilot</span> pane where you can describe a change in plain language. It's great for explaining actions and getting unstuck. In our dry run, though, it failed to add variable actions and deleted a step we didn't ask it to delete. Treat its output like a junior colleague's pull request: review every change, and use <span class="ui">Version history</span> if you need to roll back.</p>
+      <figure class="shot small" data-label="Designer Copilot"><img src="../assets/img/shots/m03-07-copilot-prompt.webp" alt="Copilot pane in the agent flow designer" loading="lazy"></figure>
+    </div></details>
+    <div class="checkpoint">
+      <h4>Telemetry check · Mission 03</h4>
+      <label><input type="checkbox"> Triage Digital Issue is published and shows 0 errors in Flow checker</label>
+      <label><input type="checkbox"> A manual test run succeeded, and I can see which branch ran</label>
+      <label><input type="checkbox"> The workflow is a tool on Mission Control, with a rewritten description</label>
+      <label><input type="checkbox"> In the activity map, the agent called the tool and filled the inputs itself</label>
+    </div>
+    <!-- LAB-STEPS:m03:END -->
+    <div class="observer">
+      <span class="k">Observer / analyst track</span>
+      <h3>Paper launch sequence</h3>
+      <ol>
+        <li>On paper or a whiteboard, draw the five boxes: Trigger → Inputs → Actions → Logic → Outputs.</li>
+        <li>Fill in the severity logic using the playbook's severity matrix. What makes an issue Sev 1? What does an “Unknown” count of affected members do?</li>
+        <li>Write the exact sentence the agent should say after the workflow returns. It must include the Issue ID, and must never say “resolved.”</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="debrief">
+  <div class="debrief">
+    <h2 id="debrief-h">Debrief <span class="tag">Mission 03</span></h2>
+    <div class="takeaways">
+      <div><b>01 · TALK → ACTION</b><p>A workflow gives the agent a deterministic, auditable way to act.</p></div>
+      <div><b>02 · CONTRACTS</b><p>Clear input and output names and descriptions are how the agent knows what to send and what it gets back.</p></div>
+      <div><b>03 · PROOF</b><p>The returned Issue ID is your first <em>verifiable result</em>. Coming up: what happens when reports are messy.</p></div>
+    </div>
+    <div class="complete-row"><button class="complete-btn" type="button">🚀 Mark mission complete</button><span class="status">MISSION LOG</span></div>
+  </div>
+</section>
+
+<nav class="pn" aria-label="Mission navigation"><a class="prev" href="m02.html"><span class="k">← Mission 02</span><span class="t">Inside Copilot Studio: Design Your Solution</span></a><a class="next" href="m04.html"><span class="k">Mission 04 →</span><span class="t">Decision Junction: Make It Smarter</span></a></nav>
+</article>
+<aside class="toc" aria-label="On this page"><div class="ttl">// Flight checklist</div><ol></ol>
+<div class="mini-progress"><div class="lbl"><span>Mission log</span><span><span data-progress-count>0</span>/10</span></div><div class="bar"><i data-progress-bar></i></div></div></aside>
+</div>
+</main>
+<footer class="footer"><div class="wrap">
+<div><div class="sig">Mission: Agent Upgrade 🚀</div><p>A 4-hour, live, instructor-led Microsoft Copilot Studio workshop. All scenarios, people, and data are fictional (Contoso Credit Union) and for classroom use only. Microsoft, Copilot, and Copilot Studio are trademarks of Microsoft Corporation.</p></div>
+<nav aria-label="Footer"><a href="../index.html">Home</a><a href="../index.html#flight-plan">Flight Plan</a><a href="../resources.html">Resources & Lab Kit</a><a href="../facilitator.html">Facilitator Guide</a></nav>
+</div></footer>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

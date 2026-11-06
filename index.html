@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mission: Agent Upgrade 🚀 · Microsoft Copilot Studio Workshop</title>
+<meta name="description" content="A hands-on, scenario-based Copilot Studio workshop: upgrade a basic AI assistant into a connected, governed business solution.">
+<meta property="og:title" content="Mission: Agent Upgrade 🚀 · Microsoft Copilot Studio Workshop">
+<meta property="og:description" content="A hands-on, scenario-based Copilot Studio workshop: upgrade a basic AI assistant into a connected, governed business solution.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#04061a">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body style="--accent:#ff6b2c">
+<a class="skip" href="#main">Skip to content</a>
+<canvas id="stars" aria-hidden="true"></canvas>
+<header class="topbar"><div class="wrap">
+<a class="brand" href="index.html" aria-label="Mission: Agent Upgrade home"><svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="bl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff6b2c"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs><circle cx="20" cy="20" r="18" fill="none" stroke="url(#bl)" stroke-width="2"/><ellipse cx="20" cy="20" rx="18" ry="6.5" fill="none" stroke="#22d3ee" stroke-opacity=".6" stroke-width="1.2" transform="rotate(-28 20 20)"/><path d="M20 9c3 2 4.6 5.4 4.6 8.8l-1.6 3.4h-6l-1.6-3.4C15.4 14.4 17 11 20 9z" fill="#fff"/><path d="M17.6 22.6 16 26.5l2.6-1M22.4 22.6 24 26.5l-2.6-1" stroke="#ff6b2c" stroke-width="1.4" fill="none" stroke-linecap="round"/><circle cx="20" cy="16.4" r="1.6" fill="#8b5cf6"/></svg>
+<span>MISSION: AGENT UPGRADE<small>Copilot Studio · Contoso Digital</small></span></a>
+<button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
+<nav class="nav" id="nav"><a href="index.html#flight-plan">Flight Plan</a><a href="index.html#missions">Missions</a><a href="resources.html">Resources</a><a href="facilitator.html">Facilitator</a><a class="cta" href="missions/m01.html">Launch Mission 01 →</a></nav>
+<div class="telemetry" aria-hidden="true"><span class="dot"></span><span>SYS NOMINAL</span><span>·</span><span id="met">--:--:-- ET</span></div>
+</div></header>
+<main id="main">
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <div class="badge-row rv">
+        <span class="badge live">Launch window open</span>
+        <span class="badge">Microsoft Copilot Studio</span>
+        <span class="badge">Live · Hands-on · 4 hours</span>
+      </div>
+      <h1 class="rv d1"><span class="line">Mission:</span><span class="line grad">Agent Upgrade</span></h1>
+      <p class="sub rv d2">From AI Assistants to Intelligent Business Solutions.</p>
+      <p class="lead rv d2">Building an AI agent is easy. Making it useful in a real business process is the hard part. Across two live sessions you'll take one ordinary assistant and upgrade it, step by step, into a <strong>connected, governed, tested</strong> Copilot Studio solution.</p>
+      <div class="countdown rv d3" aria-label="Countdown to launch, December 15 2026, 10:00 a.m. Eastern">
+        <span class="tminus">T-MINUS</span>
+        <div class="unit"><span class="num" data-u="d">00</span><span class="lbl">Days</span></div>
+        <div class="unit"><span class="num" data-u="h">00</span><span class="lbl">Hours</span></div>
+        <div class="unit"><span class="num" data-u="m">00</span><span class="lbl">Min</span></div>
+        <div class="unit"><span class="num" data-u="s">00</span><span class="lbl">Sec</span></div>
+      </div>
+      <div class="btn-row rv d4">
+        <a class="btn primary" href="missions/m01.html">Begin Mission 01 <span class="arrow">→</span></a>
+        <a class="btn" href="#flight-plan">View the flight plan</a>
+      </div>
+    </div>
+    <div class="hero-visual rv d2" aria-hidden="true">
+      <div class="orbit"><span class="sat"></span></div>
+      <div class="orbit"><span class="sat"></span></div>
+      <div class="orbit"><span class="sat"></span></div>
+      <div class="core"></div>
+      <div class="core-label">AGENT CORE v2.0</div>
+      <div class="hero-tag t1">KNOWLEDGE <b>● ONLINE</b></div>
+      <div class="hero-tag t2">WORKFLOW <b>● ARMED</b></div>
+      <div class="hero-tag t3">APPROVAL GATE <b>● ENGAGED</b></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="stats rv">
+      <div><div class="big">10<span>.</span></div><div class="lbl">Missions</div></div>
+      <div><div class="big">4<span>h</span></div><div class="lbl">Hands-on, over 2 days</div></div>
+      <div><div class="big">4</div><div class="lbl">Built-in anomalies</div></div>
+      <div><div class="big">1</div><div class="lbl">Agent, fully upgraded</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== OVERVIEW ===================== -->
+<section class="section" id="overview">
+  <div class="wrap">
+    <div class="sh rv">
+      <span class="eyebrow">// 01 — Mission brief</span>
+      <h2>One agent. One mission. <span class="grad-cool">No disconnected tutorials.</span></h2>
+      <p class="lead">This is an immersive, scenario-based workshop. You'll see how Microsoft Copilot Studio turns a basic AI assistant into a business solution: one that automates workflows, connects to enterprise systems, applies decision logic, and works inside organizational guardrails.</p>
+    </div>
+    <div class="grid g3">
+      <div class="card rv d1" style="--accent:var(--cyan)">
+        <div class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <span class="kicker">Before</span>
+        <h3>An assistant that talks</h3>
+        <p>It can answer troubleshooting questions about Contoso's digital services, but it can't <em>do</em> anything. Every answer ends with “…now go open a ticket yourself.”</p>
+      </div>
+      <div class="card rv d2" style="--accent:var(--violet)">
+        <div class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></div>
+        <span class="kicker">The upgrade</span>
+        <h3>Workflows, logic, connectors</h3>
+        <p>Triggers, actions, conditions, and an issue-register integration give the agent the ability to investigate, decide, and act.</p>
+      </div>
+      <div class="card rv d3" style="--accent:var(--orange)">
+        <div class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <span class="kicker">After</span>
+        <h3>A governed business solution</h3>
+        <p>Approval gates, least-privilege access, prompt-injection defenses, and tested failure paths. It's safe enough to show your leadership.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== OBJECTIVES ===================== -->
+<section class="section" id="objectives">
+  <div class="wrap">
+    <div class="sh rv">
+      <span class="eyebrow">// 02 — Mission objectives</span>
+      <h2>By splashdown, you'll be able to…</h2>
+    </div>
+    <div class="grid g5">
+      <div class="card objective rv d1" style="--accent:#ff6b2c"><span class="num">OBJ-01</span><span class="verb" style="color:#ff6b2c">Choose</span><h3>The right tool</h3><p>Tell Microsoft 365 Copilot Agent Builder and Copilot Studio apart, and know when to use each.</p></div>
+      <div class="card objective rv d2" style="--accent:#a78bfa"><span class="num">OBJ-02</span><span class="verb" style="color:#a78bfa">Build</span><h3>Intelligent workflows</h3><p>Design and test automated processes with triggers, actions, conditions, and decision logic.</p></div>
+      <div class="card objective rv d3" style="--accent:#38bdf8"><span class="num">OBJ-03</span><span class="verb" style="color:#38bdf8">Connect</span><h3>Business systems</h3><p>Connect agents to approved enterprise data sources and apps through connectors.</p></div>
+      <div class="card objective rv d4" style="--accent:#f472b6"><span class="num">OBJ-04</span><span class="verb" style="color:#f472b6">Govern</span><h3>Responsibly</h3><p>Build in security, permissions, human approvals, and responsible automation practices.</p></div>
+      <div class="card objective rv d5" style="--accent:#facc15"><span class="num">OBJ-05</span><span class="verb" style="color:#facc15">Deliver</span><h3>A real solution</h3><p>Combine AI, workflows, integrations, and testing into one practical Copilot Studio solution.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FLIGHT PLAN ===================== -->
+<section class="section" id="flight-plan">
+  <div class="wrap">
+    <div class="sh center rv">
+      <span class="eyebrow">// 03 — Flight plan</span>
+      <h2>Two days. Two hours each. <span class="grad">Ten missions.</span></h2>
+      <p class="lead">December 15–16, 2026 · Live, instructor-led, hands-on. Prerequisite: basic familiarity with creating agents in Microsoft 365 Copilot Agent Builder.</p>
+    </div>
+    <div class="days">
+      <div class="card day rv d1" style="--accent:var(--orange)">
+        <div class="day-head"><div><div class="day-num">Day 01 · Tue Dec 15</div><h3>Give Your Agent Superpowers</h3><p class="tagline">From conversations to actions</p></div><div class="day-date">T+00:00<br>120 MIN</div></div>
+        <ol class="tl">
+          <li data-mission-link="1"><span class="pt" data-patch="1"></span><a href="missions/m01.html">Agent Builder vs. Copilot Studio: The Upgrade<span class="desc">Challenge: which tool fits?</span></a><span class="min">20m</span></li>
+          <li data-mission-link="2"><span class="pt" data-patch="2"></span><a href="missions/m02.html">Inside Copilot Studio: Design Your Solution<span class="desc">Lab: inspect and upgrade a starter agent</span></a><span class="min">25m</span></li>
+          <li data-mission-link="3"><span class="pt" data-patch="3"></span><a href="missions/m03.html">Workflow Power: From Talk to Action<span class="desc">Lab: issue triage workflow</span></a><span class="min">35m</span></li>
+          <li class="brk"><span class="pt"></span><span class="label">☕ Refuel · break</span><span class="min">5m</span></li>
+          <li data-mission-link="4"><span class="pt" data-patch="4"></span><a href="missions/m04.html">Decision Junction: Make It Smarter<span class="desc">Challenge: known / unknown / incomplete</span></a><span class="min">30m</span></li>
+          <li data-mission-link="5"><span class="pt" data-patch="5"></span><a href="missions/m05.html">Mission Checkpoint<span class="desc">Test and plan the Day 2 upgrades</span></a><span class="min">5m</span></li>
+        </ol>
+        <div class="outcome"><b>Day 1 outcome</b>An upgraded agent design with a testable business workflow and conditional logic.</div>
+      </div>
+      <div class="card day rv d2" style="--accent:var(--cyan)">
+        <div class="day-head"><div><div class="day-num">Day 02 · Wed Dec 16</div><h3>Connect It. Secure It. Prove It.</h3><p class="tagline">From working prototype to governed business solution</p></div><div class="day-date">T+24:00<br>120 MIN</div></div>
+        <ol class="tl">
+          <li data-mission-link="6"><span class="pt" data-patch="6"></span><a href="missions/m06.html">Connect the Dots: Enterprise Integrations<span class="desc">Lab: SharePoint issue register</span></a><span class="min">30m</span></li>
+          <li data-mission-link="7"><span class="pt" data-patch="7"></span><a href="missions/m07.html">Human in the Loop: Smart Automation<span class="desc">Challenge: the approval gate</span></a><span class="min">25m</span></li>
+          <li class="brk"><span class="pt"></span><span class="label">☕ Refuel · break</span><span class="min">5m</span></li>
+          <li data-mission-link="8"><span class="pt" data-patch="8"></span><a href="missions/m08.html">Break the Agent! Security &amp; Governance<span class="desc">Challenge: diagnose unsafe behavior</span></a><span class="min">25m</span></li>
+          <li data-mission-link="9"><span class="pt" data-patch="9"></span><a href="missions/m09.html">Mission Control: Test &amp; Troubleshoot<span class="desc">Lab: success and failure scenarios</span></a><span class="min">20m</span></li>
+          <li data-mission-link="10"><span class="pt" data-patch="10"></span><a href="missions/m10.html">Final Mission: The Agent Showcase<span class="desc">Demos: value, safeguards, next steps</span></a><span class="min">15m</span></li>
+        </ol>
+        <div class="outcome"><b>Day 2 outcome</b>A connected, tested business-solution prototype, or a validated solution design, depending on your access.</div>
+      </div>
+    </div>
+    <div class="cohorts rv">
+      <span class="cohort"><b>AM COHORT</b>10:00 a.m.–12:00 p.m. ET</span>
+      <span class="cohort"><b>PM COHORT</b>1:00–3:00 p.m. ET</span>
+      <span class="cohort"><b>AUDIENCE</b>Contoso Digital employees</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MISSIONS GRID ===================== -->
+<section class="section" id="missions">
+  <div class="wrap">
+    <div class="sh rv">
+      <span class="eyebrow">// 04 — Mission patches</span>
+      <h2>Collect all ten.</h2>
+      <p class="lead">Every mission comes with a briefing, a hands-on lab or challenge, and a debrief. Mark each one complete to light up its patch in your Mission Log.</p>
+    </div>
+    <div class="grid g5">
+      <a class="card hover mcard rv d1" data-mission-link="1" style="--c:#ff6b2c" href="missions/m01.html"><div class="top"><span data-patch="1"></span><span class="meta"><b>Day 1</b>20 min</span></div><h3>The Upgrade</h3><p>Agent Builder vs. Copilot Studio: choose the right tool.</p><span class="state">○ AWAITING LAUNCH</span></a>
+      <a class="card hover mcard rv d2" data-mission-link="2" style="--c:#22d3ee" href="missions/m02.html"><div class="top"><span data-patch="2"></span><span class="meta"><b>Day 1</b>25 min</span></div><h3>Design Your Solution</h3><p>Agents, topics, knowledge, tools. Upgrade the starter agent.</p><span class="state">○ AWAITING LAUNCH</span></a>
+      <a class="card hover mcard rv d3" data-mission-link="3" style="--c:#a78bfa" href="missions/m03.html"><div class="top"><span data-patch="3"></span><span class="meta"><b>Day 1</b>35 min</span></div><h3>Workflow Power</h3><p>Triggers, actions, inputs, and outputs. Build the triage workflow.</p><span class="state">○ AWAITING LAUNCH</span></a>
+      <a class="card hover mcard rv d4" data-mission-link="4" style="--c:#fbbf24" href="missions/m04.html"><div class="top"><span data-patch="4"></span><span class="meta"><b>Day 1</b>30 min</span></div><h3>Decision Junction</h3><p>Conditions, branching, validation, and exceptions.</p><span class="state">○ AWAITING LAUNCH</span></a>
+      <a class="card hover mcard rv d5" data-mission-link="5" style="--c:#34d399" href="missions/m05.html"><div class="top"><span data-patch="5"></span><span class="meta"><b>Day 1</b>5 min</span></div><h3>Checkpoint</h3><p>Test it, rate yourself, and plan for Day 2.</p><span class="state">○ AWAITING LAUNCH</span></a>
+      <a class="card hover mcard rv d1" data-mission-link="6" style="--c:#38bdf8" href="missions/m06.html"><div class="top"><span data-patch="6"></span><span class="meta"><b>Day 2</b>30 min</span></div><h3>Connect the Dots</h3><p>Connectors, authentication, and the SharePoint issue register.</p><span class="state">○ AWAITING LAUNCH</span></a>
+      <a class="card hover mcard rv d2" data-mission-link="7" style="--c:#f472b6" href="missions/m07.html"><div class="top"><span data-patch="7"></span><span class="meta"><b>Day 2</b>25 min</span></div><h3>Human in the Loop</h3><p>Approvals, escalation, and failure handling.</p><span class="state">○ AWAITING LAUNCH</span></a>
+      <a class="card hover mcard rv d3" data-mission-link="8" style="--c:#f87171" href="missions/m08.html"><div class="top"><span data-patch="8"></span><span class="meta"><b>Day 2</b>25 min</span></div><h3>Break the Agent!</h3><p>Least privilege, data policies, and prompt injection.</p><span class="state">○ AWAITING LAUNCH</span></a>
+      <a class="card hover mcard rv d4" data-mission-link="9" style="--c:#a3e635" href="missions/m09.html"><div class="top"><span data-patch="9"></span><span class="meta"><b>Day 2</b>20 min</span></div><h3>Mission Control</h3><p>Test, trace, troubleshoot, and prove it works.</p><span class="state">○ AWAITING LAUNCH</span></a>
+      <a class="card hover mcard rv d5" data-mission-link="10" style="--c:#facc15" href="missions/m10.html"><div class="top"><span data-patch="10"></span><span class="meta"><b>Day 2</b>15 min</span></div><h3>The Showcase</h3><p>Demo the value, the safeguards, and the next steps.</p><span class="state">○ AWAITING LAUNCH</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SIGNATURE LAB ===================== -->
+<section class="section" id="signature-lab">
+  <div class="wrap">
+    <div class="sh center rv">
+      <span class="eyebrow">// 05 — The signature lab</span>
+      <h2>Digital Service <span class="grad">Mission Control</span></h2>
+      <p class="lead">A Contoso Digital employee needs help investigating a problem with a member-facing digital service. Mobile app crashes? QuickPay transfers stuck? Passcodes not arriving? The starter agent can answer troubleshooting questions, but it can't take action. <strong>Not for long.</strong></p>
+    </div>
+    <div class="path">
+      <div class="stage rv d1" style="--c:#22d3ee"><div class="orb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5.5A1.5 1.5 0 0 1 4.5 4H11v15H4.5A1.5 1.5 0 0 1 3 17.5zM21 5.5A1.5 1.5 0 0 0 19.5 4H13v15h6.5a1.5 1.5 0 0 0 1.5-1.5z"/></svg></div><div class="n">STAGE 01</div><h4>Understand</h4><p>Interpret the incoming issue using approved knowledge.</p></div>
+      <div class="stage rv d2" style="--c:#8b5cf6"><div class="orb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></div><div class="n">STAGE 02</div><h4>Investigate</h4><p>Check whether the issue already exists in the issue register.</p></div>
+      <div class="stage rv d3" style="--c:#f472b6"><div class="orb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3l9 9-9 9-9-9z"/><path d="M12 8v4M12 15.5v.5" stroke-linecap="round"/></svg></div><div class="n">STAGE 03</div><h4>Decide</h4><p>Choose to give guidance, collect details, or escalate.</p></div>
+      <div class="stage rv d4" style="--c:#ff6b2c"><div class="orb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></div><div class="n">STAGE 04</div><h4>Act</h4><p>Start a workflow or create an authorized tracking record.</p></div>
+      <div class="stage rv d5" style="--c:#fbbf24"><div class="orb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div><div class="n">STAGE 05</div><h4>Protect</h4><p>Permissions, approval gates, and exception handling.</p></div>
+      <div class="stage rv d5" style="--c:#34d399"><div class="orb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg></div><div class="n">STAGE 06</div><h4>Verify</h4><p>Prove the outcome through tests and observable results.</p></div>
+    </div>
+    <div class="wow rv">
+      <div class="burst" aria-hidden="true">🤯</div>
+      <p><b>THE WOW MOMENT</b>You'll watch an AI agent go beyond answering a question. It runs a connected business workflow and comes back with a <em>verifiable</em> result, such as a real Issue ID in a real register, created through a governed process.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ANOMALIES ===================== -->
+<section class="section" id="anomalies">
+  <div class="wrap">
+    <div class="sh rv">
+      <span class="eyebrow" style="color:var(--red)">// 06 — Built-in anomalies</span>
+      <h2>Something <span style="color:var(--red)">will</span> go wrong. That's the point.</h2>
+      <p class="lead">Real systems fail in interesting ways. Four engineered anomalies are hidden in the missions, each one a failure mode that agents run into in production.</p>
+    </div>
+    <div class="grid g4">
+      <a class="card hover anomaly rv d1" href="missions/m09.html#anomaly-403"><span class="hazard"></span><div class="code"><span>ANOMALY-403</span><span>M06 · M09</span></div><h3>The 403 Surprise</h3><p class="q">A connector fails because of missing permissions.</p><p>Can your team diagnose the problem, and stop the agent from claiming success?</p><span class="go">ENGAGE →</span></a>
+      <a class="card hover anomaly rv d2" href="missions/m06.html#anomaly-duplicate"><span class="hazard"></span><div class="code"><span>ANOMALY-DUP</span><span>M06</span></div><h3>The Duplicate Incident</h3><p class="q">The agent tries to create a record that already exists.</p><p>Can the workflow catch it before the register fills up with clones?</p><span class="go">ENGAGE →</span></a>
+      <a class="card hover anomaly rv d3" href="missions/m08.html#anomaly-rogue"><span class="hazard"></span><div class="code"><span>ANOMALY-INJ</span><span>M08</span></div><h3>The Rogue Document</h3><p class="q">An untrusted knowledge source contains malicious instructions.</p><p>Will your solution respect its security boundaries?</p><span class="go">ENGAGE →</span></a>
+      <a class="card hover anomaly rv d4" href="missions/m07.html#anomaly-approval"><span class="hazard"></span><div class="code"><span>ANOMALY-AUTH</span><span>M07</span></div><h3>The Human Approval Gate</h3><p class="q">A requested action requires authorization.</p><p>Can the automation stop and escalate the right way?</p><span class="go">ENGAGE →</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== METHOD LOOP ===================== -->
+<section class="section" id="method">
+  <div class="wrap loop-wrap">
+    <div class="loop rv" aria-hidden="true">
+      <svg viewBox="0 0 460 460">
+        <defs><linearGradient id="loopgrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset=".5" stop-color="#8b5cf6"/><stop offset="1" stop-color="#ff6b2c"/></linearGradient></defs>
+        <circle class="ring" cx="230" cy="230" r="170"/>
+        <circle cx="230" cy="230" r="92" fill="rgba(139,92,246,.08)" stroke="rgba(150,170,255,.18)"/>
+        <text x="230" y="224" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="22" fill="#fff">THE LOOP</text>
+        <text x="230" y="248" text-anchor="middle" font-family="JetBrains Mono" font-size="10" letter-spacing="2" fill="#8f9ac2">REPEAT UNTIL TRUSTED</text>
+        <g class="node"><circle cx="230" cy="60" r="44" stroke="#22d3ee"/><text x="230" y="64">Discover</text><text class="sub" x="230" y="80">01</text></g>
+        <g class="node"><circle cx="391.7" cy="177.5" r="44" stroke="#8b5cf6"/><text x="391.7" y="181.5">Build</text><text class="sub" x="391.7" y="197.5">02</text></g>
+        <g class="node"><circle cx="330" cy="367.5" r="44" stroke="#34d399"/><text x="330" y="371.5">Test</text><text class="sub" x="330" y="387.5">03</text></g>
+        <g class="node"><circle cx="130" cy="367.5" r="44" stroke="#f87171"/><text x="130" y="371.5">Break</text><text class="sub" x="130" y="387.5">04</text></g>
+        <g class="node"><circle cx="68.3" cy="177.5" r="44" stroke="#ff6b2c"/><text x="68.3" y="181.5">Improve</text><text class="sub" x="68.3" y="197.5">05</text></g>
+      </svg>
+    </div>
+    <div>
+      <div class="sh rv" style="margin-bottom:2rem">
+        <span class="eyebrow">// 07 — How you'll learn</span>
+        <h2>Discover → Build → Test → <span style="color:var(--red)">Break</span> → Improve</h2>
+        <p class="lead">Short demos, guided labs, team exercises, and a final showcase. You won't just build something. You'll also try to break it.</p>
+      </div>
+      <ul class="loop-list">
+        <li class="rv d1"><span class="n" style="--c:#22d3ee">01</span><div><h4>Discover</h4><p>Short, sharp demos of what's possible, grounded in the Contoso scenario.</p></div></li>
+        <li class="rv d2"><span class="n" style="--c:#8b5cf6">02</span><div><h4>Build</h4><p>Guided labs with real Copilot Studio screens at every step.</p></div></li>
+        <li class="rv d3"><span class="n" style="--c:#34d399">03</span><div><h4>Test</h4><p>Telemetry checks: prove that each upgrade works before you move on.</p></div></li>
+        <li class="rv d4"><span class="n" style="--c:#f87171">04</span><div><h4>Break</h4><p>Anomalies, red-team cards, and failure injection.</p></div></li>
+        <li class="rv d5"><span class="n" style="--c:#ff6b2c">05</span><div><h4>Improve</h4><p>Harden the design, add safeguards, and demo the result.</p></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MODES ===================== -->
+<section class="section" id="modes">
+  <div class="wrap">
+    <div class="sh center rv">
+      <span class="eyebrow">// 08 — Crew assignments</span>
+      <h2>Every license level gets a seat in the capsule.</h2>
+      <p class="lead">Activities support three participation modes, so everyone gets a real mission whatever their licensing or authoring access.</p>
+    </div>
+    <div class="grid g3">
+      <div class="card mode rv d1" style="--accent:var(--orange)"><span class="mode-badge builder">Builder</span><h3>Hands-on builders</h3><div class="who">Have approved sandbox access</div><ul><li>Build and test every lab in a Copilot Studio sandbox</li><li>Own the agent configuration and the workflows</li><li>Run the anomaly scenarios live</li></ul></div>
+      <div class="card mode rv d2" style="--accent:var(--cyan)"><span class="mode-badge team">Team</span><h3>Collaborative teams</h3><div class="who">Share an authorized maker account</div><ul><li>Rotate roles: Solution Designer, Builder, and Risk Reviewer</li><li>One person drives while two navigate and challenge</li><li>Present as a team at the showcase</li></ul></div>
+      <div class="card mode rv d3" style="--accent:var(--violet)"><span class="mode-badge observer">Observer</span><h3>Observer / analysts</h3><div class="who">No authoring access needed</div><ul><li>Design challenges and decision mapping</li><li>Follow along with the guided demos and screenshot walkthroughs</li><li>Lead troubleshooting and test-case design</li></ul></div>
+    </div>
+    <p class="center muted rv" style="margin-top:2rem;font-size:.9rem">All labs use fictional data and approved classroom resources. Live builds depend on having the right Copilot Studio authoring permissions and connector access.</p>
+  </div>
+</section>
+
+<!-- ===================== TAKEAWAYS ===================== -->
+<section class="section" id="takeaways">
+  <div class="wrap">
+    <div class="grid g2" style="align-items:center;gap:3rem">
+      <div class="rv">
+        <span class="eyebrow">// 09 — Cargo manifest</span>
+        <h2>What you bring home</h2>
+        <ul class="checklist">
+          <li>A practical framework for choosing between Agent Builder and Copilot Studio</li>
+          <li>Hands-on experience designing workflows with business logic and integrations</li>
+          <li>A working understanding of security, governance, and human oversight</li>
+          <li>A tested prototype or a documented solution design</li>
+          <li>A candidate automation use case to explore with your Digital team</li>
+        </ul>
+      </div>
+      <div class="card mlog rv d2" id="mission-log">
+        <div class="mlog-head"><div><span class="eyebrow">// Mission log</span><h3>Your progress</h3></div><div class="pct"><span data-progress-pct>0</span>%<small>complete</small></div></div>
+        <div class="bar"><i data-progress-bar></i></div>
+        <div class="mlog-grid">
+          <a href="missions/m01.html" data-mission-link="1"><span data-patch="1"></span>M01</a>
+          <a href="missions/m02.html" data-mission-link="2"><span data-patch="2"></span>M02</a>
+          <a href="missions/m03.html" data-mission-link="3"><span data-patch="3"></span>M03</a>
+          <a href="missions/m04.html" data-mission-link="4"><span data-patch="4"></span>M04</a>
+          <a href="missions/m05.html" data-mission-link="5"><span data-patch="5"></span>M05</a>
+          <a href="missions/m06.html" data-mission-link="6"><span data-patch="6"></span>M06</a>
+          <a href="missions/m07.html" data-mission-link="7"><span data-patch="7"></span>M07</a>
+          <a href="missions/m08.html" data-mission-link="8"><span data-patch="8"></span>M08</a>
+          <a href="missions/m09.html" data-mission-link="9"><span data-patch="9"></span>M09</a>
+          <a href="missions/m10.html" data-mission-link="10"><span data-patch="10"></span>M10</a>
+        </div>
+        <div class="mlog-actions"><span class="muted mono" style="font-size:.72rem;letter-spacing:.1em">SAVED ON THIS DEVICE · <span data-progress-count>0</span>/10 PATCHES</span><button class="linkbtn" data-reset-progress>Reset log</button></div>
+      </div>
+    </div>
+    <div class="quote rv" style="margin-top:5rem">
+      <blockquote>An AI assistant can answer questions.<br>A well-designed Copilot Studio solution helps <em>get business work done</em>, safely, intelligently, and at scale.</blockquote>
+      <cite>— The big takeaway</cite>
+      <div class="btn-row" style="justify-content:center;margin-top:2rem"><a class="btn primary" href="missions/m01.html">Start the countdown <span class="arrow">→</span></a><a class="btn" href="resources.html">Download the lab kit</a></div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="footer"><div class="wrap">
+<div><div class="sig">Mission: Agent Upgrade 🚀</div><p>A 4-hour, live, instructor-led Microsoft Copilot Studio workshop. All scenarios, people, and data are fictional (Contoso Credit Union) and for classroom use only. Microsoft, Copilot, and Copilot Studio are trademarks of Microsoft Corporation.</p></div>
+<nav aria-label="Footer"><a href="index.html">Home</a><a href="index.html#flight-plan">Flight Plan</a><a href="resources.html">Resources & Lab Kit</a><a href="facilitator.html">Facilitator Guide</a></nav>
+</div></footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

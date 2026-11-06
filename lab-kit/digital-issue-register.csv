@@ -1,0 +1,8 @@
+IssueID,Title,Service,Symptom,ErrorCode,Platform,Severity,Status,MembersAffected,Workaround,OwnerTeam,FirstObserved
+DSI-1041,App crash on launch after 8.4.0 update,MOB,App closes immediately after splash screen,,iOS,Sev 3,Known Issue,Some,Update to 8.4.1 and restart device,Mobile Platform,2026-11-28T08:15:00
+DSI-1042,QuickPay transfers pending over 30 min,P2P,Transfers stay in Pending status,P2P-504,All,Sev 2,Investigating,Many,Do not resend; pending transfers auto-complete or reverse,Payments,2026-11-29T13:40:00
+DSI-1043,Push alerts delayed,NTF,Balance alerts arrive 20-40 minutes late,,Android,Sev 3,Known Issue,Some,Alerts will catch up; check device notification settings,Engagement,2026-11-30T07:05:00
+DSI-1044,Check deposit image unreadable spike,RDC,Deposits rejected as unreadable,RDC-117,iOS,Sev 3,Investigating,Some,Use dark background and good lighting,Deposits,2026-12-01T10:22:00
+DSI-1045,Blank page after sign-in on legacy browser,OLB,White screen after login,,Web,Sev 4,Resolved,One,Use a supported browser,Web Platform,2026-11-20T16:48:00
+DSI-1046,SMS passcodes delayed for one carrier,MFA,One-time passcode not received,MFA-210,All,Sev 2,Investigating,Many,Choose Send to email or use authenticator app,Identity,2026-12-02T09:10:00
+DSI-1047,Bill Pay payee search timeout,BIL,Payee search spins then times out,BIL-408,Web,Sev 3,New,Some,,Payments,2026-12-03T11:30:00

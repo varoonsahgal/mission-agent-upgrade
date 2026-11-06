@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mission 10: Final Mission: The Agent Showcase · Mission: Agent Upgrade</title>
+<meta name="description" content="Demo your solution and explain its business value, safeguards, and next steps.">
+<meta property="og:title" content="Mission 10: Final Mission: The Agent Showcase · Mission: Agent Upgrade">
+<meta property="og:description" content="Demo your solution and explain its business value, safeguards, and next steps.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#04061a">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-mission="10" style="--accent:#facc15">
+<a class="skip" href="#main">Skip to content</a>
+<canvas id="stars" aria-hidden="true"></canvas>
+<header class="topbar"><div class="wrap">
+<a class="brand" href="../index.html" aria-label="Mission: Agent Upgrade home"><svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="bl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff6b2c"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs><circle cx="20" cy="20" r="18" fill="none" stroke="url(#bl)" stroke-width="2"/><ellipse cx="20" cy="20" rx="18" ry="6.5" fill="none" stroke="#22d3ee" stroke-opacity=".6" stroke-width="1.2" transform="rotate(-28 20 20)"/><path d="M20 9c3 2 4.6 5.4 4.6 8.8l-1.6 3.4h-6l-1.6-3.4C15.4 14.4 17 11 20 9z" fill="#fff"/><path d="M17.6 22.6 16 26.5l2.6-1M22.4 22.6 24 26.5l-2.6-1" stroke="#ff6b2c" stroke-width="1.4" fill="none" stroke-linecap="round"/><circle cx="20" cy="16.4" r="1.6" fill="#8b5cf6"/></svg>
+<span>MISSION: AGENT UPGRADE<small>Copilot Studio · Contoso Digital</small></span></a>
+<button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
+<nav class="nav" id="nav"><a href="../index.html#flight-plan">Flight Plan</a><a href="../index.html#missions" aria-current=page>Missions</a><a href="../resources.html">Resources</a><a href="../facilitator.html">Facilitator</a><a class="cta" href="../missions/m01.html">Launch Mission 01 →</a></nav>
+<div class="telemetry" aria-hidden="true"><span class="dot"></span><span>SYS NOMINAL</span><span>·</span><span id="met">--:--:-- ET</span></div>
+</div></header>
+<main id="main">
+<section class="mhero"><div class="wrap">
+<div class="patch" data-patch="10" aria-hidden="true"></div>
+<div>
+<div class="crumbs"><a href="../index.html">Mission: Agent Upgrade</a><span>/</span><a href="../index.html#flight-plan">Day 2 · Connect It. Secure It. Prove It.</a><span>/</span><span>Mission 10</span></div>
+<h1><span class="mnum">MISSION 10 · SHOWCASE</span>Final Mission: The Agent Showcase</h1>
+<div class="facts"><span class="fact"><b>Day</b>2 of 2</span><span class="fact"><b>Duration</b>15 min</span><span class="fact"><b>AM slot</b>11:45–12:00 ET</span><span class="fact"><b>Format</b>Showcase</span></div>
+<div class="objective-box"><b>MISSION OBJECTIVE</b>Demo your solution and explain its business value, safeguards, and next steps.</div>
+</div></div></section>
+<div class="wrap mbody">
+<article class="prose">
+<section id="briefing">
+  <h2 id="briefing-h">Briefing <span class="tag">Improve</span></h2>
+  <p class="lead">Final mission. You started with an assistant that could only talk. Now show the room an agent that <strong>investigates, decides, acts, protects, and proves</strong>, and explain why it matters to Contoso Digital.</p>
+  <h3 id="format" class="toc-include">Showcase format</h3>
+  <div class="flow">
+    <div class="fstep"><span class="k">0:00 · 30s</span><h4>The problem</h4><p>Who hurts today, and how much?</p></div>
+    <div class="fstep"><span class="k">0:30 · 90s</span><h4>The wow demo</h4><p>A live request becomes a verifiable result</p></div>
+    <div class="fstep"><span class="k">2:00 · 30s</span><h4>The safeguards</h4><p>The gate, least privilege, and the injection defense</p></div>
+    <div class="fstep"><span class="k">2:30 · 30s</span><h4>The proof</h4><p>Scenario pass rate, plus the 403 you fixed</p></div>
+    <div class="fstep"><span class="k">3:00 · Q&amp;A</span><h4>Next steps</h4><p>What it would take to pilot</p></div>
+  </div>
+  <div class="callout tip"><strong>Demo like Mission Control</strong> Pre-load a fresh test conversation, keep the SharePoint register open in a second tab, and show the record <em>appearing</em>. That's the moment that makes leaders lean in.</div>
+  <div class="callout intel"><strong>No live access?</strong> Observer and analyst teams present a <em>validated solution design</em>: the decision map, the safeguard worksheet, and the test matrix. It's an equally valid showcase.</div>
+</section>
+
+<section id="pitch-builder">
+  <h2 id="pitch-h">Pitch builder <span class="tag">Interactive</span></h2>
+  <p>Fill in the fields and your three-minute outline assembles itself. It's saved on this device.</p>
+  <div class="pitch">
+    <form id="pitchForm" onsubmit="return false">
+      <label for="pf-team">Team / callsign</label><input id="pf-team" data-field="team" placeholder="e.g., Team Apollo">
+      <label for="pf-problem">The problem (who, how often, what it costs)</label><textarea id="pf-problem" rows="3" data-field="problem" placeholder="Digital analysts spend ~20 min per report checking the register and re-keying details…"></textarea>
+      <label for="pf-demo">Wow moment (what we'll show live)</label><textarea id="pf-demo" rows="3" data-field="demo" placeholder="A vague Bill Pay report → follow-up questions → new record DSI-2051 appears in SharePoint"></textarea>
+      <label for="pf-safe">Safeguards</label><textarea id="pf-safe" rows="3" data-field="safe" placeholder="Approval gate for Sev 1; no delete tool; Rogue Document ignored; end-user credentials for reads"></textarea>
+      <label for="pf-proof">Proof (tests and results)</label><textarea id="pf-proof" rows="2" data-field="proof" placeholder="7/8 scenarios pass; 403 now fails honestly"></textarea>
+      <label for="pf-next">Next steps</label><textarea id="pf-next" rows="2" data-field="next" placeholder="Pilot with the Payments squad; move to a test environment; add a Teams channel"></textarea>
+    </form>
+    <div class="pitch-out" aria-live="polite">
+      <span class="k">// Showcase outline</span>
+      <h3 data-out="team" data-ph="Your team">Your team</h3>
+      <div class="slide"><b>01 · Problem</b><p data-out="problem" data-ph="Describe the pain…"></p></div>
+      <div class="slide"><b>02 · Live demo</b><p data-out="demo" data-ph="Describe your wow moment…"></p></div>
+      <div class="slide"><b>03 · Safeguards</b><p data-out="safe" data-ph="List your safeguards…"></p></div>
+      <div class="slide"><b>04 · Proof</b><p data-out="proof" data-ph="Share your test results…"></p></div>
+      <div class="slide"><b>05 · Next steps</b><p data-out="next" data-ph="What's next…"></p></div>
+      <button class="btn" id="copyPitch" type="button">Copy pitch outline</button>
+    </div>
+  </div>
+</section>
+
+<section id="lab">
+  <div class="lab" style="--accent:#facc15">
+    <div class="lab-head">
+      <div>
+        <div class="codename">Final Mission · Codename SPLASHDOWN</div>
+        <h2 id="lab-h">Prepare and deliver the showcase</h2>
+        <div class="modes"><span class="mode-badge builder">Builder</span><span class="mode-badge team">Team</span><span class="mode-badge observer">Observer</span></div>
+      </div>
+      <div class="timer"><div class="t">15:00</div><div class="l">Minutes</div></div>
+    </div>
+    <div class="build-summary">
+      <div>
+        <h4>What you'll deliver</h4>
+        <ul>
+          <li>A three-minute live demo, or a solution-design walkthrough</li>
+          <li>Your safeguards, explained in plain business language</li>
+          <li>Evidence: test results and one failure you fixed</li>
+          <li>A credible next step</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Pre-flight</h4>
+        <ul>
+          <li>Open a fresh test conversation</li>
+          <li>Keep the register list open in a second tab</li>
+          <li>Pitch outline copied from the builder above</li>
+        </ul>
+      </div>
+    </div>
+    <!-- LAB-STEPS:m10:BEGIN -->
+    <ol class="steps">
+      <li class="step">
+        <h4>Run the pre-flight review</h4>
+        <p>Select <span class="ui">Publish</span>. Before anything goes live, Copilot Studio lists the items to review. Resolve each one, or explain it in your showcase, before you publish.</p>
+        <figure class="shot" data-label="Publish this agent">
+          <img src="../assets/img/shots/m10-01-publish-dialog.webp" alt="Publish dialog with review items and Force newest version option" loading="lazy">
+        </figure>
+      </li>
+      <li class="step">
+        <h4>Choose where Mission Control lives</h4>
+        <p>Open <span class="ui">Channels</span>. With Microsoft (Entra ID) authentication, you can publish to <strong>Microsoft 365 and Teams</strong> and <strong>SharePoint</strong>, which is where Contoso Digital employees already work. Customer-engagement hubs (Genesys, Salesforce, ServiceNow…) are for handing off to a live agent.</p>
+        <figure class="shot" data-label="Channels">
+          <img src="../assets/img/shots/m10-02-channels.webp" alt="Channels page: Microsoft 365 and Teams, SharePoint, customer engagement hubs" loading="lazy">
+        </figure>
+      </li>
+      <li class="step">
+        <h4>Rehearse the three-minute demo</h4>
+        <ol>
+          <li><strong>0:00 · The problem.</strong> “Triaging a member-facing incident takes a Digital employee 20+ minutes across three tools.”</li>
+          <li><strong>0:30 · Known issue.</strong> The QuickPay pending prompt. The agent answers with DSI-1042 and creates no record.</li>
+          <li><strong>1:15 · The wow moment.</strong> The OLB-500 prompt. Show the workflow run and the new SharePoint row with its real ID.</li>
+          <li><strong>2:00 · The safeguard.</strong> The duplicate-debit prompt. The agent stops, and the approval request appears.</li>
+          <li><strong>2:40 · Proof and next step.</strong> Baseline vs. re-run evaluation score, one failure you fixed, and a pilot proposal.</li>
+        </ol>
+        <div class="callout tip"><strong>Demo insurance</strong> Live demos fail. Record a backup run of each prompt (screen recording or screenshots) before your slot, and keep the activity map open so you can show the <em>why</em>, not just the answer.</div>
+      </li>
+    </ol>
+    <!-- LAB-STEPS:m10:END -->
+    <h3 id="scorecard" class="toc-include">Peer scorecard</h3>
+    <div class="table-wrap">
+      <table class="score-table">
+        <thead><tr><th>Criterion</th><th>What great looks like</th><th>Score (0–4)</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Business value</strong></td><td>A clear problem, a clear user, measurable time saved or risk reduced</td><td><select aria-label="Business value score"><option>0</option><option>1</option><option>2</option><option selected>3</option><option>4</option></select></td></tr>
+          <tr><td><strong>Wow moment</strong></td><td>The agent acted, and the result was verifiable</td><td><select aria-label="Wow moment score"><option>0</option><option>1</option><option>2</option><option selected>3</option><option>4</option></select></td></tr>
+          <tr><td><strong>Decision logic</strong></td><td>Handles known, unknown, incomplete, and sensitive cases</td><td><select aria-label="Decision logic score"><option>0</option><option>1</option><option>2</option><option selected>3</option><option>4</option></select></td></tr>
+          <tr><td><strong>Safeguards</strong></td><td>Approval gate, least privilege, injection defense</td><td><select aria-label="Safeguards score"><option>0</option><option>1</option><option>2</option><option selected>3</option><option>4</option></select></td></tr>
+          <tr><td><strong>Proof</strong></td><td>Tested failure paths, honest errors</td><td><select aria-label="Proof score"><option>0</option><option>1</option><option>2</option><option selected>3</option><option>4</option></select></td></tr>
+          <tr><td><strong>Next steps</strong></td><td>A realistic pilot plan with owners</td><td><select aria-label="Next steps score"><option>0</option><option>1</option><option>2</option><option selected>3</option><option>4</option></select></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="score-total">TOTAL · <b id="scoreTotal">0</b> / <span id="scoreMax">24</span></p>
+    <div class="observer">
+      <span class="k">Observer / analyst track</span>
+      <h3>Mission evaluator</h3>
+      <ol>
+        <li>Score every team with the scorecard. Note one thing to steal and one question to ask.</li>
+        <li>Ask each team: “What would have to be true for this to go into production?”</li>
+        <li>Submit your own candidate automation use case from Mission 01's backlog exercise.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="post-flight">
+  <h2 id="post-h">Post-flight: keep the momentum <span class="tag">Next</span></h2>
+  <div class="grid g3">
+    <div class="card" style="--accent:var(--cyan)"><span class="kicker">This week</span><h3>Pick one use case</h3><p>Take your highest-signal backlog item and write a one-page design: trigger, knowledge, tools, gates, and tests.</p></div>
+    <div class="card" style="--accent:var(--violet)"><span class="kicker">This month</span><h3>Talk to your platform team</h3><p>Ask about environments, data policies, and the path from sandbox to a governed pilot.</p></div>
+    <div class="card" style="--accent:var(--orange)"><span class="kicker">Keep learning</span><h3>Go deeper</h3><p>Browse the <a href="../resources.html">resources</a> for Microsoft Learn paths on agent flows, connectors, security, and evaluation.</p></div>
+  </div>
+</section>
+
+<section id="debrief">
+  <div class="debrief">
+    <h2 id="debrief-h">Mission accomplished <span class="tag">Splashdown</span></h2>
+    <p style="font-size:1.15rem;color:#fff">An AI assistant can answer questions. A well-designed Copilot Studio solution helps get business work done: safely, intelligently, and at scale. <strong>You just built one.</strong></p>
+    <div class="takeaways">
+      <div><b>UNDERSTAND → VERIFY</b><p>You took one agent through all six stages of the upgrade.</p></div>
+      <div><b>FOUR ANOMALIES</b><p>403, Duplicate, Rogue Document, Approval Gate: all diagnosed and defended.</p></div>
+      <div><b>DAY 2 OUTCOME</b><p>A connected, tested prototype, or a validated solution design.</p></div>
+    </div>
+    <div class="complete-row"><button class="complete-btn" type="button">🚀 Mark mission complete</button><span class="status">MISSION LOG</span></div>
+  </div>
+</section>
+
+<nav class="pn" aria-label="Mission navigation"><a class="prev" href="m09.html"><span class="k">← Mission 09</span><span class="t">Mission Control: Test &amp; Troubleshoot</span></a><a class="next" href="../resources.html"><span class="k">Post-flight →</span><span class="t">Resources &amp; lab kit</span></a></nav>
+</article>
+<aside class="toc" aria-label="On this page"><div class="ttl">// Flight checklist</div><ol></ol>
+<div class="mini-progress"><div class="lbl"><span>Mission log</span><span><span data-progress-count>0</span>/10</span></div><div class="bar"><i data-progress-bar></i></div></div></aside>
+</div>
+</main>
+<footer class="footer"><div class="wrap">
+<div><div class="sig">Mission: Agent Upgrade 🚀</div><p>A 4-hour, live, instructor-led Microsoft Copilot Studio workshop. All scenarios, people, and data are fictional (Contoso Credit Union) and for classroom use only. Microsoft, Copilot, and Copilot Studio are trademarks of Microsoft Corporation.</p></div>
+<nav aria-label="Footer"><a href="../index.html">Home</a><a href="../index.html#flight-plan">Flight Plan</a><a href="../resources.html">Resources & Lab Kit</a><a href="../facilitator.html">Facilitator Guide</a></nav>
+</div></footer>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

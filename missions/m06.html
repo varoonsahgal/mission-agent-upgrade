@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mission 06: Connect the Dots: Enterprise Integrations · Mission: Agent Upgrade</title>
+<meta name="description" content="Connect the workflow to a synthetic SharePoint issue register to look up existing issues and record new ones.">
+<meta property="og:title" content="Mission 06: Connect the Dots: Enterprise Integrations · Mission: Agent Upgrade">
+<meta property="og:description" content="Connect the workflow to a synthetic SharePoint issue register to look up existing issues and record new ones.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#04061a">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-mission="6" style="--accent:#38bdf8">
+<a class="skip" href="#main">Skip to content</a>
+<canvas id="stars" aria-hidden="true"></canvas>
+<header class="topbar"><div class="wrap">
+<a class="brand" href="../index.html" aria-label="Mission: Agent Upgrade home"><svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="bl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff6b2c"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs><circle cx="20" cy="20" r="18" fill="none" stroke="url(#bl)" stroke-width="2"/><ellipse cx="20" cy="20" rx="18" ry="6.5" fill="none" stroke="#22d3ee" stroke-opacity=".6" stroke-width="1.2" transform="rotate(-28 20 20)"/><path d="M20 9c3 2 4.6 5.4 4.6 8.8l-1.6 3.4h-6l-1.6-3.4C15.4 14.4 17 11 20 9z" fill="#fff"/><path d="M17.6 22.6 16 26.5l2.6-1M22.4 22.6 24 26.5l-2.6-1" stroke="#ff6b2c" stroke-width="1.4" fill="none" stroke-linecap="round"/><circle cx="20" cy="16.4" r="1.6" fill="#8b5cf6"/></svg>
+<span>MISSION: AGENT UPGRADE<small>Copilot Studio · Contoso Digital</small></span></a>
+<button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
+<nav class="nav" id="nav"><a href="../index.html#flight-plan">Flight Plan</a><a href="../index.html#missions" aria-current=page>Missions</a><a href="../resources.html">Resources</a><a href="../facilitator.html">Facilitator</a><a class="cta" href="../missions/m01.html">Launch Mission 01 →</a></nav>
+<div class="telemetry" aria-hidden="true"><span class="dot"></span><span>SYS NOMINAL</span><span>·</span><span id="met">--:--:-- ET</span></div>
+</div></header>
+<main id="main">
+<section class="mhero"><div class="wrap">
+<div class="patch" data-patch="6" aria-hidden="true"></div>
+<div>
+<div class="crumbs"><a href="../index.html">Mission: Agent Upgrade</a><span>/</span><a href="../index.html#flight-plan">Day 2 · Connect It. Secure It. Prove It.</a><span>/</span><span>Mission 06</span></div>
+<h1><span class="mnum">MISSION 06 · LAB</span>Connect the Dots: Enterprise Integrations</h1>
+<div class="facts"><span class="fact"><b>Day</b>2 of 2</span><span class="fact"><b>Duration</b>30 min</span><span class="fact"><b>AM slot</b>10:00–10:30 ET</span><span class="fact"><b>Format</b>Lab</span></div>
+<div class="objective-box"><b>MISSION OBJECTIVE</b>Connect the workflow to a synthetic SharePoint issue register to look up existing issues and record new ones.</div>
+</div></div></section>
+<div class="wrap mbody">
+<article class="prose">
+<section id="briefing">
+  <h2 id="briefing-h">Briefing <span class="tag">Discover</span></h2>
+  <p class="lead">Yesterday Mission Control learned to act. Today it learns to <strong>act on the real world</strong>. That means reading and writing a system of record with an identity, permissions, and consequences.</p>
+
+  <div class="analogy">
+    <div class="ic">🔌</div>
+    <div><b>Analogy</b><p>A connector is a docking port. The <em>connector</em> is the port's design, which says what can attach. The <em>connection</em> is a specific docking, made with a specific identity. Without the right clearance, the hatch stays shut (that's the 403 Surprise).</p></div>
+  </div>
+
+  <h3 id="vocab" class="toc-include">Connectors, connections, and identity</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Term</th><th>Meaning</th><th>Why it matters</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Connector</strong></td><td>A wrapper around a service's API (SharePoint, Outlook, Teams, ServiceNow…). Standard, premium, or custom.</td><td>Admins can allow or block connectors with data policies.</td></tr>
+        <tr><td><strong>Action</strong></td><td>One operation that a connector exposes: <em>Get items</em>, <em>Create item</em>, <em>Post message</em>.</td><td>Add only the actions you need (least privilege).</td></tr>
+        <tr><td><strong>Connection</strong></td><td>An authenticated instance of a connector, tied to an identity.</td><td>It determines <em>whose</em> permissions are used.</td></tr>
+        <tr><td><strong>End-user credentials</strong></td><td>Each user signs in. The action runs as them.</td><td>Respects each user's access, so it's best for personal data.</td></tr>
+        <tr><td><strong>Maker-provided credentials</strong></td><td>The action runs as the connection owner or a service account.</td><td>Convenient, but everyone inherits that account's access. Scope it tightly.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="register" class="toc-include">The Digital Issue Register (SharePoint list)</h3>
+  <p>Our system of record is a synthetic SharePoint list. It's seeded from <a href="../lab-kit/digital-issue-register.csv" download>digital-issue-register.csv</a> with seven fictional records, DSI-1041 to DSI-1047.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Issue ID</th><th>Title</th><th>Service</th><th>Severity</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td><code>DSI-1041</code></td><td>App crash on launch after the 8.4.0 update</td><td>MOB</td><td><span class="sev s3">Sev 3</span></td><td>Known Issue</td></tr>
+        <tr><td><code>DSI-1042</code></td><td>QuickPay transfers pending over 30 min</td><td>P2P</td><td><span class="sev s2">Sev 2</span></td><td>Investigating</td></tr>
+        <tr><td><code>DSI-1043</code></td><td>Push alerts delayed</td><td>NTF</td><td><span class="sev s3">Sev 3</span></td><td>Known Issue</td></tr>
+        <tr><td><code>DSI-1044</code></td><td>Spike in unreadable check-deposit images</td><td>RDC</td><td><span class="sev s3">Sev 3</span></td><td>Investigating</td></tr>
+        <tr><td><code>DSI-1045</code></td><td>Blank page after sign-in on a legacy browser</td><td>OLB</td><td><span class="sev s4">Sev 4</span></td><td>Resolved</td></tr>
+        <tr><td><code>DSI-1046</code></td><td>SMS passcodes delayed for one carrier</td><td>MFA</td><td><span class="sev s2">Sev 2</span></td><td>Investigating</td></tr>
+        <tr><td><code>DSI-1047</code></td><td>Bill Pay payee search timeout</td><td>BIL</td><td><span class="sev s3">Sev 3</span></td><td>New</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="pattern" class="toc-include">The integration pattern: look before you leap</h3>
+  <div class="flow">
+    <div class="fstep"><span class="k">01 · Read</span><h4>Get items</h4><p>Filter by service + open status</p></div>
+    <div class="fstep"><span class="k">02 · Decide</span><h4>Match?</h4><p>Count &gt; 0 → known issue</p></div>
+    <div class="fstep"><span class="k">03a · Link</span><h4>Return existing ID</h4><p>No new record</p></div>
+    <div class="fstep"><span class="k">03b · Write</span><h4>Create item</h4><p>Status = New</p></div>
+    <div class="fstep"><span class="k">04 · Verify</span><h4>Return the real ID</h4><p>From the system's response</p></div>
+  </div>
+  <pre class="copy" data-lang="OData filter · Get items (SharePoint)"><code>Service eq 'P2P' and Status ne 'Resolved'</code></pre>
+  <div class="callout tip"><strong>Verifiable results only</strong> The Issue ID the agent reports must come from the <em>Create item</em> response, never from the model. If the system didn't return an ID, nothing was created.</div>
+</section>
+
+<section id="anomaly-duplicate">
+  <div class="challenge">
+    <div class="k">⚠ Anomaly-DUP · The Duplicate Incident</div>
+    <h3>“Didn't we already log this?”</h3>
+    <p>At 09:12 a Digital analyst reports: <em>“QuickPay transfers are stuck in pending for lots of members.”</em> At 09:14 a second analyst reports: <em>“P2P payments pending forever, many members.”</em> Without a duplicate check, Mission Control happily creates <strong>two new records</strong> for an issue that's <strong>already open as DSI-1042</strong>. Now three teams are working the same incident.</p>
+    <div class="rules">
+      <div><h4>Your mission</h4><p>Make the workflow look up open records for the same service <em>before</em> it creates anything.</p></div>
+      <div><h4>Win condition</h4><p>Both reports return <code>DSI-1042</code> and the register stays at 7 records.</p></div>
+      <div><h4>Stretch goal</h4><p>Add a comment or bump a “Report count” field on the existing record instead.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="lab">
+  <div class="lab" style="--accent:#38bdf8">
+    <div class="lab-head">
+      <div>
+        <div class="codename">Lab 06 · Codename DOCKING PORT</div>
+        <h2 id="lab-h">Connect to the SharePoint issue register</h2>
+        <div class="modes"><span class="mode-badge builder">Builder</span><span class="mode-badge team">Team</span><span class="mode-badge observer">Observer</span></div>
+      </div>
+      <div class="timer"><div class="t">22:00</div><div class="l">Minutes</div></div>
+    </div>
+    <div class="build-summary">
+      <div>
+        <h4>What you'll build</h4>
+        <ul>
+          <li>A <strong>Digital Issue Register</strong> SharePoint list seeded with synthetic data</li>
+          <li>A <em>Get items</em> lookup that finds open issues for a service</li>
+          <li>A duplicate check that links existing issues</li>
+          <li>A <em>Create item</em> step that records new issues and returns the real ID</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Pre-flight</h4>
+        <ul>
+          <li>Mission 03 workflow (Triage Digital Issue) is working</li>
+          <li>A classroom SharePoint site you're allowed to create lists in</li>
+          <li>Download <a href="../lab-kit/digital-issue-register.csv" download>digital-issue-register.csv</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- LAB-STEPS:m06:BEGIN -->
+    <ol class="steps">
+      <li class="step">
+        <h4>Stand up the Digital Issue Register</h4>
+        <p>On your classroom SharePoint site, select <span class="ui">New</span> → <span class="ui">List</span> → <span class="ui">From CSV</span>, and upload <a href="../lab-kit/digital-issue-register.csv" download>digital-issue-register.csv</a>. Name the list <code>Digital Issue Register</code>. Keep every column as <strong>Single line of text</strong>, except <code>FirstObserved</code> (Date and time).</p>
+        <figure class="shot" data-label="SharePoint · Digital Issue Register">
+          <img src="../assets/img/shots/m06-01-sharepoint-register.webp" alt="SharePoint list Digital Issue Register with DSI-1041 to DSI-1047 rows" loading="lazy">
+          <figcaption>Seven synthetic issues, DSI-1041 to DSI-1047. Only OLB is fully <em>Resolved</em>; every other service has an open record, which makes for good duplicate-detection tests.</figcaption>
+        </figure>
+        <div class="callout intel"><strong>Why SharePoint?</strong> It's the system of record most Digital teams already have. The pattern you build here (look up → decide → write → return the real ID) is the same for ServiceNow, Dataverse, Jira, or Azure DevOps. Only the connector changes.</div>
+      </li>
+      <li class="step">
+        <h4>Create the “Log Digital Issue” workflow</h4>
+        <p>Following the Mission 03 pattern, create a new agent flow with four Text inputs: <code>Service</code>, <code>Title</code>, <code>Symptom</code>, and <code>Severity</code>. Between the trigger and <span class="ui">Respond to the agent</span>, add <span class="ui">SharePoint · Get items</span>. In the search results, the SharePoint group shows Get items, Get item, Create item, and more.</p>
+        <figure class="shot" data-label="SharePoint connector actions">
+          <img src="../assets/img/shots/m06-03-sharepoint-actions.webp" alt="SharePoint connector actions grid including Create item, Get items, Update item" loading="lazy">
+          <figcaption>Dozens of actions are available. <strong>Least privilege</strong> starts here: add only the ones the mission needs (Get items and Create item).</figcaption>
+        </figure>
+      </li>
+      <li class="step">
+        <h4>Sign in: the connection is an identity</h4>
+        <p>The first SharePoint action asks you to create a <strong>connection</strong>. That connection decides <em>whose permissions</em> the workflow runs with. Select <span class="ui">Sign in</span> (or, in the agent's Add tool dialog, <span class="ui">Create new connection</span> → <span class="ui">Connect directly (cloud-services)</span> → <span class="ui">Create</span>).</p>
+        <figure class="shot" data-label="Get items · Create a new connection">
+          <img src="../assets/img/shots/m06-02-get-items-signin.webp" alt="Get items card prompting Sign in to create a connection to SharePoint" loading="lazy">
+        </figure>
+        <figure class="shot" data-label="Connect to SharePoint">
+          <img src="../assets/img/shots/m06-05-connect-sharepoint.webp" alt="Connect to SharePoint dialog with cloud-services and on-premises gateway options" loading="lazy">
+        </figure>
+        <div class="callout anomaly"><strong>Field note: “The browser has blocked the connection authentication popup window.”</strong> We hit this in our dry run. The consent step opens a pop-up, and Chrome or Edge may block it. Select the blocked-pop-up icon in the address bar, choose <em>Always allow pop-ups from copilotstudio.microsoft.com</em>, and select <span class="ui">Sign in</span> again. Also check that you didn't tick <em>Connect via on-premises data gateway</em> by accident.</div>
+      </li>
+      <li class="step">
+        <h4>Look up open issues for the service</h4>
+        <p>In <span class="ui">Get items</span>, pick your <strong>Site Address</strong> and the <strong>Digital Issue Register</strong> list. Open <span class="ui">Advanced parameters</span> → <span class="ui">Filter Query</span>, type <kbd>/</kbd> → <span class="ui">Insert expression</span>, and paste:</p>
+        <pre class="copy" data-lang="Filter Query (expression)"><code>concat('Service eq ''', triggerBody()?['text'], ''' and Status ne ''Resolved''')</code></pre>
+        <p>Set <span class="ui">Top Count</span> to <code>5</code>. The flow now returns only <em>open</em> issues for that service code.</p>
+        <div class="callout tip"><strong>OData basics</strong> <code>eq</code> means equals and <code>ne</code> means not equals. Text values go in single quotes, and a doubled quote <code>''</code> is how you write one inside an expression. Filtering on the server is faster and safer than pulling the whole list into the flow.</div>
+      </li>
+      <li class="step">
+        <h4>The Duplicate Incident check</h4>
+        <p>Add a <span class="ui">Condition</span> after Get items. Left side, as an expression:</p>
+        <pre class="copy" data-lang="Left value"><code>length(outputs('Get_items')?['body/value'])</code></pre>
+        <p>Operator: <span class="ui">is greater than</span>. Right value: <code>0</code>.</p>
+        <p><span class="badge-true">True</span>: an open issue already exists, so <strong>do not create anything</strong>. Add <span class="ui">Respond to the agent</span> with:</p>
+        <pre class="copy" data-lang="Duplicate branch outputs"><code>Outcome = DUPLICATE
+IssueId = first(outputs('Get_items')?['body/value'])?['IssueID']
+Message = An open issue already exists for this service. Linked the report to the existing record.</code></pre>
+      </li>
+      <li class="step">
+        <h4>Record a genuinely new issue</h4>
+        <p><span class="badge-false">False</span>: add <span class="ui">SharePoint · Create item</span> (same site and list). Map the fields, and generate the ID with an expression:</p>
+        <pre class="copy" data-lang="Create item fields"><code>Title           = Title (dynamic content)
+IssueID         = concat('DSI-', formatDateTime(utcNow(), 'MMddHHmm'))
+Service         = Service (dynamic content)
+Symptom         = Symptom (dynamic content)
+Severity        = Severity (dynamic content)
+Status          = New
+FirstObserved   = utcNow()</code></pre>
+        <p>Then add <span class="ui">Respond to the agent</span> with <code>Outcome = CREATED</code> and <code>IssueId = outputs('Create_item')?['body/IssueID']</code>. This is the ID the <em>system</em> returned, not one the model made up.</p>
+      </li>
+      <li class="step">
+        <h4>Wire it to the agent, and say when to use it</h4>
+        <p>Publish the flow, then add it under <span class="ui">Tools</span> → <span class="ui">Workflows</span>. Give it a description the orchestrator can act on:</p>
+        <pre class="copy" data-lang="Tool description"><code>Use this tool AFTER Triage Digital Issue when the Route says to log the issue. It checks the Digital Issue Register for an open issue for the same service and either links the existing Issue ID (Outcome = DUPLICATE) or creates a new record (Outcome = CREATED). Only tell the user an issue was logged if this tool returns an IssueId.</code></pre>
+        <p>Alternative for teams short on time: add <strong>SharePoint · Get items</strong> straight from <span class="ui">Add a tool</span> as an agent tool, and let the orchestrator call it directly. It's quicker to set up, but you give up the deterministic duplicate check.</p>
+        <figure class="shot small" data-label="Add tool · SharePoint Get items">
+          <img src="../assets/img/shots/m06-04-get-items-tool.webp" alt="Add tool dialog for SharePoint Get items showing Connection Not connected" loading="lazy">
+        </figure>
+      </li>
+      <li class="step">
+        <h4>Prove it</h4>
+        <p>Run both prompts in fresh test sessions and check the list after each one:</p>
+        <div class="prompt">Some members say Bill Pay payee search times out with BIL-408 on the web. Please log it.</div>
+        <div class="reply">Already tracked as DSI-1047 (Bill Pay payee search timeout, status New). No duplicate was created.</div>
+        <div class="prompt">Many members see error OLB-500 on the Online Banking statements page since this morning. Please log it.</div>
+        <div class="reply">Logged a new issue: DSI-12061015, Sev 2 – High. Routed for Web Platform review.</div>
+      </li>
+    </ol>
+    <div class="checkpoint">
+      <h4>Telemetry check · Mission 06</h4>
+      <label><input type="checkbox"> The register list exists, with 7 synthetic rows</label>
+      <label><input type="checkbox"> The BIL report returns DSI-1047, and the list has no new row</label>
+      <label><input type="checkbox"> The OLB report creates a row, and the agent quotes its real IssueID</label>
+      <label><input type="checkbox"> I can name the account the SharePoint connection runs as</label>
+    </div>
+    <!-- LAB-STEPS:m06:END -->
+    <div class="observer">
+      <span class="k">Observer / analyst track</span>
+      <h3>Connection audit</h3>
+      <ol>
+        <li>For each connector action the builder adds, record: the connector, the action, whose credentials it uses, and what it can read or write.</li>
+        <li>Flag any action with more access than the mission needs. Could <em>Get items</em> be limited to one list? Does the agent ever need <em>Delete item</em>?</li>
+        <li>Predict what happens if the connection owner loses access to the site. (You'll find out in Mission 09.)</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="debrief">
+  <div class="debrief">
+    <h2 id="debrief-h">Debrief <span class="tag">Mission 06</span></h2>
+    <div class="takeaways">
+      <div><b>01 · IDENTITY</b><p>Every connector call runs as <em>someone</em>. Pick end-user or maker credentials deliberately.</p></div>
+      <div><b>02 · READ BEFORE WRITE</b><p>Look up first, then create. That's how you prevent the Duplicate Incident.</p></div>
+      <div><b>03 · REAL IDS</b><p>Report only what the system returned. That's your verifiable result.</p></div>
+    </div>
+    <div class="complete-row"><button class="complete-btn" type="button">🚀 Mark mission complete</button><span class="status">MISSION LOG</span></div>
+  </div>
+</section>
+
+<nav class="pn" aria-label="Mission navigation"><a class="prev" href="m05.html"><span class="k">← Mission 05</span><span class="t">Mission Checkpoint</span></a><a class="next" href="m07.html"><span class="k">Mission 07 →</span><span class="t">Human in the Loop: Smart Automation</span></a></nav>
+</article>
+<aside class="toc" aria-label="On this page"><div class="ttl">// Flight checklist</div><ol></ol>
+<div class="mini-progress"><div class="lbl"><span>Mission log</span><span><span data-progress-count>0</span>/10</span></div><div class="bar"><i data-progress-bar></i></div></div></aside>
+</div>
+</main>
+<footer class="footer"><div class="wrap">
+<div><div class="sig">Mission: Agent Upgrade 🚀</div><p>A 4-hour, live, instructor-led Microsoft Copilot Studio workshop. All scenarios, people, and data are fictional (Contoso Credit Union) and for classroom use only. Microsoft, Copilot, and Copilot Studio are trademarks of Microsoft Corporation.</p></div>
+<nav aria-label="Footer"><a href="../index.html">Home</a><a href="../index.html#flight-plan">Flight Plan</a><a href="../resources.html">Resources & Lab Kit</a><a href="../facilitator.html">Facilitator Guide</a></nav>
+</div></footer>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

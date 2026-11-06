@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Facilitator Guide · Mission: Agent Upgrade</title>
+<meta name="description" content="Run of show, timing, team roles, and contingency plans for delivering the Copilot Studio workshop.">
+<meta property="og:title" content="Facilitator Guide · Mission: Agent Upgrade">
+<meta property="og:description" content="Run of show, timing, team roles, and contingency plans for delivering the Copilot Studio workshop.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#04061a">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body style="--accent:#a78bfa">
+<a class="skip" href="#main">Skip to content</a>
+<canvas id="stars" aria-hidden="true"></canvas>
+<header class="topbar"><div class="wrap">
+<a class="brand" href="index.html" aria-label="Mission: Agent Upgrade home"><svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="bl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff6b2c"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs><circle cx="20" cy="20" r="18" fill="none" stroke="url(#bl)" stroke-width="2"/><ellipse cx="20" cy="20" rx="18" ry="6.5" fill="none" stroke="#22d3ee" stroke-opacity=".6" stroke-width="1.2" transform="rotate(-28 20 20)"/><path d="M20 9c3 2 4.6 5.4 4.6 8.8l-1.6 3.4h-6l-1.6-3.4C15.4 14.4 17 11 20 9z" fill="#fff"/><path d="M17.6 22.6 16 26.5l2.6-1M22.4 22.6 24 26.5l-2.6-1" stroke="#ff6b2c" stroke-width="1.4" fill="none" stroke-linecap="round"/><circle cx="20" cy="16.4" r="1.6" fill="#8b5cf6"/></svg>
+<span>MISSION: AGENT UPGRADE<small>Copilot Studio · Contoso Digital</small></span></a>
+<button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
+<nav class="nav" id="nav"><a href="index.html#flight-plan">Flight Plan</a><a href="index.html#missions">Missions</a><a href="resources.html">Resources</a><a href="facilitator.html" aria-current=page>Facilitator</a><a class="cta" href="missions/m01.html">Launch Mission 01 →</a></nav>
+<div class="telemetry" aria-hidden="true"><span class="dot"></span><span>SYS NOMINAL</span><span>·</span><span id="met">--:--:-- ET</span></div>
+</div></header>
+<main id="main">
+<section class="mhero" style="--accent:#a78bfa"><div class="wrap" style="grid-template-columns:1fr">
+  <div>
+    <div class="crumbs"><a href="index.html">Mission: Agent Upgrade</a><span>/</span><span>Facilitator guide</span></div>
+    <h1><span class="mnum">FLIGHT DIRECTOR'S CONSOLE</span>Facilitator Guide</h1>
+    <p class="lead">Run of show, minute by minute, for both cohorts. Plus crew roles, participation modes, environment reset tips, and contingency plans for when the universe doesn't cooperate.</p>
+    <div class="facts"><span class="fact"><b>Dates</b>Dec 15–16, 2026</span><span class="fact"><b>AM</b>10:00–12:00 ET</span><span class="fact"><b>PM</b>1:00–3:00 ET</span><span class="fact"><b>Total</b>4 hrs per cohort</span></div>
+  </div>
+</div></section>
+
+<section class="section" id="pre-flight" style="--accent:#a78bfa">
+  <div class="wrap">
+    <div class="sh rv"><span class="eyebrow">// T-minus 7 days</span><h2>Pre-flight checklist</h2></div>
+    <div class="grid g2">
+      <div class="checkpoint rv"><h4>Platform readiness</h4>
+        <label><input type="checkbox"> A sandbox environment exists for the class, with Copilot Studio authoring enabled</label>
+        <label><input type="checkbox"> Learner maker access confirmed (builders) and shared accounts assigned (teams)</label>
+        <label><input type="checkbox"> Data policy allows SharePoint, Approvals, and Office 365 Outlook in the sandbox</label>
+        <label><input type="checkbox"> A classroom SharePoint site exists, and learners can create lists</label>
+        <label><input type="checkbox"> The Digital Issue Register is pre-built as a fallback list (from the CSV)</label>
+      </div>
+      <div class="checkpoint rv d1"><h4>Instructor readiness</h4>
+        <label><input type="checkbox"> Reference “Mission Control” agent fully built for demos</label>
+        <label><input type="checkbox"> A second copy of the agent with the Rogue Document, for Mission 08</label>
+        <label><input type="checkbox"> A broken connection prepared for the 403 Surprise demo (Mission 09)</label>
+        <label><input type="checkbox"> Approver account ready to act on approval requests live</label>
+        <label><input type="checkbox"> Site link and lab kit shared with participants</label>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="run-of-show" style="--accent:#ff6b2c">
+  <div class="wrap">
+    <div class="sh rv"><span class="eyebrow">// Run of show</span><h2>Minute by minute</h2><p class="lead">The PM cohort runs the same plan, shifted +3 hours (1:00–3:00 p.m. ET).</p></div>
+    <h3 class="rv">Day 1 · Give Your Agent Superpowers</h3>
+    <div class="table-wrap rv">
+      <table class="ros">
+        <thead><tr><th>AM (ET)</th><th>PM (ET)</th><th>Mission</th><th>Instructor moves</th><th>Learner moves</th></tr></thead>
+        <tbody>
+          <tr><td>10:00</td><td>1:00</td><td><a href="missions/m01.html">01 · The Upgrade</a></td><td>5-min hook: demo an agent that only talks vs. one that acts. Walk the comparison matrix.</td><td>The “Which tool fits?” game, in teams</td></tr>
+          <tr><td>10:20</td><td>1:20</td><td><a href="missions/m02.html">02 · Design Your Solution</a></td><td>Tour the agent tabs. Live-build instructions and knowledge.</td><td>Lab 02 BLUEPRINT</td></tr>
+          <tr><td>10:45</td><td>1:45</td><td><a href="missions/m03.html">03 · Workflow Power</a></td><td>Whiteboard the input/output contract. Demo the flow designer.</td><td>Lab 03 LIFTOFF</td></tr>
+          <tr class="brk"><td>11:20</td><td>2:20</td><td colspan="3">Break · 5 min (good moment to unblock stragglers)</td></tr>
+          <tr><td>11:25</td><td>2:25</td><td><a href="missions/m04.html">04 · Decision Junction</a></td><td>Run the junction simulator on screen. Demo Question + Condition nodes.</td><td>Challenge 04 JUNCTION</td></tr>
+          <tr><td>11:55</td><td>2:55</td><td><a href="missions/m05.html">05 · Checkpoint</a></td><td>Call the test flight. Collect Day 2 improvement ideas.</td><td>Telemetry check + self-assessment</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3 class="rv" style="margin-top:2.5rem">Day 2 · Connect It. Secure It. Prove It.</h3>
+    <div class="table-wrap rv">
+      <table class="ros">
+        <thead><tr><th>AM (ET)</th><th>PM (ET)</th><th>Mission</th><th>Instructor moves</th><th>Learner moves</th></tr></thead>
+        <tbody>
+          <tr><td>10:00</td><td>1:00</td><td><a href="missions/m06.html">06 · Connect the Dots</a></td><td>2-min Day 1 recap. Explain connections and identity. Tell the Duplicate Incident story.</td><td>Lab 06 DOCKING PORT</td></tr>
+          <tr><td>10:30</td><td>1:30</td><td><a href="missions/m07.html">07 · Human in the Loop</a></td><td>Walk the autonomy spectrum. Act as approver live and <em>reject</em> once.</td><td>Challenge 07 GO / NO-GO</td></tr>
+          <tr class="brk"><td>10:55</td><td>1:55</td><td colspan="3">Break · 5 min</td></tr>
+          <tr><td>11:00</td><td>2:00</td><td><a href="missions/m08.html">08 · Break the Agent!</a></td><td>Reveal the Rogue Document. Facilitate the red-team deck.</td><td>Challenge 08 RED CELL</td></tr>
+          <tr><td>11:25</td><td>2:25</td><td><a href="missions/m09.html">09 · Mission Control</a></td><td>Trigger the 403 Surprise on the reference agent. Show the run history.</td><td>Lab 09 TELEMETRY</td></tr>
+          <tr><td>11:45</td><td>2:45</td><td><a href="missions/m10.html">10 · Showcase</a></td><td>Timebox demos (2–3 min each). Close with the big takeaway.</td><td>Demo + peer scorecard</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="roles" style="--accent:#22d3ee">
+  <div class="wrap">
+    <div class="sh rv"><span class="eyebrow">// Crew roles</span><h2>Team roles for collaborative mode</h2><p class="lead">Rotate roles at each break so everyone drives at least once.</p></div>
+    <div class="grid g3">
+      <div class="card role-card rv" style="--c:#22d3ee"><div class="icon-chip">📐</div><span class="kicker">Role 01</span><h3>Solution Designer</h3><p>Owns the <em>what</em> and the <em>why</em>. Reads the mission brief, defines inputs and outputs, decides the branches, and keeps the team on scope.</p></div>
+      <div class="card role-card rv d1" style="--c:#ff6b2c"><div class="icon-chip">🛠</div><span class="kicker">Role 02</span><h3>Builder</h3><p>Owns the keyboard. Configures the agent, topics, flows, and connectors in Copilot Studio, and narrates each click aloud.</p></div>
+      <div class="card role-card rv d2" style="--c:#f87171"><div class="icon-chip">🛡</div><span class="kicker">Role 03</span><h3>Risk Reviewer</h3><p>Owns the “what could go wrong?” question. Challenges permissions, writes the edge-case tests, keeps score, and has the final call in games.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="modes" style="--accent:#34d399">
+  <div class="wrap">
+    <div class="sh rv"><span class="eyebrow">// Participation modes</span><h2>Make room for every license level</h2></div>
+    <div class="table-wrap rv">
+      <table>
+        <thead><tr><th>Mode</th><th>Access</th><th>During labs</th><th>At the showcase</th></tr></thead>
+        <tbody>
+          <tr><td><span class="mode-badge builder">Builder</span></td><td>Individual sandbox maker access</td><td>Builds every lab step with screenshots</td><td>Live demo</td></tr>
+          <tr><td><span class="mode-badge team">Team</span></td><td>A shared authorized maker account</td><td>Rotates the Designer, Builder, and Risk Reviewer roles</td><td>Team demo</td></tr>
+          <tr><td><span class="mode-badge observer">Observer</span></td><td>No authoring access needed</td><td>Observer tracks: design maps, test cases, threat models</td><td>Validated solution design</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contingency" style="--accent:#fbbf24">
+  <div class="wrap">
+    <div class="sh rv"><span class="eyebrow">// Abort procedures</span><h2>Contingency plans</h2></div>
+    <div class="grid g2">
+      <details class="reveal rv" open><summary>A learner has no Copilot Studio license or access</summary><div class="inner"><p>Move them to a team or the Observer track right away. Each lab's screenshot walkthrough lets them follow every step. Pair them with a builder and make them the Risk Reviewer, which is the role with the most leverage.</p></div></details>
+      <details class="reveal rv d1"><summary>SharePoint list creation is blocked</summary><div class="inner"><p>Share the pre-built instructor register with Edit permissions, or have teams share one list. As a last resort, demo Mission 06 from the reference agent and have learners complete the connection audit.</p></div></details>
+      <details class="reveal rv"><summary>A connector is blocked by a data policy</summary><div class="inner"><p>Perfect teaching moment. Show the error, explain data policies (Mission 08 preview), and continue on the reference environment.</p></div></details>
+      <details class="reveal rv d1"><summary>Approvals don't arrive</summary><div class="inner"><p>Check the Approvals app in Teams and the Outlook inbox of the assigned approver. Approvals can take a minute to appear. Keep a recorded run ready to show what should happen.</p></div></details>
+      <details class="reveal rv"><summary>A lab runs long</summary><div class="inner"><p>Each lab has a core path and a stretch path. Cut the stretch path, and keep the telemetry check: it's how learners know they succeeded.</p></div></details>
+      <details class="reveal rv d1"><summary>The agent responds unexpectedly in the test pane</summary><div class="inner"><p>Start a new test conversation, check the Activity view to see which topic or tool was chosen, and review the tool and topic descriptions. Most surprises come from vague descriptions.</p></div></details>
+    </div>
+    <div class="callout warn rv" style="margin-top:2rem"><strong>Reset between cohorts</strong> Delete test records created in the register (anything other than DSI-1041 to 1047), remove the Rogue Document from any shared agent, restore the 403-demo connection, and clear any pending approvals.</div>
+  </div>
+</section>
+
+</main>
+<footer class="footer"><div class="wrap">
+<div><div class="sig">Mission: Agent Upgrade 🚀</div><p>A 4-hour, live, instructor-led Microsoft Copilot Studio workshop. All scenarios, people, and data are fictional (Contoso Credit Union) and for classroom use only. Microsoft, Copilot, and Copilot Studio are trademarks of Microsoft Corporation.</p></div>
+<nav aria-label="Footer"><a href="index.html">Home</a><a href="index.html#flight-plan">Flight Plan</a><a href="resources.html">Resources & Lab Kit</a><a href="facilitator.html">Facilitator Guide</a></nav>
+</div></footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

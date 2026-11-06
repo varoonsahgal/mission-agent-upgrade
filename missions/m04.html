@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mission 04: Decision Junction: Make It Smarter · Mission: Agent Upgrade</title>
+<meta name="description" content="Add conditions, branching, validation, and exception handling so the agent handles known, unknown, and incomplete reports correctly.">
+<meta property="og:title" content="Mission 04: Decision Junction: Make It Smarter · Mission: Agent Upgrade">
+<meta property="og:description" content="Add conditions, branching, validation, and exception handling so the agent handles known, unknown, and incomplete reports correctly.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#04061a">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-mission="4" style="--accent:#fbbf24">
+<a class="skip" href="#main">Skip to content</a>
+<canvas id="stars" aria-hidden="true"></canvas>
+<header class="topbar"><div class="wrap">
+<a class="brand" href="../index.html" aria-label="Mission: Agent Upgrade home"><svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="bl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff6b2c"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs><circle cx="20" cy="20" r="18" fill="none" stroke="url(#bl)" stroke-width="2"/><ellipse cx="20" cy="20" rx="18" ry="6.5" fill="none" stroke="#22d3ee" stroke-opacity=".6" stroke-width="1.2" transform="rotate(-28 20 20)"/><path d="M20 9c3 2 4.6 5.4 4.6 8.8l-1.6 3.4h-6l-1.6-3.4C15.4 14.4 17 11 20 9z" fill="#fff"/><path d="M17.6 22.6 16 26.5l2.6-1M22.4 22.6 24 26.5l-2.6-1" stroke="#ff6b2c" stroke-width="1.4" fill="none" stroke-linecap="round"/><circle cx="20" cy="16.4" r="1.6" fill="#8b5cf6"/></svg>
+<span>MISSION: AGENT UPGRADE<small>Copilot Studio · Contoso Digital</small></span></a>
+<button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
+<nav class="nav" id="nav"><a href="../index.html#flight-plan">Flight Plan</a><a href="../index.html#missions" aria-current=page>Missions</a><a href="../resources.html">Resources</a><a href="../facilitator.html">Facilitator</a><a class="cta" href="../missions/m01.html">Launch Mission 01 →</a></nav>
+<div class="telemetry" aria-hidden="true"><span class="dot"></span><span>SYS NOMINAL</span><span>·</span><span id="met">--:--:-- ET</span></div>
+</div></header>
+<main id="main">
+<section class="mhero"><div class="wrap">
+<div class="patch" data-patch="4" aria-hidden="true"></div>
+<div>
+<div class="crumbs"><a href="../index.html">Mission: Agent Upgrade</a><span>/</span><a href="../index.html#flight-plan">Day 1 · Give Your Agent Superpowers</a><span>/</span><span>Mission 04</span></div>
+<h1><span class="mnum">MISSION 04 · CHALLENGE</span>Decision Junction: Make It Smarter</h1>
+<div class="facts"><span class="fact"><b>Day</b>1 of 2</span><span class="fact"><b>Duration</b>30 min</span><span class="fact"><b>AM slot</b>11:25–11:55 ET</span><span class="fact"><b>Format</b>Challenge</span></div>
+<div class="objective-box"><b>MISSION OBJECTIVE</b>Add conditions, branching, validation, and exception handling so the agent handles known, unknown, and incomplete reports correctly.</div>
+</div></div></section>
+<div class="wrap mbody">
+<article class="prose">
+<section id="briefing">
+  <h2 id="briefing-h">Briefing <span class="tag">Discover</span></h2>
+  <p class="lead">Real issue reports are messy. “The app is broken.” “QuickPay?? again??” “Members can't log in, idk how many.” A smart agent doesn't just act. It <strong>decides whether it's safe and sensible to act yet.</strong></p>
+
+  <h3 id="four-branches" class="toc-include">The four branches of Mission Control</h3>
+  <div class="tiles">
+    <div class="tile" style="border-color:rgba(52,211,153,.4)"><span class="lbl" style="color:#34d399">BRANCH A</span><span class="t-ic">✅</span><h4>Known issue</h4><p>It matches the playbook or an open register record. Share the guidance and link the existing ID. <strong>No duplicates.</strong></p></div>
+    <div class="tile" style="border-color:rgba(34,211,238,.4)"><span class="lbl" style="color:#22d3ee">BRANCH B</span><span class="t-ic">🆕</span><h4>Unknown issue</h4><p>No match, and the details are complete. Run the triage workflow and return the new ID.</p></div>
+    <div class="tile" style="border-color:rgba(251,191,36,.4)"><span class="lbl" style="color:#fbbf24">BRANCH C</span><span class="t-ic">❓</span><h4>Incomplete report</h4><p>Required details are missing. Ask follow-up questions <em>before</em> taking any action.</p></div>
+    <div class="tile" style="border-color:rgba(244,114,182,.4)"><span class="lbl" style="color:#f472b6">BRANCH D</span><span class="t-ic">🛑</span><h4>Sensitive / Sev 1</h4><p>There's a funds or data risk, or a widespread outage. Stop and escalate to a human.</p></div>
+  </div>
+
+  <h3 id="toolkit" class="toc-include">The topic toolkit</h3>
+  <p>Topics are where you write rule-driven conversation. Each topic is a canvas of <strong>nodes</strong>:</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Node</th><th>Use it to…</th><th>Mission Control example</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Trigger</strong></td><td>Define when the topic starts (by description or trigger phrases)</td><td>“Report a digital service issue”</td></tr>
+        <tr><td><strong>Question</strong></td><td>Ask the user something and store the answer in a variable, validated by an <em>entity</em></td><td>“Which service?” → <code>Topic.Service</code> (closed list)</td></tr>
+        <tr><td><strong>Condition</strong></td><td>Branch on variable values</td><td><code>Topic.MembersAffected = "Unknown"</code></td></tr>
+        <tr><td><strong>Variable management</strong></td><td>Set, parse, or clear values</td><td>Bump severity one level when the count is unknown</td></tr>
+        <tr><td><strong>Call a tool / action</strong></td><td>Run a workflow or connector, then capture its outputs</td><td>Triage Digital Issue → <code>IssueId</code></td></tr>
+        <tr><td><strong>Message</strong></td><td>Respond, with variables inline</td><td>“Created {IssueId} at {Severity}.”</td></tr>
+        <tr><td><strong>Topic management</strong></td><td>Redirect, end the topic, or transfer to an agent</td><td>Redirect to <em>Escalate</em> for Sev 1</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="validation" class="toc-include">Validation: let entities do the work</h3>
+  <p>Entities validate answers <em>at the door</em>. A closed-list entity for service codes means “mobil app” still resolves to <code>MOB</code>, and “toaster” doesn't get through. A regular-expression entity can enforce error-code formats.</p>
+  <pre class="copy" data-lang="Closed list entity · DigitalService"><code>MOB  → synonyms: mobile app, app, iphone app, android app
+OLB  → synonyms: online banking, website, web banking, browser
+P2P  → synonyms: quickpay, quick pay, transfer, send money
+RDC  → synonyms: mobile deposit, check deposit, remote deposit
+BIL  → synonyms: bill pay, bills, payee
+MFA  → synonyms: passcode, otp, verification code, sign-in code, 2fa
+NTF  → synonyms: alerts, notifications, push, push alerts</code></pre>
+  <pre class="copy" data-lang="Regex entity · ErrorCode"><code>^(MOB|OLB|P2P|RDC|BIL|MFA|NTF)-\d{3}$</code></pre>
+
+  <h3 id="exceptions" class="toc-include">Exception handling</h3>
+  <ul>
+    <li><strong>Re-prompts:</strong> Question nodes can retry when an answer doesn't match the entity, then fall back (for example, to “I'll pass this to a human”).</li>
+    <li><strong>Interruptions:</strong> Users change their minds partway through a topic. Decide whether a topic can be interrupted.</li>
+    <li><strong>Tool failures:</strong> The workflow can fail. Check its output before you report success (more on this in Mission 09).</li>
+    <li><strong>System topics:</strong> <em>On Error</em>, <em>Fallback</em>, and <em>Escalate</em> are your safety nets. Customize them, don't ignore them.</li>
+  </ul>
+</section>
+
+<section id="junction-sim">
+  <h2 id="sim-h">Simulator: run the junction <span class="tag">Interactive</span></h2>
+  <p>Click through a live report and watch which branch it lands on. Try to reach all four endings.</p>
+  <div class="junction" id="junction" aria-live="polite"><noscript>This interactive simulator requires JavaScript.</noscript></div>
+</section>
+
+<section id="lab">
+  <div class="lab" style="--accent:#fbbf24">
+    <div class="lab-head">
+      <div>
+        <div class="codename">Challenge 04 · Codename JUNCTION</div>
+        <h2 id="lab-h">Handle known, unknown, and incomplete reports</h2>
+        <div class="modes"><span class="mode-badge builder">Builder</span><span class="mode-badge team">Team</span><span class="mode-badge observer">Observer</span></div>
+      </div>
+      <div class="timer"><div class="t">20:00</div><div class="l">Minutes</div></div>
+    </div>
+    <div class="build-summary">
+      <div>
+        <h4>What you'll build</h4>
+        <ul>
+          <li>A <strong>Report a Digital Issue</strong> topic with Question nodes for the required details</li>
+          <li>Conditions that route to the Known, Unknown, Incomplete, and Sensitive branches</li>
+          <li>A call to the Mission 03 triage workflow on the Unknown branch</li>
+          <li>Graceful handling of missing or invalid answers</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Win conditions</h4>
+        <ul>
+          <li>All four test prompts below land on the correct branch</li>
+          <li>No record is created for a known issue</li>
+          <li>No action runs while a required detail is still missing</li>
+        </ul>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#</th><th>Test prompt</th><th>Expected branch</th></tr></thead>
+        <tbody>
+          <tr><td>T1</td><td>“Members say the app crashes right after the splash screen since the 8.4.0 update.”</td><td><span class="sev s3">A · Known</span> → DSI-1041 guidance</td></tr>
+          <tr><td>T2</td><td>“Bill Pay shows BIL-512 when members add a new payee on Android, a few members so far.”</td><td><span class="sev s3">B · Unknown</span> → new record</td></tr>
+          <tr><td>T3</td><td>“Something's wrong with deposits.”</td><td><span class="sev s2">C · Incomplete</span> → follow-up questions</td></tr>
+          <tr><td>T4</td><td>“A member says QuickPay debited them twice for the same transfer.”</td><td><span class="sev s1">D · Sensitive</span> → escalate</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- LAB-STEPS:m04:BEGIN -->
+    <ol class="steps">
+      <li class="step">
+        <h4>Create a topic from blank</h4>
+        <p>In Mission Control, open <span class="ui">Topics</span> → <span class="ui">Add a topic</span>. You have two options: <span class="ui">From blank</span>, or <span class="ui">Add from description with Copilot</span>. Choose <strong>From blank</strong>. You'll build the junctions deliberately so you know exactly what each one does.</p>
+        <figure class="shot" data-label="Topics › Add a topic">
+          <img src="../assets/img/shots/m04-01-add-topic-menu.webp" alt="Add a topic menu with From blank and Add from description with Copilot" loading="lazy">
+        </figure>
+        <p>The new topic opens with a <strong>Trigger</strong> set to <em>The agent chooses</em>. With generative orchestration, the agent picks topics by their <strong>description</strong>, not by exact keywords.</p>
+        <figure class="shot" data-label="New blank topic">
+          <img src="../assets/img/shots/m04-02-blank-topic.webp" alt="Blank topic with Trigger: The agent chooses" loading="lazy">
+        </figure>
+      </li>
+      <li class="step">
+        <h4>Choose your build path</h4>
+        <p><strong>Path A: canvas (recommended for first-timers).</strong> Use <span class="ui">+</span> → <span class="ui">Ask a question</span>, <span class="ui">Add a condition</span>, <span class="ui">Send a message</span>, and <span class="ui">Variable management</span> to build the four junctions in the map below.</p>
+        <p><strong>Path B: code editor (fast lane).</strong> Open <span class="ui">More</span> → <span class="ui">Open code editor</span>, select everything, and paste the topic from the lab kit: <a href="../lab-kit/report-digital-issue-topic.yaml" download>report-digital-issue-topic.yaml</a>. Every topic is YAML underneath, and the canvas is a visual editor for it.</p>
+        <figure class="shot" data-label="Topic › Code editor">
+          <img src="../assets/img/shots/m04-03-code-editor.webp" alt="Topic code editor showing YAML for the decision junction, with Save your topic dialog" loading="lazy">
+          <figcaption>On the first save, you'll be asked to name the topic. Use <code>Report a Digital Issue</code>.</figcaption>
+        </figure>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Junction</th><th>Node</th><th>Logic</th></tr></thead>
+          <tbody>
+            <tr><td>1 · Identify</td><td>Question → <code>Topic.Service</code></td><td>Multiple choice: the 7 service codes</td></tr>
+            <tr><td>2 · Sensitive?</td><td>Question (Yes/No) → Condition</td><td><code>=Topic.FundsOrDataRisk = true</code> → Sev 1 message → <strong>End topic</strong></td></tr>
+            <tr><td>3 · Incomplete?</td><td>Question → Condition → follow-up Question</td><td><code>=Len(Topic.Symptom) &lt; 25</code> → ask for the error code, platform, and start time, then merge with <code>Set variable</code></td></tr>
+            <tr><td>4 · Known?</td><td>Condition (2 cases + else)</td><td><code>="pending" in Topic.Symptom</code> → DSI-1042 · <code>="crash" in Topic.Symptom</code> → DSI-1041 · else → <strong>new issue</strong></td></tr>
+          </tbody>
+        </table></div>
+      </li>
+      <li class="step">
+        <h4>Read the result on the canvas</h4>
+        <p>Close the code editor. The YAML is rendered as nodes: <strong>Message → Question (multiple choice) → Question → Condition…</strong> Scroll through it and match each node to a junction in the table.</p>
+        <figure class="shot" data-label="Report a Digital Issue · canvas">
+          <img src="../assets/img/shots/m04-04-topic-canvas.webp" alt="Topic canvas showing trigger, message, and multiple-choice question with seven service options" loading="lazy">
+        </figure>
+      </li>
+      <li class="step">
+        <h4>Run the Topic checker until it's clean</h4>
+        <p>Open <span class="ui">Topic checker</span>. You need <strong>Errors (0)</strong> before the agent will run the topic reliably.</p>
+        <figure class="shot small" data-label="Topic checker">
+          <img src="../assets/img/shots/m04-05-topic-checker-clean.webp" alt="Topic checker: There are no errors or warnings in this topic" loading="lazy">
+        </figure>
+        <div class="callout anomaly"><strong>Real bug from our dry run</strong> Our first version compared the multiple-choice answer like this: <code>=Topic.Service = 'P2P'</code>. The checker reported <em>“Identifier not recognized”</em> and <em>“Incompatible type comparison”</em> twice. In Power Fx, <strong>single quotes mark an identifier, not text</strong>, and a choice variable isn't a plain string. The fix was to test the symptom text instead (<code>="pending" in Topic.Symptom</code>). In Mission 06 you'll replace these keyword checks with a real register lookup.</div>
+      </li>
+      <li class="step">
+        <h4>Fly the four test prompts</h4>
+        <p>Use a <span class="ui">New test session</span> for each prompt in the <em>win conditions</em> table (T1–T4). Answer the follow-up questions honestly, then check which branch fired in the activity map.</p>
+        <div class="prompt">Members say the app crashes right after the splash screen since the 8.4.0 update.</div>
+        <div class="reply">KNOWN ISSUE: matches DSI-1041. Update to 8.4.1 and restart the device. No new record is needed.</div>
+        <div class="prompt">Something's wrong with deposits.</div>
+        <div class="reply">That's not quite enough detail to triage. Please add the error code (if any), the platform, and when it started.</div>
+        <div class="prompt">A member says QuickPay debited them twice for the same transfer.</div>
+        <div class="reply">SENSITIVE: Sev 1 protocol. I will not take any action on my own. Page Digital Operations on-call now…</div>
+        <div class="callout tip"><strong>Stretch goal</strong> In the <em>else</em> (new issue) branch, add <span class="ui">+</span> → <span class="ui">Add a tool</span> → <strong>Triage Digital Issue</strong>, and map <code>Topic.Service</code>, <code>Topic.Symptom</code>, <code>Topic.MembersAffected</code>, and <code>Topic.FundsOrDataRisk</code> to its inputs. Your topic now calls your Mission 03 workflow and shows the returned <code>Severity</code> and <code>Route</code>.</div>
+      </li>
+    </ol>
+    <div class="checkpoint">
+      <h4>Telemetry check · Mission 04</h4>
+      <label><input type="checkbox"> Report a Digital Issue is saved, with Topic checker at Errors (0)</label>
+      <label><input type="checkbox"> T1 lands on the Known branch and no record is suggested</label>
+      <label><input type="checkbox"> T3 triggers the follow-up question before any action</label>
+      <label><input type="checkbox"> T4 ends the topic with the Sev 1 human-escalation message</label>
+    </div>
+    <!-- LAB-STEPS:m04:END -->
+    <div class="observer">
+      <span class="k">Observer / analyst track</span>
+      <h3>Edge-case hunter</h3>
+      <ol>
+        <li>Write three <em>nasty</em> test prompts the builder didn't plan for: a typo in the service name, two issues in one message, and an angry user who won't give details.</li>
+        <li>Predict which branch each one should land on, then watch the builder run them. Was your prediction right?</li>
+        <li>Log every surprise on the team's Day 2 improvement list.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="debrief">
+  <div class="debrief">
+    <h2 id="debrief-h">Debrief <span class="tag">Mission 04</span></h2>
+    <div class="takeaways">
+      <div><b>01 · VALIDATE FIRST</b><p>Never act on an incomplete report. Questions and entities are your validation gate.</p></div>
+      <div><b>02 · NO CLONES</b><p>Check what already exists before you create anything new.</p></div>
+      <div><b>03 · KNOW WHEN TO STOP</b><p>Sensitive branches should stop and escalate, not improvise.</p></div>
+    </div>
+    <div class="complete-row"><button class="complete-btn" type="button">🚀 Mark mission complete</button><span class="status">MISSION LOG</span></div>
+  </div>
+</section>
+
+<nav class="pn" aria-label="Mission navigation"><a class="prev" href="m03.html"><span class="k">← Mission 03</span><span class="t">Workflow Power: From Talk to Action</span></a><a class="next" href="m05.html"><span class="k">Mission 05 →</span><span class="t">Mission Checkpoint</span></a></nav>
+</article>
+<aside class="toc" aria-label="On this page"><div class="ttl">// Flight checklist</div><ol></ol>
+<div class="mini-progress"><div class="lbl"><span>Mission log</span><span><span data-progress-count>0</span>/10</span></div><div class="bar"><i data-progress-bar></i></div></div></aside>
+</div>
+</main>
+<footer class="footer"><div class="wrap">
+<div><div class="sig">Mission: Agent Upgrade 🚀</div><p>A 4-hour, live, instructor-led Microsoft Copilot Studio workshop. All scenarios, people, and data are fictional (Contoso Credit Union) and for classroom use only. Microsoft, Copilot, and Copilot Studio are trademarks of Microsoft Corporation.</p></div>
+<nav aria-label="Footer"><a href="../index.html">Home</a><a href="../index.html#flight-plan">Flight Plan</a><a href="../resources.html">Resources & Lab Kit</a><a href="../facilitator.html">Facilitator Guide</a></nav>
+</div></footer>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

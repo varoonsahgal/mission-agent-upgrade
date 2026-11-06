@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mission 07: Human in the Loop: Smart Automation · Mission: Agent Upgrade</title>
+<meta name="description" content="Add approvals, escalation paths, and failure handling so a sensitive action never runs without authorization.">
+<meta property="og:title" content="Mission 07: Human in the Loop: Smart Automation · Mission: Agent Upgrade">
+<meta property="og:description" content="Add approvals, escalation paths, and failure handling so a sensitive action never runs without authorization.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#04061a">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-mission="7" style="--accent:#f472b6">
+<a class="skip" href="#main">Skip to content</a>
+<canvas id="stars" aria-hidden="true"></canvas>
+<header class="topbar"><div class="wrap">
+<a class="brand" href="../index.html" aria-label="Mission: Agent Upgrade home"><svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="bl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff6b2c"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs><circle cx="20" cy="20" r="18" fill="none" stroke="url(#bl)" stroke-width="2"/><ellipse cx="20" cy="20" rx="18" ry="6.5" fill="none" stroke="#22d3ee" stroke-opacity=".6" stroke-width="1.2" transform="rotate(-28 20 20)"/><path d="M20 9c3 2 4.6 5.4 4.6 8.8l-1.6 3.4h-6l-1.6-3.4C15.4 14.4 17 11 20 9z" fill="#fff"/><path d="M17.6 22.6 16 26.5l2.6-1M22.4 22.6 24 26.5l-2.6-1" stroke="#ff6b2c" stroke-width="1.4" fill="none" stroke-linecap="round"/><circle cx="20" cy="16.4" r="1.6" fill="#8b5cf6"/></svg>
+<span>MISSION: AGENT UPGRADE<small>Copilot Studio · Contoso Digital</small></span></a>
+<button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
+<nav class="nav" id="nav"><a href="../index.html#flight-plan">Flight Plan</a><a href="../index.html#missions" aria-current=page>Missions</a><a href="../resources.html">Resources</a><a href="../facilitator.html">Facilitator</a><a class="cta" href="../missions/m01.html">Launch Mission 01 →</a></nav>
+<div class="telemetry" aria-hidden="true"><span class="dot"></span><span>SYS NOMINAL</span><span>·</span><span id="met">--:--:-- ET</span></div>
+</div></header>
+<main id="main">
+<section class="mhero"><div class="wrap">
+<div class="patch" data-patch="7" aria-hidden="true"></div>
+<div>
+<div class="crumbs"><a href="../index.html">Mission: Agent Upgrade</a><span>/</span><a href="../index.html#flight-plan">Day 2 · Connect It. Secure It. Prove It.</a><span>/</span><span>Mission 07</span></div>
+<h1><span class="mnum">MISSION 07 · CHALLENGE</span>Human in the Loop: Smart Automation</h1>
+<div class="facts"><span class="fact"><b>Day</b>2 of 2</span><span class="fact"><b>Duration</b>25 min</span><span class="fact"><b>AM slot</b>10:30–10:55 ET</span><span class="fact"><b>Format</b>Challenge</span></div>
+<div class="objective-box"><b>MISSION OBJECTIVE</b>Add approvals, escalation paths, and failure handling so a sensitive action never runs without authorization.</div>
+</div></div></section>
+<div class="wrap mbody">
+<article class="prose">
+<section id="briefing">
+  <h2 id="briefing-h">Briefing <span class="tag">Discover</span></h2>
+  <p class="lead">The smartest automation knows when <strong>not</strong> to act alone. In this mission you'll build a gate that stops the launch sequence, gets a human to authorize it, and handles a “no” or silence as gracefully as a “yes.”</p>
+
+  <h3 id="spectrum" class="toc-include">The autonomy spectrum</h3>
+  <div class="diagram" role="img" aria-label="Autonomy spectrum from fully automated to human in the loop.">
+    <svg viewBox="0 0 900 200" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="sp" x1="0" x2="1"><stop offset="0" stop-color="#34d399"/><stop offset=".5" stop-color="#fbbf24"/><stop offset="1" stop-color="#f472b6"/></linearGradient></defs>
+      <rect x="40" y="88" width="820" height="10" rx="5" fill="url(#sp)"/>
+      <g font-family="Space Grotesk" font-weight="600" fill="#fff" font-size="17" text-anchor="middle">
+        <circle cx="120" cy="93" r="16" fill="#05071c" stroke="#34d399" stroke-width="3"/><text x="120" y="50">Fully automated</text><text x="120" y="140" font-family="Inter" font-weight="400" font-size="12" fill="#8f9ac2">Share known-issue guidance</text><text x="120" y="158" font-family="Inter" font-weight="400" font-size="12" fill="#8f9ac2">Sev 3–4 new record</text>
+        <circle cx="450" cy="93" r="16" fill="#05071c" stroke="#fbbf24" stroke-width="3"/><text x="450" y="50">Human on the loop</text><text x="450" y="140" font-family="Inter" font-weight="400" font-size="12" fill="#8f9ac2">Act, then notify on-call</text><text x="450" y="158" font-family="Inter" font-weight="400" font-size="12" fill="#8f9ac2">Sev 2 record + Teams alert</text>
+        <circle cx="780" cy="93" r="16" fill="#05071c" stroke="#f472b6" stroke-width="3"/><text x="780" y="50">Human in the loop</text><text x="780" y="140" font-family="Inter" font-weight="400" font-size="12" fill="#8f9ac2">Wait for approval first</text><text x="780" y="158" font-family="Inter" font-weight="400" font-size="12" fill="#8f9ac2">Sev 1, funds/data risk, closures</text>
+      </g>
+    </svg>
+    <div class="cap">Fig. 07-A · Match the oversight to the risk</div>
+  </div>
+
+  <h3 id="gate-matrix" class="toc-include">What needs a gate?</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Requested action</th><th>Risk</th><th>Treatment</th><th>Approver</th></tr></thead>
+      <tbody>
+        <tr><td>Share approved guidance for a known issue</td><td><span class="sev s4">Low</span></td><td>Automate</td><td>—</td></tr>
+        <tr><td>Create a Sev 3–4 register record</td><td><span class="sev s3">Medium</span></td><td>Automate + log</td><td>—</td></tr>
+        <tr><td>Create a Sev 2 record and page a team</td><td><span class="sev s2">High</span></td><td>Act, then notify</td><td>Team lead (FYI)</td></tr>
+        <tr><td>Declare a Sev 1 / open a major incident</td><td><span class="sev s1">Critical</span></td><td><strong>Approval gate</strong></td><td>Digital Ops on-call</td></tr>
+        <tr><td>Close, downgrade, or delete an incident</td><td><span class="sev s1">Critical</span></td><td><strong>Approval gate</strong></td><td>Digital Ops on-call</td></tr>
+        <tr><td>Reset or bypass a member's MFA</td><td><span class="sev s1">Critical</span></td><td><strong>Never automated</strong> → hand off to a human</td><td>Member Services</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="toolkit" class="toc-include">The human-in-the-loop toolkit</h3>
+  <div class="tiles">
+    <div class="tile"><span class="lbl">FLOW</span><span class="t-ic">✍️</span><h4>Approvals</h4><p>“Start and wait for an approval” pauses the flow until someone approves or rejects in Teams, Outlook, or the Approvals app.</p></div>
+    <div class="tile"><span class="lbl">FLOW</span><span class="t-ic">🧭</span><h4>Multistage &amp; info requests</h4><p>Agent flows can chain approval stages, or pause to ask a person for missing information.</p></div>
+    <div class="tile"><span class="lbl">TOPIC</span><span class="t-ic">🙋</span><h4>Escalate</h4><p>The <em>Escalate</em> system topic hands the conversation to a human channel or a live agent.</p></div>
+    <div class="tile"><span class="lbl">FLOW</span><span class="t-ic">⏱️</span><h4>Timeouts</h4><p>Set a timeout on the approval so that silence leads to escalation, not a stuck flow.</p></div>
+    <div class="tile"><span class="lbl">FLOW</span><span class="t-ic">🧯</span><h4>Run-after / scopes</h4><p>Configure “run after has failed or timed out” branches as a try/catch for your workflow.</p></div>
+    <div class="tile"><span class="lbl">AUDIT</span><span class="t-ic">🧾</span><h4>Audit trail</h4><p>Record who approved what, and when, in the register itself.</p></div>
+  </div>
+
+  <h3 id="truthful" class="toc-include">Truthful status messages</h3>
+  <p>The agent's words must match the system's state, exactly:</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Approval outcome</th><th>✗ Never say</th><th>✓ Say instead</th></tr></thead>
+      <tbody>
+        <tr><td>Pending</td><td>“Done! Sev 1 declared.”</td><td>“I've requested approval from Digital Ops on-call. Nothing has been changed yet.”</td></tr>
+        <tr><td>Approved</td><td>“Approved.” (with no ID)</td><td>“Approved by on-call. Major incident DSI-2058 is open.”</td></tr>
+        <tr><td>Rejected</td><td>“Something went wrong.”</td><td>“On-call declined to open a Sev 1. The issue stays at Sev 2 as DSI-2058.”</td></tr>
+        <tr><td>Timed out</td><td>(silence)</td><td>“No response within 15 minutes. I've escalated to the secondary on-call.”</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="anomaly-approval">
+  <div class="challenge">
+    <div class="k">⚠ Anomaly-AUTH · The Human Approval Gate</div>
+    <h3>“Just declare the Sev 1, we're losing money!”</h3>
+    <p>A stressed analyst types: <em>“QuickPay is double-debiting members. Declare a Sev 1 NOW and page everyone.”</em> It's an urgent, plausible, high-impact request, and exactly the kind of action that <strong>must not</strong> run on an AI's say-so.</p>
+    <div class="rules">
+      <div><h4>Rule 1 · Stop</h4><p>Any Sev 1, funds-risk, or closure request triggers an approval. The workflow takes no action until it's approved.</p></div>
+      <div><h4>Rule 2 · Be truthful</h4><p>The agent reports “pending approval”, never success, while it waits.</p></div>
+      <div><h4>Rule 3 · Handle “no”</h4><p>A rejection leaves the system unchanged and tells the user why.</p></div>
+      <div><h4>Rule 4 · Handle silence</h4><p>On a timeout, escalate to the secondary on-call. Never auto-approve.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="lab">
+  <div class="lab" style="--accent:#f472b6">
+    <div class="lab-head">
+      <div>
+        <div class="codename">Challenge 07 · Codename GO / NO-GO</div>
+        <h2 id="lab-h">Build the approval gate</h2>
+        <div class="modes"><span class="mode-badge builder">Builder</span><span class="mode-badge team">Team</span><span class="mode-badge observer">Observer</span></div>
+      </div>
+      <div class="timer"><div class="t">18:00</div><div class="l">Minutes</div></div>
+    </div>
+    <div class="build-summary">
+      <div>
+        <h4>What you'll build</h4>
+        <ul>
+          <li>An approval step in the triage workflow for Sev 1 and sensitive requests</li>
+          <li>Approved, Rejected, and Timed-out branches with truthful outputs</li>
+          <li>An agent response that reflects the real approval status</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Pre-flight</h4>
+        <ul>
+          <li>The Mission 06 workflow writes to the register</li>
+          <li>Team mode: the Risk Reviewer plays the approver (use your own account in the sandbox)</li>
+          <li>Teams or Outlook open so you can respond to the approval</li>
+        </ul>
+      </div>
+    </div>
+    <!-- LAB-STEPS:m07:BEGIN -->
+    <ol class="steps">
+      <li class="step">
+        <h4>Watch the gate fail first</h4>
+        <p>Before you build anything, send the sensitive prompt to the agent you finished in Mission 06:</p>
+        <div class="prompt">Several members say QuickPay debited them twice for the same transfer this morning. Error P2P-504 on iOS and Android. Please triage this.</div>
+        <p>In our dry run, the orchestrator didn't call the triage tool at all. It read “escalate” in the instructions and jumped to the built-in <strong>Escalate</strong> system topic, which by default says escalation <em>isn't configured</em>.</p>
+        <figure class="shot" data-label="Activity map · Escalate topic">
+          <img src="../assets/img/shots/m07-01-escalate-topic-hijack.webp" alt="Agent response: Escalating to a representative is not currently configured, with Escalate topic in the activity map" loading="lazy">
+          <figcaption>An honest answer, but useless to the employee. Nobody gets paged, nothing is recorded, and there's no approval. This is the gap you're closing.</figcaption>
+        </figure>
+        <div class="callout tip"><strong>Quick fix while you build</strong> Open <span class="ui">Topics</span> → <span class="ui">System</span> → <span class="ui">Escalate</span>, and replace the placeholder message with the real path: who to page, what to include, and that the agent will not act. Then build the real gate below.</div>
+      </li>
+      <li class="step">
+        <h4>Add a human-review step to the sensitive branch</h4>
+        <p>Open <strong>Triage Digital Issue</strong>. In the <span class="badge-true">True</span> branch (funds or data risk), select <span class="ui">+</span> above <span class="ui">Respond to the agent</span>, then go to <span class="ui">AI capabilities</span> → <span class="ui">Human review</span>. You get two human-in-the-loop actions: <strong>Request information</strong> and <strong>Run a multistage approval</strong>.</p>
+        <figure class="shot" data-label="Add an action › Human review">
+          <img src="../assets/img/shots/m07-02-human-review-actions.webp" alt="Human review actions: Request information and Run a multistage approval (preview)" loading="lazy">
+        </figure>
+        <p>Choose <span class="ui">Run a multistage approval</span>. The first time, create the <strong>Human review</strong> connection: give it a name and select <span class="ui">Create new</span>.</p>
+      </li>
+      <li class="step">
+        <h4>Design the approval stages</h4>
+        <p>Select <span class="ui">Set up the approval</span> → <span class="ui">Create</span>. Stages can be <strong>Manual</strong> (a person decides) or <strong>AI</strong> (a model pre-screens against criteria you write). For a Sev 1 funds-risk case, a human always makes the final call.</p>
+        <figure class="shot" data-label="Multistage approval · Create">
+          <img src="../assets/img/shots/m07-05-approval-stage.webp" alt="Create menu showing Manual stage and AI stage options" loading="lazy">
+        </figure>
+        <p>Add a <span class="ui">Manual stage</span> and choose the <strong>Approval type</strong>: <em>First to respond</em> for an on-call rota, or <em>Everyone must approve</em> for dual control.</p>
+        <figure class="shot" data-label="Manual stage · Approval type">
+          <img src="../assets/img/shots/m07-07-approval-types.webp" alt="Approval type dropdown: Approve/Reject First to respond, Everyone must approve, custom" loading="lazy">
+        </figure>
+        <pre class="copy" data-lang="Stage 1 · On-call approval"><code>Title       = SEV 1 APPROVAL REQUIRED - Mission Control escalation
+Assigned to = (your own account in the sandbox / the on-call alias in real life)
+Details     = Funds or data risk was reported for @{triggerBody()?['text']}.
+              Symptom: @{triggerBody()?['text_1']}. Members affected: @{triggerBody()?['text_2']}.
+              Mission Control has STOPPED and will not act until Digital Operations approves.</code></pre>
+        <div class="callout warn"><strong>Don't assign yourself to two stages</strong> The designer warns that assigning the same approver to more than one stage makes the flow fail. For dual control, use <em>Everyone must approve</em> with two people instead.</div>
+      </li>
+      <li class="step">
+        <h4>Branch on the real outcome</h4>
+        <p>After the approval, add a <span class="ui">Condition</span> on the approval's outcome, and return a truthful <code>Route</code> from each branch:</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Outcome</th><th>Severity</th><th>Route returned to the agent</th></tr></thead>
+          <tbody>
+            <tr><td>Approved</td><td>Sev 1 - Critical</td><td>APPROVED by on-call. Proceed with Log Digital Issue and page Payments.</td></tr>
+            <tr><td>Rejected</td><td>Sev 1 - Critical</td><td>REJECTED by on-call. Do not take action. Tell the employee who to contact.</td></tr>
+            <tr><td>Timed out (Configure run after → has timed out)</td><td>Sev 1 - Critical</td><td>NO DECISION YET. Do not take action. Escalate to secops@contoso.example.</td></tr>
+          </tbody>
+        </table></div>
+        <div class="callout intel"><strong>Run after</strong> Every action's <span class="ui">…</span> menu has <span class="ui">Run after</span>. Use it to send a step down a path when the step before it <em>failed</em> or <em>timed out</em>. This same technique saves you from the 403 Surprise in Mission 09.</div>
+      </li>
+      <li class="step">
+        <h4>Test both decisions</h4>
+        <p>Publish, start a new test session, and send the duplicate-debit prompt again. Approve the request the first time and <strong>reject</strong> it the second time. In both cases, the agent must report exactly what the approver decided.</p>
+        <div class="reply">This needs a human decision. I've requested Sev 1 approval from Digital Operations on-call and will not take any action until they respond.</div>
+      </li>
+    </ol>
+    <div class="checkpoint">
+      <h4>Telemetry check · Mission 07</h4>
+      <label><input type="checkbox"> The sensitive branch pauses for a human before it returns anything</label>
+      <label><input type="checkbox"> Approved, Rejected, and Timed-out each return a different, truthful Route</label>
+      <label><input type="checkbox"> The approval details give the approver enough context to decide</label>
+      <label><input type="checkbox"> The Escalate system topic no longer says “not configured”</label>
+    </div>
+    <!-- LAB-STEPS:m07:END -->
+    <div class="observer">
+      <span class="k">Observer / analyst track</span>
+      <h3>Go / No-Go board</h3>
+      <ol>
+        <li>Act as the approver. When the request arrives, check it: does the approval message include enough context (service, symptom, members affected, who asked) to decide?</li>
+        <li>Reject the first request on purpose. Does the agent tell the truth?</li>
+        <li>List three other Contoso Digital actions that should sit behind a gate.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="debrief">
+  <div class="debrief">
+    <h2 id="debrief-h">Debrief <span class="tag">Mission 07</span></h2>
+    <div class="takeaways">
+      <div><b>01 · MATCH OVERSIGHT TO RISK</b><p>Automate low-risk work, notify on medium risk, and gate the critical actions.</p></div>
+      <div><b>02 · DESIGN FOR NO AND SILENCE</b><p>Rejections and timeouts are first-class paths, not afterthoughts.</p></div>
+      <div><b>03 · TRUTHFUL STATUS</b><p>The agent never claims an outcome that the system hasn't confirmed.</p></div>
+    </div>
+    <div class="complete-row"><button class="complete-btn" type="button">🚀 Mark mission complete</button><span class="status">MISSION LOG</span></div>
+  </div>
+</section>
+
+<nav class="pn" aria-label="Mission navigation"><a class="prev" href="m06.html"><span class="k">← Mission 06</span><span class="t">Connect the Dots: Enterprise Integrations</span></a><a class="next" href="m08.html"><span class="k">Mission 08 →</span><span class="t">Break the Agent! Security &amp; Governance</span></a></nav>
+</article>
+<aside class="toc" aria-label="On this page"><div class="ttl">// Flight checklist</div><ol></ol>
+<div class="mini-progress"><div class="lbl"><span>Mission log</span><span><span data-progress-count>0</span>/10</span></div><div class="bar"><i data-progress-bar></i></div></div></aside>
+</div>
+</main>
+<footer class="footer"><div class="wrap">
+<div><div class="sig">Mission: Agent Upgrade 🚀</div><p>A 4-hour, live, instructor-led Microsoft Copilot Studio workshop. All scenarios, people, and data are fictional (Contoso Credit Union) and for classroom use only. Microsoft, Copilot, and Copilot Studio are trademarks of Microsoft Corporation.</p></div>
+<nav aria-label="Footer"><a href="../index.html">Home</a><a href="../index.html#flight-plan">Flight Plan</a><a href="../resources.html">Resources & Lab Kit</a><a href="../facilitator.html">Facilitator Guide</a></nav>
+</div></footer>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

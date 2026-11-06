@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mission 05: Mission Checkpoint · Mission: Agent Upgrade</title>
+<meta name="description" content="Test the Day 1 build end to end and log the improvements to make on Day 2.">
+<meta property="og:title" content="Mission 05: Mission Checkpoint · Mission: Agent Upgrade">
+<meta property="og:description" content="Test the Day 1 build end to end and log the improvements to make on Day 2.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#04061a">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-mission="5" style="--accent:#34d399">
+<a class="skip" href="#main">Skip to content</a>
+<canvas id="stars" aria-hidden="true"></canvas>
+<header class="topbar"><div class="wrap">
+<a class="brand" href="../index.html" aria-label="Mission: Agent Upgrade home"><svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="bl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff6b2c"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs><circle cx="20" cy="20" r="18" fill="none" stroke="url(#bl)" stroke-width="2"/><ellipse cx="20" cy="20" rx="18" ry="6.5" fill="none" stroke="#22d3ee" stroke-opacity=".6" stroke-width="1.2" transform="rotate(-28 20 20)"/><path d="M20 9c3 2 4.6 5.4 4.6 8.8l-1.6 3.4h-6l-1.6-3.4C15.4 14.4 17 11 20 9z" fill="#fff"/><path d="M17.6 22.6 16 26.5l2.6-1M22.4 22.6 24 26.5l-2.6-1" stroke="#ff6b2c" stroke-width="1.4" fill="none" stroke-linecap="round"/><circle cx="20" cy="16.4" r="1.6" fill="#8b5cf6"/></svg>
+<span>MISSION: AGENT UPGRADE<small>Copilot Studio · Contoso Digital</small></span></a>
+<button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
+<nav class="nav" id="nav"><a href="../index.html#flight-plan">Flight Plan</a><a href="../index.html#missions" aria-current=page>Missions</a><a href="../resources.html">Resources</a><a href="../facilitator.html">Facilitator</a><a class="cta" href="../missions/m01.html">Launch Mission 01 →</a></nav>
+<div class="telemetry" aria-hidden="true"><span class="dot"></span><span>SYS NOMINAL</span><span>·</span><span id="met">--:--:-- ET</span></div>
+</div></header>
+<main id="main">
+<section class="mhero"><div class="wrap">
+<div class="patch" data-patch="5" aria-hidden="true"></div>
+<div>
+<div class="crumbs"><a href="../index.html">Mission: Agent Upgrade</a><span>/</span><a href="../index.html#flight-plan">Day 1 · Give Your Agent Superpowers</a><span>/</span><span>Mission 05</span></div>
+<h1><span class="mnum">MISSION 05 · CHECKPOINT</span>Mission Checkpoint</h1>
+<div class="facts"><span class="fact"><b>Day</b>1 of 2</span><span class="fact"><b>Duration</b>5 min</span><span class="fact"><b>AM slot</b>11:55–12:00 ET</span><span class="fact"><b>Format</b>Checkpoint</span></div>
+<div class="objective-box"><b>MISSION OBJECTIVE</b>Test the Day 1 build end to end and log the improvements to make on Day 2.</div>
+</div></div></section>
+<div class="wrap mbody">
+<article class="prose">
+<section id="briefing">
+  <h2 id="briefing-h">Briefing <span class="tag">Test</span></h2>
+  <p class="lead">Five minutes. One full test flight. Before the capsule docks for the day, prove that today's upgrades work together, and write down what Day 2 needs to fix.</p>
+  <div class="flow">
+    <div class="fstep"><span class="k">Day 1 · Built</span><h4>Knowledge</h4><p>Playbook-grounded answers</p></div>
+    <div class="fstep"><span class="k">Day 1 · Built</span><h4>Workflow</h4><p>Triage Digital Issue</p></div>
+    <div class="fstep"><span class="k">Day 1 · Built</span><h4>Decisions</h4><p>Four-branch topic</p></div>
+    <div class="fstep" style="opacity:.6"><span class="k">Day 2 · Next</span><h4>Real data</h4><p>SharePoint register</p></div>
+    <div class="fstep" style="opacity:.6"><span class="k">Day 2 · Next</span><h4>Guardrails</h4><p>Approvals + security</p></div>
+  </div>
+</section>
+
+<section id="flight-test">
+  <div class="lab" style="--accent:#34d399">
+    <div class="lab-head">
+      <div>
+        <div class="codename">Checkpoint · Codename DOCKING</div>
+        <h2 id="flight-test-h">End-to-end test flight</h2>
+        <div class="modes"><span class="mode-badge builder">Builder</span><span class="mode-badge team">Team</span><span class="mode-badge observer">Observer</span></div>
+      </div>
+      <div class="timer"><div class="t">05:00</div><div class="l">Minutes</div></div>
+    </div>
+    <p>Start a <strong>new conversation</strong> in the test pane (the refresh icon at the top of the pane), then run this sequence:</p>
+    <div class="prompt">What should I tell a member whose mobile check deposit says RDC-117?</div>
+    <div class="reply">Approved guidance from the playbook (dark, flat background; good lighting; all four corners in frame), with a citation.</div>
+    <div class="prompt">I need to report an issue: Bill Pay payee search fails with BIL-512 on Android for some members.</div>
+    <div class="reply">The topic collects or confirms the details, calls the triage workflow, and returns a tracking ID and severity.</div>
+    <div class="prompt">Can you reset MFA for member 4471 so they can log in?</div>
+    <div class="reply">A polite refusal. MFA resets require identity verification by a human Member Services specialist.</div>
+    <!-- LAB-STEPS:m05:BEGIN -->
+    <div class="callout intel"><strong>What “good” looked like in our dry run</strong> The activity map shows the agent choosing the <em>Triage Digital Issue</em> tool by itself, filling every input from one sentence, and using the returned severity. If yours looks like this, Day 1 is a success.</div>
+    <figure class="shot" data-label="Day 1 · reference result">
+      <img src="../assets/img/shots/m03-21-agent-calls-tool.webp" alt="Reference: activity map with the Triage Digital Issue tool call and Sev 3 result" loading="lazy">
+    </figure>
+    <!-- LAB-STEPS:m05:END -->
+    <div class="checkpoint">
+      <h4>Telemetry check · Day 1 systems</h4>
+      <label><input type="checkbox"> Knowledge answers cite the Troubleshooting Playbook</label>
+      <label><input type="checkbox"> The triage workflow runs and returns a Severity and Route</label>
+      <label><input type="checkbox"> An incomplete report triggers follow-up questions, not an action</label>
+      <label><input type="checkbox"> A known issue gets guidance with no new record</label>
+      <label><input type="checkbox"> The MFA-reset request is refused</label>
+      <label><input type="checkbox"> I opened the Activity view and can see which topic or tool ran</label>
+    </div>
+  </div>
+</section>
+
+<section id="self-assessment">
+  <h2 id="assess-h">Self-assessment <span class="tag">Rate yourself</span></h2>
+  <p>Be honest. This stays on your device. Rate each skill from 1 (heard of it) to 5 (could teach it).</p>
+  <div class="radar">
+    <div class="skill"><h4>Choosing Agent Builder vs. Copilot Studio</h4><div class="dots"></div><div class="lvl"></div></div>
+    <div class="skill"><h4>Writing agent instructions</h4><div class="dots"></div><div class="lvl"></div></div>
+    <div class="skill"><h4>Adding and testing knowledge</h4><div class="dots"></div><div class="lvl"></div></div>
+    <div class="skill"><h4>Building an agent flow with inputs and outputs</h4><div class="dots"></div><div class="lvl"></div></div>
+    <div class="skill"><h4>Topics, questions, and entities</h4><div class="dots"></div><div class="lvl"></div></div>
+    <div class="skill"><h4>Conditions and branching</h4><div class="dots"></div><div class="lvl"></div></div>
+  </div>
+</section>
+
+<section id="day2-list">
+  <h2 id="day2-h">Day 2 improvement log <span class="tag">Improve</span></h2>
+  <p>Before you log off, capture at least three improvements. Typical ones from past crews:</p>
+  <div class="tiles">
+    <div class="tile"><span class="lbl">DATA</span><h4>“Known issue” is hard-coded</h4><p>Look it up in a real register instead → Mission 06.</p></div>
+    <div class="tile"><span class="lbl">SAFETY</span><h4>Sev 1 only sends a message</h4><p>It needs a real approval gate → Mission 07.</p></div>
+    <div class="tile"><span class="lbl">SECURITY</span><h4>Knowledge sources aren't vetted</h4><p>What if a document lies? → Mission 08.</p></div>
+    <div class="tile"><span class="lbl">QUALITY</span><h4>No failure testing</h4><p>What if the connector is down? → Mission 09.</p></div>
+  </div>
+</section>
+
+<section id="debrief">
+  <div class="debrief">
+    <h2 id="debrief-h">Debrief <span class="tag">End of Day 1</span></h2>
+    <div class="takeaways">
+      <div><b>DAY 1 OUTCOME</b><p>An upgraded agent design with a testable business workflow and conditional logic.</p></div>
+      <div><b>TOMORROW</b><p>Connect it to real (synthetic) data, secure it, and prove it works.</p></div>
+      <div><b>HOMEWORK (OPTIONAL)</b><p>Run the <a href="m01.html#challenge">Which tool fits?</a> challenge on your own backlog.</p></div>
+    </div>
+    <div class="complete-row"><button class="complete-btn" type="button">🚀 Mark mission complete</button><span class="status">MISSION LOG</span></div>
+  </div>
+</section>
+
+<nav class="pn" aria-label="Mission navigation"><a class="prev" href="m04.html"><span class="k">← Mission 04</span><span class="t">Decision Junction: Make It Smarter</span></a><a class="next" href="m06.html"><span class="k">Mission 06 →</span><span class="t">Connect the Dots: Enterprise Integrations</span></a></nav>
+</article>
+<aside class="toc" aria-label="On this page"><div class="ttl">// Flight checklist</div><ol></ol>
+<div class="mini-progress"><div class="lbl"><span>Mission log</span><span><span data-progress-count>0</span>/10</span></div><div class="bar"><i data-progress-bar></i></div></div></aside>
+</div>
+</main>
+<footer class="footer"><div class="wrap">
+<div><div class="sig">Mission: Agent Upgrade 🚀</div><p>A 4-hour, live, instructor-led Microsoft Copilot Studio workshop. All scenarios, people, and data are fictional (Contoso Credit Union) and for classroom use only. Microsoft, Copilot, and Copilot Studio are trademarks of Microsoft Corporation.</p></div>
+<nav aria-label="Footer"><a href="../index.html">Home</a><a href="../index.html#flight-plan">Flight Plan</a><a href="../resources.html">Resources & Lab Kit</a><a href="../facilitator.html">Facilitator Guide</a></nav>
+</div></footer>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

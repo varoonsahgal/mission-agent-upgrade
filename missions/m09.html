@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mission 09: Mission Control: Test &amp; Troubleshoot · Mission: Agent Upgrade</title>
+<meta name="description" content="Validate workflow runs, handle connector failures, and put the agent through realistic success and failure scenarios.">
+<meta property="og:title" content="Mission 09: Mission Control: Test &amp; Troubleshoot · Mission: Agent Upgrade">
+<meta property="og:description" content="Validate workflow runs, handle connector failures, and put the agent through realistic success and failure scenarios.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#04061a">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-mission="9" style="--accent:#a3e635">
+<a class="skip" href="#main">Skip to content</a>
+<canvas id="stars" aria-hidden="true"></canvas>
+<header class="topbar"><div class="wrap">
+<a class="brand" href="../index.html" aria-label="Mission: Agent Upgrade home"><svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="bl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff6b2c"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs><circle cx="20" cy="20" r="18" fill="none" stroke="url(#bl)" stroke-width="2"/><ellipse cx="20" cy="20" rx="18" ry="6.5" fill="none" stroke="#22d3ee" stroke-opacity=".6" stroke-width="1.2" transform="rotate(-28 20 20)"/><path d="M20 9c3 2 4.6 5.4 4.6 8.8l-1.6 3.4h-6l-1.6-3.4C15.4 14.4 17 11 20 9z" fill="#fff"/><path d="M17.6 22.6 16 26.5l2.6-1M22.4 22.6 24 26.5l-2.6-1" stroke="#ff6b2c" stroke-width="1.4" fill="none" stroke-linecap="round"/><circle cx="20" cy="16.4" r="1.6" fill="#8b5cf6"/></svg>
+<span>MISSION: AGENT UPGRADE<small>Copilot Studio · Contoso Digital</small></span></a>
+<button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
+<nav class="nav" id="nav"><a href="../index.html#flight-plan">Flight Plan</a><a href="../index.html#missions" aria-current=page>Missions</a><a href="../resources.html">Resources</a><a href="../facilitator.html">Facilitator</a><a class="cta" href="../missions/m01.html">Launch Mission 01 →</a></nav>
+<div class="telemetry" aria-hidden="true"><span class="dot"></span><span>SYS NOMINAL</span><span>·</span><span id="met">--:--:-- ET</span></div>
+</div></header>
+<main id="main">
+<section class="mhero"><div class="wrap">
+<div class="patch" data-patch="9" aria-hidden="true"></div>
+<div>
+<div class="crumbs"><a href="../index.html">Mission: Agent Upgrade</a><span>/</span><a href="../index.html#flight-plan">Day 2 · Connect It. Secure It. Prove It.</a><span>/</span><span>Mission 09</span></div>
+<h1><span class="mnum">MISSION 09 · LAB</span>Mission Control: Test &amp; Troubleshoot</h1>
+<div class="facts"><span class="fact"><b>Day</b>2 of 2</span><span class="fact"><b>Duration</b>20 min</span><span class="fact"><b>AM slot</b>11:25–11:45 ET</span><span class="fact"><b>Format</b>Lab</span></div>
+<div class="objective-box"><b>MISSION OBJECTIVE</b>Validate workflow runs, handle connector failures, and put the agent through realistic success and failure scenarios.</div>
+</div></div></section>
+<div class="wrap mbody">
+<article class="prose">
+<section id="briefing">
+  <h2 id="briefing-h">Briefing <span class="tag">Test</span></h2>
+  <p class="lead">“It worked when I tried it” is not a test plan. Mission Control has to prove that it works on the good days, and that it <strong>fails honestly</strong> on the bad ones.</p>
+
+  <h3 id="pyramid" class="toc-include">The agent test pyramid</h3>
+  <div class="diagram" role="img" aria-label="Test pyramid: topic tests, workflow runs, scenario tests, evaluation sets, and production monitoring.">
+    <svg viewBox="0 0 900 330" xmlns="http://www.w3.org/2000/svg">
+      <g font-family="Space Grotesk" font-weight="600" fill="#fff" font-size="16" text-anchor="middle">
+        <polygon points="450,20 520,80 380,80" fill="#a3e635" fill-opacity=".85"/><text x="450" y="70" fill="#05071c" font-size="12">MONITOR</text>
+        <polygon points="380,86 520,86 585,140 315,140" fill="#34d399" fill-opacity=".7"/><text x="450" y="120">Evaluation test sets</text>
+        <polygon points="315,146 585,146 650,200 250,200" fill="#22d3ee" fill-opacity=".55"/><text x="450" y="180">Scenario tests · success &amp; failure</text>
+        <polygon points="250,206 650,206 715,260 185,260" fill="#8b5cf6" fill-opacity=".5"/><text x="450" y="240">Workflow run history</text>
+        <polygon points="185,266 715,266 780,320 120,320" fill="#ff6b2c" fill-opacity=".45"/><text x="450" y="300">Topic tests in the test pane</text>
+      </g>
+    </svg>
+    <div class="cap">Fig. 09-A · Lots of fast tests at the bottom, a few broad ones at the top</div>
+  </div>
+
+  <h3 id="instruments" class="toc-include">Your diagnostic instruments</h3>
+  <div class="tiles">
+    <div class="tile"><span class="lbl">PANE</span><span class="t-ic">💬</span><h4>Test your agent</h4><p>Chat live. Start a fresh conversation for every test so leftover variables don't mislead you.</p></div>
+    <div class="tile"><span class="lbl">PANE</span><span class="t-ic">{x}</span><h4>Variables</h4><p>Open the variables view from the test pane to see what each topic captured.</p></div>
+    <div class="tile"><span class="lbl">TAB</span><span class="t-ic">🗺️</span><h4>Activity</h4><p>See which topic, tool, or knowledge source the orchestrator chose, and why.</p></div>
+    <div class="tile"><span class="lbl">WORKFLOWS</span><span class="t-ic">📜</span><h4>Run history</h4><p>Inputs, outputs, and the exact failing step (with its HTTP status) for every flow run.</p></div>
+    <div class="tile"><span class="lbl">TAB</span><span class="t-ic">🧪</span><h4>Evaluation</h4><p>Build reusable test sets and score answers against expectations.</p></div>
+    <div class="tile"><span class="lbl">TAB</span><span class="t-ic">📈</span><h4>Monitor</h4><p>Watch health, errors, and outcomes once real people use the agent.</p></div>
+  </div>
+
+  <h3 id="matrix" class="toc-include">Scenario matrix</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>ID</th><th>Scenario</th><th>Type</th><th>Pass criteria</th></tr></thead>
+      <tbody>
+        <tr><td>S1</td><td>Known issue (app crash after the 8.4.0 update)</td><td><span class="sev s3">Success</span></td><td>Guidance + DSI-1041, no new record</td></tr>
+        <tr><td>S2</td><td>New issue, complete details (Bill Pay BIL-512)</td><td><span class="sev s3">Success</span></td><td>A new record exists; the reported ID matches the list</td></tr>
+        <tr><td>S3</td><td>Incomplete report (“deposits are broken”)</td><td><span class="sev s3">Success</span></td><td>Follow-up questions; no action until complete</td></tr>
+        <tr><td>S4</td><td>Duplicate report (QuickPay pending)</td><td><span class="sev s2">Edge</span></td><td>Returns DSI-1042; record count unchanged</td></tr>
+        <tr><td>S5</td><td>Sev 1 (double debit)</td><td><span class="sev s2">Edge</span></td><td>Approval requested; “pending” message; no write before approval</td></tr>
+        <tr><td>S6</td><td>Connector permission revoked (403)</td><td><span class="sev s1">Failure</span></td><td>The agent says it couldn't create the record; no fake ID</td></tr>
+        <tr><td>S7</td><td>Invalid service (“the toaster app”)</td><td><span class="sev s1">Failure</span></td><td>Re-prompt, then a graceful fallback</td></tr>
+        <tr><td>S8</td><td>Out of scope (“what's the mortgage rate?”)</td><td><span class="sev s4">Boundary</span></td><td>Politely declines and stays on mission</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Download the full matrix with prompts: <a href="../lab-kit/test-scenarios.md" download>test-scenarios.md</a>.</p>
+</section>
+
+<section id="anomaly-403">
+  <div class="challenge">
+    <div class="k">⚠ Anomaly-403 · The 403 Surprise</div>
+    <h3>“Created issue DSI-.” Wait, what?</h3>
+    <p>Overnight, a SharePoint admin cleaned up site permissions, and the account behind Mission Control's connection lost access to the Digital Issue Register. In the morning, a user reports a new issue. The <em>Create item</em> step fails with <code>403 Forbidden</code>… but the flow carries on, and the agent cheerfully announces: <strong>“Done! I've created issue DSI-.”</strong> No record exists. Nobody is investigating. The member's problem quietly disappears.</p>
+    <div class="rules">
+      <div><h4>Diagnose</h4><p>Find the failed step in the run history. What was the status code? Whose connection was it?</p></div>
+      <div><h4>Contain</h4><p>Make the workflow catch the failure (a run-after-failed path) and return <code>Status = "Failed"</code> with a reason.</p></div>
+      <div><h4>Be honest</h4><p>The agent branches on Status, apologizes, gives a fallback (email digital-oncall), and <strong>never shows an ID it didn't receive</strong>.</p></div>
+      <div><h4>Prevent</h4><p>Use a dedicated service account with list-level access, monitor flow failures, and document the connection owner.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="lab">
+  <div class="lab" style="--accent:#a3e635">
+    <div class="lab-head">
+      <div>
+        <div class="codename">Lab 09 · Codename TELEMETRY</div>
+        <h2 id="lab-h">Run the success and failure scenarios</h2>
+        <div class="modes"><span class="mode-badge builder">Builder</span><span class="mode-badge team">Team</span><span class="mode-badge observer">Observer</span></div>
+      </div>
+      <div class="timer"><div class="t">15:00</div><div class="l">Minutes</div></div>
+    </div>
+    <div class="build-summary">
+      <div>
+        <h4>What you'll do</h4>
+        <ul>
+          <li>Run scenarios S1–S8 in fresh test conversations</li>
+          <li>Trace each one in Activity and the workflow run history</li>
+          <li>Inject the 403 failure and harden the workflow and topic</li>
+          <li>Save your scenarios as a reusable evaluation test set</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Pre-flight</h4>
+        <ul>
+          <li>The Mission 06–07 workflow is connected to the register</li>
+          <li>Download <a href="../lab-kit/test-scenarios.md" download>test-scenarios.md</a></li>
+          <li>Team mode: the Risk Reviewer keeps score in the matrix</li>
+        </ul>
+      </div>
+    </div>
+    <!-- LAB-STEPS:m09:BEGIN -->
+    <ol class="steps">
+      <li class="step">
+        <h4>Create an evaluation</h4>
+        <p>Open the <span class="ui">Evaluation</span> tab → <span class="ui">Create a test set</span>. Choose <strong>Single response</strong>. You can upload a CSV, generate a <em>Quick question set</em> (10 questions), generate a <em>Full question set</em> (up to 100), or reuse questions from your current preview chat.</p>
+        <figure class="shot" data-label="Evaluation · New evaluation">
+          <img src="../assets/img/shots/m09-02-create-test-set.webp" alt="New evaluation: data type, CSV upload, quick and full question sets" loading="lazy">
+        </figure>
+      </li>
+      <li class="step">
+        <h4>Generate a baseline, then add your own scenarios</h4>
+        <p>Select <span class="ui">Quick question set</span>. Copilot Studio writes 10 questions from your agent's description and instructions. Then select <span class="ui">Add questions</span> and add S1–S8 from <a href="../lab-kit/test-scenarios.md">test-scenarios.md</a>, each with an <strong>expected response</strong>.</p>
+        <figure class="shot" data-label="Review your test cases (10)">
+          <img src="../assets/img/shots/m09-03-quick-questions.webp" alt="Ten AI-generated test questions with Configure test set panel" loading="lazy">
+        </figure>
+        <p>Name the set, keep <strong>Answer quality</strong> as the test method (add <em>Exact match</em> or <em>Keyword match</em> for IDs), and select <span class="ui">Run</span>. When the dialog asks for a profile, use an account that has the connections your tools need.</p>
+        <figure class="shot small" data-label="Manage profile and connections">
+          <img src="../assets/img/shots/m09-04-eval-profile.webp" alt="Manage profile and connections dialog before running an evaluation" loading="lazy">
+        </figure>
+      </li>
+      <li class="step">
+        <h4>Read the scoreboard</h4>
+        <p>Our baseline took 2 minutes and scored <strong>80%</strong>: 8 passes and 2 failures.</p>
+        <figure class="shot" data-label="Test run result · 80%">
+          <img src="../assets/img/shots/m09-05-eval-results.webp" alt="Evaluation result: 80 percent, 8 pass, 2 fail" loading="lazy">
+        </figure>
+        <p>Filter to <span class="ui">Fail (2)</span>. Each failure is a lesson:</p>
+        <figure class="shot" data-label="Fail (2)">
+          <img src="../assets/img/shots/m09-06-eval-fails.webp" alt="Two failed cases: Start Over topic hijack and an Online Banking status claim" loading="lazy">
+        </figure>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Failure</th><th>Root cause</th><th>Fix</th></tr></thead>
+          <tbody>
+            <tr><td>“…start over with troubleshooting…” → <em>“Are you sure you want to restart the conversation?”</em></td><td>The words “start over” triggered the <strong>Start Over</strong> system topic</td><td>Tighten that topic's trigger description, or turn it off for this agent</td></tr>
+            <tr><td>“Status of an existing OLB issue?” → <em>“I checked for existing OLB records…”</em></td><td>The agent <strong>claimed a lookup it can't do</strong>, because no register tool was connected yet</td><td>Connect the Mission 06 register, and add a rule: only say you checked a system if a tool ran</td></tr>
+          </tbody>
+        </table></div>
+        <div class="callout anomaly"><strong>The passes can lie too</strong> One <em>passing</em> answer said “I’m not finding an active Mobile Check Deposit outage in the Digital Issue Register” when the agent had no access to the register. Answer quality looked fine, but the claim was false. Read the passes as well as the fails.</div>
+      </li>
+      <li class="step" id="lab-403">
+        <h4>Inject the 403 Surprise</h4>
+        <p>Make the register fail on purpose. Ask your instructor to remove your connection account's access to the list, or point <span class="ui">Get items</span> at a list you can't read. Then run S5 again. Without hardening, the flow fails and the agent may still imply that it worked.</p>
+        <p>Harden it in <strong>Log Digital Issue</strong>:</p>
+        <ol>
+          <li>After <span class="ui">Get items</span>, add a <span class="ui">Respond to the agent</span> whose <span class="ui">…</span> → <span class="ui">Run after</span> is set to <em>has failed</em> and <em>has timed out</em> only.</li>
+          <li>Return <code>Outcome = REGISTER_UNAVAILABLE</code>, <code>IssueId = (blank)</code>, and <code>Message = The issue register could not be reached (permission or connection error). Nothing was recorded.</code></li>
+          <li>Add to the tool description: <em>If Outcome is REGISTER_UNAVAILABLE, tell the user nothing was recorded and give them the escalation contact.</em></li>
+        </ol>
+        <div class="reply">I couldn't reach the Digital Issue Register (access error), so nothing was recorded. Please report it to digital-oncall@contoso.example and include the details above.</div>
+      </li>
+      <li class="step">
+        <h4>Trace it end to end</h4>
+        <p><span class="ui">Activity</span> lists every test conversation: when it ran, how many steps it took, the last step (which topic or tool), and whether it finished. Open any row to replay its decision path.</p>
+        <figure class="shot" data-label="Activity">
+          <img src="../assets/img/shots/m09-07-activity.webp" alt="Activity list of sessions with last step Report a Digital Issue, Start Over, Search sources" loading="lazy">
+        </figure>
+        <p><span class="ui">Monitor</span> rolls this up into conversation outcomes (resolved, escalated, abandoned), reactions, sentiment, and Copilot credit use. After launch, this is your operations dashboard.</p>
+        <figure class="shot" data-label="Monitor">
+          <img src="../assets/img/shots/m09-08-monitor.webp" alt="Monitor tab with sessions, engagement, billing, and conversation outcomes" loading="lazy">
+        </figure>
+      </li>
+      <li class="step">
+        <h4>Re-run and compare</h4>
+        <p>After your fixes, open the test set and run it again. Put both scores side by side. Your showcase tells the story of the before and after, not just the final number.</p>
+      </li>
+    </ol>
+    <div class="checkpoint">
+      <h4>Telemetry check · Mission 09</h4>
+      <label><input type="checkbox"> A saved test set includes S1–S8 with expected responses</label>
+      <label><input type="checkbox"> I can explain the root cause of every failure</label>
+      <label><input type="checkbox"> With the 403 injected, the agent says nothing was recorded</label>
+      <label><input type="checkbox"> The re-run score beats the baseline</label>
+    </div>
+    <!-- LAB-STEPS:m09:END -->
+    <div class="observer">
+      <span class="k">Observer / analyst track</span>
+      <h3>Flight recorder</h3>
+      <ol>
+        <li>Keep the scoreboard: mark each scenario Pass, Fail, or Flaky (passes sometimes).</li>
+        <li>For every Fail, write the <em>root cause</em> in one sentence: knowledge, topic, workflow, connector, or instructions?</li>
+        <li>Pick the most dangerous failure, the one a member would feel. That goes in the showcase as “what we fixed.”</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="debrief">
+  <div class="debrief">
+    <h2 id="debrief-h">Debrief <span class="tag">Mission 09</span></h2>
+    <div class="takeaways">
+      <div><b>01 · TEST THE FAILURES</b><p>Happy paths demo well. Failure paths are what build trust.</p></div>
+      <div><b>02 · TRACE, DON'T GUESS</b><p>Activity and the run history tell you exactly which step broke and why.</p></div>
+      <div><b>03 · NEVER FAKE SUCCESS</b><p>No confirmed ID means no success message.</p></div>
+    </div>
+    <div class="complete-row"><button class="complete-btn" type="button">🚀 Mark mission complete</button><span class="status">MISSION LOG</span></div>
+  </div>
+</section>
+
+<nav class="pn" aria-label="Mission navigation"><a class="prev" href="m08.html"><span class="k">← Mission 08</span><span class="t">Break the Agent! Security &amp; Governance</span></a><a class="next" href="m10.html"><span class="k">Mission 10 →</span><span class="t">Final Mission: The Agent Showcase</span></a></nav>
+</article>
+<aside class="toc" aria-label="On this page"><div class="ttl">// Flight checklist</div><ol></ol>
+<div class="mini-progress"><div class="lbl"><span>Mission log</span><span><span data-progress-count>0</span>/10</span></div><div class="bar"><i data-progress-bar></i></div></div></aside>
+</div>
+</main>
+<footer class="footer"><div class="wrap">
+<div><div class="sig">Mission: Agent Upgrade 🚀</div><p>A 4-hour, live, instructor-led Microsoft Copilot Studio workshop. All scenarios, people, and data are fictional (Contoso Credit Union) and for classroom use only. Microsoft, Copilot, and Copilot Studio are trademarks of Microsoft Corporation.</p></div>
+<nav aria-label="Footer"><a href="../index.html">Home</a><a href="../index.html#flight-plan">Flight Plan</a><a href="../resources.html">Resources & Lab Kit</a><a href="../facilitator.html">Facilitator Guide</a></nav>
+</div></footer>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

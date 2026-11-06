@@ -1,0 +1,130 @@
+kind: AdaptiveDialog
+modelDescription: Use this topic when an employee wants to report, log, or triage a problem that members are having with a Contoso digital service (Mobile App, Online Banking, QuickPay, Mobile Check Deposit, Bill Pay, Sign-in Verification, Alerts). It collects the required details, stops on sensitive issues, and separates known issues from new ones.
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent:
+    displayName: Report a Digital Issue
+    triggerQueries:
+      - I want to report a digital issue
+      - Members are having trouble with the app
+      - Log a problem with online banking
+      - Something is broken in QuickPay
+      - Triage a member-reported issue
+
+  actions:
+    - kind: SendActivity
+      id: sendIntro
+      activity: "Mission Control triage started. I’ll ask a few quick questions, and you can stop at any time."
+
+    - kind: Question
+      id: askService
+      interruptionPolicy:
+        allowInterruption: true
+      variable: init:Topic.Service
+      prompt: Which digital service is affected?
+      entity:
+        kind: EmbeddedEntity
+        definition:
+          kind: ClosedListEntity
+          items:
+            - id: MOB
+              displayName: Mobile App (MOB)
+            - id: OLB
+              displayName: Online Banking (OLB)
+            - id: P2P
+              displayName: QuickPay (P2P)
+            - id: RDC
+              displayName: Mobile Check Deposit (RDC)
+            - id: BIL
+              displayName: Bill Pay (BIL)
+            - id: MFA
+              displayName: Sign-in Verification (MFA)
+            - id: NTF
+              displayName: Alerts & Notifications (NTF)
+
+    - kind: Question
+      id: askRisk
+      interruptionPolicy:
+        allowInterruption: true
+      variable: init:Topic.FundsOrDataRisk
+      prompt: Is there any risk to member funds or data? For example, duplicate debits, missing money, or exposed member information.
+      entity: BooleanPrebuiltEntity
+
+    - kind: ConditionGroup
+      id: junctionSensitive
+      conditions:
+        - id: isSensitive
+          condition: =Topic.FundsOrDataRisk = true
+          actions:
+            - kind: SendActivity
+              id: sendSev1
+              activity: "SENSITIVE: Sev 1 protocol. Because member funds or data may be at risk, I will not take any action on my own. Page Digital Operations on-call (digital-oncall@contoso.example) now, and include the service and what members are seeing. A human must approve every next step."
+            - kind: EndDialog
+              id: endSensitive
+
+    - kind: Question
+      id: askSymptom
+      interruptionPolicy:
+        allowInterruption: true
+      variable: init:Topic.Symptom
+      prompt: Describe what members see, including any error code and the platform (iOS, Android, or Web).
+      entity: StringPrebuiltEntity
+
+    - kind: ConditionGroup
+      id: junctionIncomplete
+      conditions:
+        - id: isIncomplete
+          condition: =Len(Topic.Symptom) < 25
+          actions:
+            - kind: Question
+              id: askMoreDetail
+              interruptionPolicy:
+                allowInterruption: true
+              variable: init:Topic.MoreDetail
+              prompt: That’s not quite enough detail to triage. Please add the error code (if any), the platform, and when it started.
+              entity: StringPrebuiltEntity
+            - kind: SetVariable
+              id: mergeDetail
+              variable: Topic.Symptom
+              value: =Topic.Symptom & " - " & Topic.MoreDetail
+
+    - kind: Question
+      id: askMembers
+      interruptionPolicy:
+        allowInterruption: true
+      variable: init:Topic.MembersAffected
+      prompt: How many members are affected?
+      entity:
+        kind: EmbeddedEntity
+        definition:
+          kind: ClosedListEntity
+          items:
+            - id: One
+              displayName: One
+            - id: Some
+              displayName: Some
+            - id: Many
+              displayName: Many
+
+    - kind: ConditionGroup
+      id: junctionKnown
+      conditions:
+        - id: knownQuickPayPending
+          condition: ="pending" in Topic.Symptom
+          actions:
+            - kind: SendActivity
+              id: sendKnownP2P
+              activity: "KNOWN ISSUE: this matches DSI-1042 (QuickPay transfers pending for more than 30 minutes, status Investigating). Approved guidance: tell the member not to resend. Pending transfers complete or reverse within 1 business day. No new record is needed; add this report to DSI-1042."
+
+        - id: knownMobileCrash
+          condition: ="crash" in Topic.Symptom
+          actions:
+            - kind: SendActivity
+              id: sendKnownMOB
+              activity: "KNOWN ISSUE: this matches DSI-1041 (app crashes on launch after the 8.4.0 update). Approved guidance: update to 8.4.1 and restart the device. No new record is needed."
+
+      elseActions:
+        - kind: SendActivity
+          id: sendUnknown
+          activity: "NEW ISSUE: there’s no match in the playbook’s known symptoms. Service {Topic.Service}, {Topic.MembersAffected} member(s) affected. Symptom: {Topic.Symptom}. Next, I’ll run the Triage Digital Issue workflow to assign a severity."

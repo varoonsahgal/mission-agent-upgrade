@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mission 01: Agent Builder vs. Copilot Studio: The Upgrade · Mission: Agent Upgrade</title>
+<meta name="description" content="Tell Microsoft 365 Copilot Agent Builder and Copilot Studio apart, and decide which tool fits a given Contoso Digital scenario.">
+<meta property="og:title" content="Mission 01: Agent Builder vs. Copilot Studio: The Upgrade · Mission: Agent Upgrade">
+<meta property="og:description" content="Tell Microsoft 365 Copilot Agent Builder and Copilot Studio apart, and decide which tool fits a given Contoso Digital scenario.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#04061a">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-mission="1" style="--accent:#ff6b2c">
+<a class="skip" href="#main">Skip to content</a>
+<canvas id="stars" aria-hidden="true"></canvas>
+<header class="topbar"><div class="wrap">
+<a class="brand" href="../index.html" aria-label="Mission: Agent Upgrade home"><svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="bl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff6b2c"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs><circle cx="20" cy="20" r="18" fill="none" stroke="url(#bl)" stroke-width="2"/><ellipse cx="20" cy="20" rx="18" ry="6.5" fill="none" stroke="#22d3ee" stroke-opacity=".6" stroke-width="1.2" transform="rotate(-28 20 20)"/><path d="M20 9c3 2 4.6 5.4 4.6 8.8l-1.6 3.4h-6l-1.6-3.4C15.4 14.4 17 11 20 9z" fill="#fff"/><path d="M17.6 22.6 16 26.5l2.6-1M22.4 22.6 24 26.5l-2.6-1" stroke="#ff6b2c" stroke-width="1.4" fill="none" stroke-linecap="round"/><circle cx="20" cy="16.4" r="1.6" fill="#8b5cf6"/></svg>
+<span>MISSION: AGENT UPGRADE<small>Copilot Studio · Contoso Digital</small></span></a>
+<button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
+<nav class="nav" id="nav"><a href="../index.html#flight-plan">Flight Plan</a><a href="../index.html#missions" aria-current=page>Missions</a><a href="../resources.html">Resources</a><a href="../facilitator.html">Facilitator</a><a class="cta" href="../missions/m01.html">Launch Mission 01 →</a></nav>
+<div class="telemetry" aria-hidden="true"><span class="dot"></span><span>SYS NOMINAL</span><span>·</span><span id="met">--:--:-- ET</span></div>
+</div></header>
+<main id="main">
+<section class="mhero"><div class="wrap">
+<div class="patch" data-patch="1" aria-hidden="true"></div>
+<div>
+<div class="crumbs"><a href="../index.html">Mission: Agent Upgrade</a><span>/</span><a href="../index.html#flight-plan">Day 1 · Give Your Agent Superpowers</a><span>/</span><span>Mission 01</span></div>
+<h1><span class="mnum">MISSION 01 · CHALLENGE</span>Agent Builder vs. Copilot Studio: The Upgrade</h1>
+<div class="facts"><span class="fact"><b>Day</b>1 of 2</span><span class="fact"><b>Duration</b>20 min</span><span class="fact"><b>AM slot</b>10:00–10:20 ET</span><span class="fact"><b>Format</b>Challenge</span></div>
+<div class="objective-box"><b>MISSION OBJECTIVE</b>Tell Microsoft 365 Copilot Agent Builder and Copilot Studio apart, and decide which tool fits a given Contoso Digital scenario.</div>
+</div></div></section>
+<div class="wrap mbody">
+<article class="prose">
+<section id="briefing">
+  <h2 id="briefing-h">Briefing <span class="tag">Discover</span></h2>
+  <p class="lead">You already know how to build an agent in Microsoft 365 Copilot Agent Builder. You write instructions, point it at some knowledge, and in a few minutes you have a helpful assistant. So why would anyone need Copilot Studio?</p>
+  <p>Because <strong>answering is not the same as acting.</strong> The moment an agent has to create a record, follow business rules, wait for an approval, connect to a system of record, run on a schedule, or be governed across hundreds of users, you've outgrown the lightweight builder. This mission teaches you to spot that moment.</p>
+
+  <div class="analogy">
+    <div class="ic">🛰️</div>
+    <div><b>Analogy</b><p><strong>Agent Builder</strong> is the cockpit of a personal spacecraft. You can be airborne in minutes, and it's perfect for solo flights. <strong>Copilot Studio</strong> is Mission Control: the console where engineers wire up systems, set flight rules, add abort procedures, and monitor every launch.</p></div>
+  </div>
+
+  <h3 id="side-by-side" class="toc-include">The tools side by side</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Capability</th><th>Microsoft 365 Copilot Agent Builder</th><th>Microsoft Copilot Studio</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Who builds</strong></td><td>Any Microsoft 365 Copilot user, right inside Copilot</td><td>Makers, power users, and pro developers in a dedicated studio</td></tr>
+        <tr><td><strong>How you build</strong></td><td>Describe it in natural language or fill in a simple configuration form</td><td>Natural language <em>plus</em> a full designer: topics, tools, flows, variables, and settings</td></tr>
+        <tr><td><strong>Knowledge</strong></td><td>SharePoint, OneDrive files, web, Teams chats, email (in the user's scope)</td><td>All of that, plus Dataverse, enterprise connectors, uploaded files, and custom sources</td></tr>
+        <tr><td><strong>Actions</strong></td><td>Built-in capabilities (code interpreter, image generation)</td><td>Tools: 1,000+ connectors, agent flows, prompts, REST APIs, MCP servers, computer use</td></tr>
+        <tr><td><strong>Logic</strong></td><td>Instructions only</td><td>Topics with conditions, branching, variables, and validation</td></tr>
+        <tr><td><strong>Triggers</strong></td><td>Responds when someone talks to it</td><td>Event and schedule triggers for autonomous agents</td></tr>
+        <tr><td><strong>Human in the loop</strong></td><td>—</td><td>Approvals, multistage approvals, and escalation paths in agent flows</td></tr>
+        <tr><td><strong>Channels</strong></td><td>Microsoft 365 Copilot and Teams</td><td>Teams, Microsoft 365 Copilot, websites, mobile apps, and more</td></tr>
+        <tr><td><strong>Lifecycle and governance</strong></td><td>Personal or shared agents, managed in the Microsoft 365 admin center</td><td>Environments, solutions (ALM), data policies, evaluation, monitoring, and analytics</td></tr>
+        <tr><td><strong>Best for</strong></td><td>Personal and team productivity, Q&amp;A over Microsoft 365 content</td><td>Business processes, integrations, and governed solutions at scale</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="signals" class="toc-include">Eight upgrade signals</h3>
+  <p>If a scenario includes <strong>any</strong> of these, it's probably a Copilot Studio mission:</p>
+  <div class="tiles">
+    <div class="tile"><span class="t-ic">⚡</span><span class="lbl">ACT</span><h4>It must change something</h4><p>Create, update, or send. It writes to a system rather than just reading.</p></div>
+    <div class="tile"><span class="t-ic">🔀</span><span class="lbl">DECIDE</span><h4>It follows business rules</h4><p>Branching, validation, and “if Sev 1, then…” logic.</p></div>
+    <div class="tile"><span class="t-ic">🔌</span><span class="lbl">CONNECT</span><h4>It talks to systems</h4><p>Connectors, APIs, or data sources beyond Microsoft 365.</p></div>
+    <div class="tile"><span class="t-ic">🧑‍⚖️</span><span class="lbl">APPROVE</span><h4>A human must sign off</h4><p>Approvals, escalation, and separation of duties.</p></div>
+    <div class="tile"><span class="t-ic">⏰</span><span class="lbl">TRIGGER</span><h4>It runs without being asked</h4><p>Schedules, new emails, new records, and other events.</p></div>
+    <div class="tile"><span class="t-ic">🌐</span><span class="lbl">PUBLISH</span><h4>It reaches other audiences</h4><p>Websites, members, or apps outside Microsoft 365 Copilot.</p></div>
+    <div class="tile"><span class="t-ic">🛡️</span><span class="lbl">GOVERN</span><h4>It needs guardrails</h4><p>Environments, data policies, authentication, and ALM.</p></div>
+    <div class="tile"><span class="t-ic">📈</span><span class="lbl">MEASURE</span><h4>It must prove its value</h4><p>Evaluation, analytics, and monitoring.</p></div>
+  </div>
+
+  <h3 id="studio-today" class="toc-include">Copilot Studio today: what you'll see</h3>
+  <p>The current Copilot Studio has a streamlined left rail: <span class="ui">Home</span>, <span class="ui">Agents</span>, <span class="ui">Workflows</span>, and <span class="ui">Apps (Preview)</span>. When you select <span class="ui">New agent</span> you can choose:</p>
+  <ul>
+    <li><strong>Agent</strong>: the newer AI-first build experience, which consumes Copilot Credits.</li>
+    <li><strong>Customer Assist Agent</strong>: purpose-built for customer conversations over chat and voice.</li>
+    <li><strong>Agent (Standard)</strong>: an agent with predefined rules and flows (topics, tools, triggers) that uses <em>standard orchestration</em>. Copilot Studio shows it as included with your Microsoft 365 Copilot license at no extra credit cost. <strong>This is the one we use in the labs.</strong></li>
+  </ul>
+  <div class="callout intel"><strong>Already have an Agent Builder agent?</strong> You don't have to start from scratch. Agent Builder agents can be copied into Copilot Studio, keeping their instructions and knowledge, and then upgraded with topics, tools, and flows. That's exactly the journey this workshop takes.</div>
+  <div class="callout tip"><strong>Rule of thumb</strong> Start in Agent Builder when you're <em>talking to knowledge</em>. Upgrade to Copilot Studio when you're <em>acting on systems</em>.</div>
+</section>
+
+<section id="challenge">
+  <div class="lab" style="--accent:#ff6b2c">
+    <div class="lab-head">
+      <div>
+        <div class="codename">Challenge · Codename TRAJECTORY</div>
+        <h2 id="challenge-h">Which tool fits?</h2>
+        <div class="modes"><span class="mode-badge builder">Builder</span><span class="mode-badge team">Team</span><span class="mode-badge observer">Observer</span></div>
+      </div>
+      <div class="timer"><div class="t">10:00</div><div class="l">Minutes</div></div>
+    </div>
+    <div class="build-summary">
+      <div><h4>How it works</h4><p>Ten real-feeling Contoso Digital scenarios. For each one, choose the right launch vehicle. You get instant feedback and the reasoning behind each answer. In teams, discuss before you click: the Risk Reviewer gets the final call.</p></div>
+      <div><h4>Scoring</h4><ul><li>9–10 · Flight Director</li><li>7–8 · Mission Specialist</li><li>5–6 · Flight Engineer</li><li>&lt;5 · Cadet: revisit the matrix</li></ul></div>
+    </div>
+    <div class="game" id="toolgame" aria-live="polite"><noscript>This interactive challenge requires JavaScript.</noscript></div>
+    <div class="observer">
+      <span class="k">Observer / analyst track</span>
+      <h3>Map your own backlog</h3>
+      <ol>
+        <li>Write down three requests your team has received in the last month that “an AI could help with.”</li>
+        <li>For each one, circle the upgrade signals it hits (Act, Decide, Connect, Approve, Trigger, Publish, Govern, Measure).</li>
+        <li>Pick the one with the most signals. That's your candidate for the Mission 10 showcase.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="debrief">
+  <div class="debrief">
+    <h2 id="debrief-h">Debrief <span class="tag">Mission 01</span></h2>
+    <div class="takeaways">
+      <div><b>01 · NOT EITHER/OR</b><p>Agent Builder and Copilot Studio are two stages of the same journey. Many great agents start small and get upgraded.</p></div>
+      <div><b>02 · SIGNALS</b><p>Act, Decide, Connect, Approve, Trigger, Publish, Govern, and Measure all point you to Copilot Studio.</p></div>
+      <div><b>03 · STANDARD AGENT</b><p>In the labs, you'll build an <em>Agent (Standard)</em>, with topics, tools, and flows under your control.</p></div>
+    </div>
+    <div class="complete-row"><button class="complete-btn" type="button">🚀 Mark mission complete</button><span class="status">MISSION LOG</span></div>
+  </div>
+</section>
+
+<nav class="pn" aria-label="Mission navigation"><a class="prev" href="../index.html"><span class="k">← Mission briefing</span><span class="t">Course home</span></a><a class="next" href="m02.html"><span class="k">Mission 02 →</span><span class="t">Inside Copilot Studio: Design Your Solution</span></a></nav>
+</article>
+<aside class="toc" aria-label="On this page"><div class="ttl">// Flight checklist</div><ol></ol>
+<div class="mini-progress"><div class="lbl"><span>Mission log</span><span><span data-progress-count>0</span>/10</span></div><div class="bar"><i data-progress-bar></i></div></div></aside>
+</div>
+</main>
+<footer class="footer"><div class="wrap">
+<div><div class="sig">Mission: Agent Upgrade 🚀</div><p>A 4-hour, live, instructor-led Microsoft Copilot Studio workshop. All scenarios, people, and data are fictional (Contoso Credit Union) and for classroom use only. Microsoft, Copilot, and Copilot Studio are trademarks of Microsoft Corporation.</p></div>
+<nav aria-label="Footer"><a href="../index.html">Home</a><a href="../index.html#flight-plan">Flight Plan</a><a href="../resources.html">Resources & Lab Kit</a><a href="../facilitator.html">Facilitator Guide</a></nav>
+</div></footer>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
