@@ -36,6 +36,11 @@
 <article class="prose">
 <section id="briefing">
   <h2 id="briefing-h">Briefing <span class="tag">Discover</span></h2>
+  <div class="tx" role="note">
+    <span class="tx-k">Incoming transmission</span>
+    <p>“I asked the agent about a Bill Pay error. It gave me a great answer and then told me to open a ticket. I was asking the agent so I wouldn't have to open a ticket.”</p>
+    <span class="tx-from">— Dana O. · Digital analyst · 09:41 ET</span>
+  </div>
   <p class="lead">Conversation gets you understanding. A <strong>workflow</strong> gets you action. This is the mission where Mission Control stops saying “please open a ticket” and starts opening the ticket itself.</p>
 
   <div class="analogy">
@@ -95,7 +100,12 @@
       </tbody>
     </table>
   </div>
-  <div class="callout warn"><strong>Don't let the model do arithmetic with consequences</strong> Severity, IDs, routing, and anything else a business rule depends on belong in deterministic workflow steps, not in a model's best guess.</div>
+  <aside class="frule" data-n="03" aria-label="Flight rule 03">
+    <span class="frule-k">Flight rule 03</span>
+    <p>Judgment in the model. Arithmetic in the flow.</p>
+    <small>Severity, IDs, routing, and anything a business rule depends on run as deterministic steps, never as a best guess.</small>
+  </aside>
+
 </section>
 
 <section id="lab">

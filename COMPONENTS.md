@@ -78,3 +78,41 @@ The section's accent color comes from the `--accent` set on `<body>` or `.lab`. 
 - `<details class="reveal"><summary>Hint</summary><div class="inner">…</div></details>`: collapsible hint or solution
 - `<div class="challenge">…</div>`: hazard-striped challenge box (see m06 for its structure)
 - `<h3 id="x" class="toc-include">`: makes an h3 appear in the right-hand TOC (h2s are always included)
+
+---
+
+## Narrative components (pass 2)
+
+### Incoming transmission (opens every briefing)
+
+```html
+<div class="tx" role="note">
+  <span class="tx-k">Incoming transmission</span>
+  <p>“The agent told me to open a ticket. I was asking the agent so I wouldn't have to.”</p>
+  <span class="tx-from">— Dana O. · Digital analyst · 09:41 ET</span>
+</div>
+```
+
+Short, in-universe, one per mission. Facilitators read it aloud. Senders are fictional Contoso staff (Priya N., Dana O., Sam R., Marcus B.).
+
+### Flight rule (closes every briefing)
+
+```html
+<aside class="frule" data-n="03" aria-label="Flight rule 03">
+  <span class="frule-k">Flight rule 03</span>
+  <p>Judgment in the model. Arithmetic in the flow.</p>
+  <small>One-sentence elaboration.</small>
+</aside>
+```
+
+`data-n` is the number shown in the chip. All ten are collected on `resources.html#flight-rules` (the `.frules` list), so update both places if you change one.
+
+### Automatic (no markup needed)
+
+- **Agent systems board**: inserted under `.mhero` on any page with `data-mission`. Edit `BOARD` in `main.js` to change which systems are online / this mission / offline.
+- **Prev/next cards**: `.pn a.next` gets a teaser line from `HOOKS` in `main.js`; mission links get a mini patch.
+- **Resume CTA**: once any mission is complete, the nav button becomes "Resume Mission 0X →", pointing at the first incomplete mission.
+- **Reading bar**: a 3px progress line at the top of mission pages.
+- **Lab timer**: the `.lab-head .timer` reads its starting value from the markup (e.g. `25:00`). Click to start or pause, double-click (or press R) to reset. Turns amber in the last 20%, red at zero.
+- **Sidebar mission grid**: ten mini patches under the Mission log in the TOC; the current mission is ringed, completed ones glow green.
+- **Scroll reveal**: `.tx`, `.frule`, `.analogy`, `.diagram`, `.flow`, `.tiles`, `.challenge`, `.lab`, `.debrief`, `.observer` and `.pn` fade in as they enter the viewport (disabled under prefers-reduced-motion).

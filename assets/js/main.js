@@ -27,6 +27,34 @@
     { n: 9, t: "Mission Control: Test & Troubleshoot", s: "Telemetry", c: "#a3e635", i: "pulse" },
     { n: 10, t: "Final Mission: The Agent Showcase", s: "Showcase", c: "#facc15", i: "star" }
   ];
+  /* one-line teaser shown on the "next mission" card */
+  var HOOKS = {
+    1: "Ten scenarios. Pick the launch vehicle for each.",
+    2: "Open the hood on a Copilot Studio agent, then rebuild Mission Control.",
+    3: "Stop telling people to open a ticket. Open it.",
+    4: "Messy reports in, four clean branches out.",
+    5: "One full test flight before the capsule docks.",
+    6: "Give the agent a system of record, and an identity.",
+    7: "Teach it when not to act alone.",
+    8: "Now attack everything you built.",
+    9: "Prove it works. Prove it fails honestly.",
+    10: "Three minutes to show the room a governed agent.",
+    res: "Lab kit, flight rules, cheat sheet, glossary."
+  };
+  /* agent systems: what is online at the start of each mission (1), built in it (2), or still offline (0) */
+  var SYSTEMS = ["Knowledge", "Workflow", "Decisions", "Register", "Approval gate", "Shields", "Telemetry", "Channels"];
+  var BOARD = {
+    1: { v: "v1.0 · Agent Builder", s: [1, 0, 0, 0, 0, 0, 0, 0] },
+    2: { v: "v2.0 · Copilot Studio", s: [2, 0, 0, 0, 0, 0, 0, 0] },
+    3: { v: "v2.1", s: [1, 2, 0, 0, 0, 0, 0, 0] },
+    4: { v: "v2.2", s: [1, 1, 2, 0, 0, 0, 0, 0] },
+    5: { v: "v2.3 · Systems check", s: [1, 1, 1, 0, 0, 0, 0, 0] },
+    6: { v: "v2.4", s: [1, 1, 1, 2, 0, 0, 0, 0] },
+    7: { v: "v2.5", s: [1, 1, 1, 1, 2, 0, 0, 0] },
+    8: { v: "v2.6", s: [1, 1, 1, 1, 1, 2, 0, 0] },
+    9: { v: "v2.7", s: [1, 1, 1, 1, 1, 1, 2, 0] },
+    10: { v: "v3.0 · Launch ready", s: [1, 1, 1, 1, 1, 1, 1, 2] }
+  };
   var ICONS = {
     rocket: "M12 2.5c3.2 2.2 5 6 5 9.8l-1.8 3.7H8.8L7 12.3C7 8.5 8.8 4.7 12 2.5zM12 8.6a1.9 1.9 0 1 0 0 3.8 1.9 1.9 0 0 0 0-3.8zM8.8 16l-2.3 4.2 3.4-1.2M15.2 16l2.3 4.2-3.4-1.2M12 17.5v3.5",
     layers: "M12 3l9 4.8-9 4.8-9-4.8L12 3zM3 12.2l9 4.8 9-4.8M3 16.4l9 4.8 9-4.8",
@@ -113,6 +141,9 @@
     tick(); setInterval(tick, 1000);
   })();
 
+  /* ---------- mission pages: reveal narrative blocks on scroll ---------- */
+  if ($(".prose")) $$(".prose .tx, .prose .frule, .prose .analogy, .prose .diagram, .prose .flow, .prose .tiles, .prose .challenge, .prose .lab, .prose .debrief, .prose .observer, .pn").forEach(function (el) { el.classList.add("rv"); });
+
   /* ---------- reveal ---------- */
   if ("IntersectionObserver" in window && !reduce) {
     var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }); }, { rootMargin: "0px 0px -8% 0px", threshold: .05 });
@@ -140,6 +171,18 @@
     tick(); setInterval(tick, 1000);
   })();
 
+  /* ---------- sidebar: ten-patch mission grid ---------- */
+  (function () {
+    var mp = $(".toc .mini-progress"); if (!mp) return;
+    var me = +document.body.getAttribute("data-mission");
+    var g = document.createElement("div"); g.className = "mini-grid"; g.setAttribute("aria-label", "All missions");
+    g.innerHTML = MISSIONS.map(function (m) {
+      var nn = (m.n < 10 ? "0" : "") + m.n;
+      return '<a href="m' + nn + '.html" data-mission-link="' + m.n + '" class="' + (m.n === me ? "cur" : "") + '" title="Mission ' + nn + " · " + m.t + '" aria-label="Mission ' + nn + ": " + m.t + '">' + patch(m.n) + "</a>";
+    }).join("");
+    mp.appendChild(g);
+  })();
+
   /* ---------- progress ---------- */
   var PKEY = "mau.progress.v1";
   function getP() { return store.get(PKEY, []); }
@@ -154,6 +197,14 @@
       el.classList.toggle("done", d);
       var st = $(".state", el); if (st) st.textContent = d ? "● MISSION COMPLETE" : "○ AWAITING LAUNCH";
     });
+    /* resume where you left off: the nav CTA points at the first incomplete mission */
+    var cta = $(".nav .cta");
+    if (cta && p.length) {
+      var href = cta.getAttribute("href"), next = 0;
+      for (var k = 1; k <= 10; k++) { if (p.indexOf(k) < 0) { next = k; break; } }
+      if (next) { cta.textContent = "Resume Mission " + (next < 10 ? "0" : "") + next + " →"; cta.setAttribute("href", href.replace(/m\d\d\.html$/, "m" + (next < 10 ? "0" : "") + next + ".html")); }
+      else { cta.textContent = "All 10 complete 🚀"; cta.setAttribute("href", href.replace(/missions\/m\d\d\.html$/, "index.html#mission-log")); }
+    }
     var b = $(".complete-btn");
     if (b) {
       var me = +document.body.getAttribute("data-mission"), done = p.indexOf(me) > -1;
@@ -265,6 +316,61 @@
     }
     addEventListener("scroll", spy, { passive: true }); spy();
   })();
+
+  /* ---------- agent systems board (mission pages) ---------- */
+  (function () {
+    var me = +document.body.getAttribute("data-mission"), b = BOARD[me], hero = $(".mhero");
+    if (!b || !hero) return;
+    var el = document.createElement("section"); el.className = "sysboard"; el.setAttribute("aria-label", "Agent systems status at the start of this mission");
+    el.innerHTML = '<div class="wrap"><span class="sb-k"><b>Agent core</b>' + b.v + "</span><ul>" +
+      SYSTEMS.map(function (name, i) {
+        var st = b.s[i], cls = st === 1 ? "on" : st === 2 ? "now" : "", word = st === 1 ? "online" : st === 2 ? "this mission" : "offline";
+        return '<li class="' + cls + '" title="' + name + ": " + word + '">' + name + "<span>" + word + "</span></li>";
+      }).join("") + "</ul></div>";
+    hero.insertAdjacentElement("afterend", el);
+  })();
+
+  /* ---------- reading progress (mission pages) ---------- */
+  (function () {
+    if (!$(".prose")) return;
+    var bar = document.createElement("div"); bar.className = "readbar"; bar.setAttribute("aria-hidden", "true"); document.body.appendChild(bar);
+    function upd() { var h = document.documentElement.scrollHeight - innerHeight; bar.style.width = (h > 0 ? Math.min(100, scrollY / h * 100) : 0) + "%"; }
+    addEventListener("scroll", upd, { passive: true }); addEventListener("resize", upd); upd();
+  })();
+
+  /* ---------- prev / next: teaser + patch ---------- */
+  (function () {
+    var pn = $(".pn"); if (!pn) return;
+    $$("a", pn).forEach(function (a) {
+      var href = a.getAttribute("href") || "", m = /m(\d\d)\.html$/.exec(href), n = m ? +m[1] : 0;
+      var hook = n ? HOOKS[n] : /resources\.html/.test(href) ? HOOKS.res : null;
+      if (a.classList.contains("next") && hook) { var s = document.createElement("span"); s.className = "hook"; s.textContent = hook; a.appendChild(s); }
+      if (n) { var p = document.createElement("span"); p.className = "pp"; p.setAttribute("aria-hidden", "true"); p.innerHTML = patch(n); a.appendChild(p); a.classList.add("has-pp"); }
+    });
+  })();
+
+  /* ---------- lab timer: click to start or pause, double-click to reset ---------- */
+  $$(".lab-head .timer").forEach(function (tm) {
+    var t = $(".t", tm), l = $(".l", tm); if (!t) return;
+    var m = /^(\d+):(\d+)$/.exec(t.textContent.trim()); if (!m) return;
+    var total = (+m[1]) * 60 + (+m[2]), left = total, iv = null;
+    tm.setAttribute("role", "button"); tm.setAttribute("tabindex", "0"); tm.title = "Click to start or pause the lab timer. Double-click to reset.";
+    function pad(x) { return (x < 10 ? "0" : "") + x; }
+    function paint() {
+      t.textContent = pad(Math.floor(left / 60)) + ":" + pad(left % 60);
+      tm.classList.toggle("run", !!iv);
+      tm.classList.toggle("low", left > 0 && left <= Math.max(60, Math.round(total * .2)));
+      tm.classList.toggle("zero", left === 0);
+      if (l) l.textContent = iv ? "Running" : left === 0 ? "Time's up" : left === total ? "Minutes · tap to start" : "Paused";
+    }
+    function tick() { if (left > 0) left--; if (left === 0) { clearInterval(iv); iv = null; } paint(); }
+    function toggle() { if (left === 0) return; if (iv) { clearInterval(iv); iv = null; } else { iv = setInterval(tick, 1000); } paint(); }
+    function reset() { clearInterval(iv); iv = null; left = total; paint(); }
+    tm.addEventListener("click", toggle);
+    tm.addEventListener("dblclick", function (e) { e.preventDefault(); reset(); });
+    tm.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); } else if (e.key.toLowerCase() === "r") reset(); });
+    paint();
+  });
 
   /* ---------- m01: which tool fits? ---------- */
   (function () {

@@ -36,6 +36,11 @@
 <article class="prose">
 <section id="briefing">
   <h2 id="briefing-h">Briefing <span class="tag">Test</span></h2>
+  <div class="tx" role="note">
+    <span class="tx-k">Incoming transmission</span>
+    <p>“Heads up: I tightened SharePoint permissions overnight. Also, why is the agent telling people “Done! Created issue DSI-” with no number? Those two things might be related.”</p>
+    <span class="tx-from">— Sam R. · Platform team · 06:12 ET</span>
+  </div>
   <p class="lead">“It worked when I tried it” is not a test plan. Mission Control has to prove that it works on the good days, and that it <strong>fails honestly</strong> on the bad ones.</p>
 
   <h3 id="pyramid" class="toc-include">The agent test pyramid</h3>
@@ -79,6 +84,12 @@
     </table>
   </div>
   <p>Download the full matrix with prompts: <a href="../lab-kit/test-scenarios.md" download>test-scenarios.md</a>.</p>
+  <aside class="frule" data-n="09" aria-label="Flight rule 09">
+    <span class="frule-k">Flight rule 09</span>
+    <p>A test you can't fail isn't a test.</p>
+    <small>Inject the failure. The agent must say nothing was recorded, and never show an ID it didn't receive.</small>
+  </aside>
+
 </section>
 
 <section id="anomaly-403">

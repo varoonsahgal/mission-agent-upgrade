@@ -36,6 +36,11 @@
 <article class="prose">
 <section id="briefing">
   <h2 id="briefing-h">Briefing <span class="tag">Discover</span></h2>
+  <div class="tx" role="note">
+    <span class="tx-k">Incoming transmission</span>
+    <p>“Yesterday the same QuickPay outage got logged three times by three people. Three teams worked one incident. Whatever the agent writes to, it checks first. And I need to know whose account it's using.”</p>
+    <span class="tx-from">— Sam R. · Platform team · Day 2 · 07:55 ET</span>
+  </div>
   <p class="lead">Yesterday Mission Control learned to act. Today it learns to <strong>act on the real world</strong>. That means reading and writing a system of record with an identity, permissions, and consequences.</p>
 
   <div class="analogy">
@@ -84,6 +89,12 @@
   </div>
   <pre class="copy" data-lang="OData filter · Get items (SharePoint)"><code>Service eq 'P2P' and Status ne 'Resolved'</code></pre>
   <div class="callout tip"><strong>Verifiable results only</strong> The Issue ID the agent reports must come from the <em>Create item</em> response, never from the model. If the system didn't return an ID, nothing was created.</div>
+  <aside class="frule" data-n="06" aria-label="Flight rule 06">
+    <span class="frule-k">Flight rule 06</span>
+    <p>Every integration is an identity decision.</p>
+    <small>Know whose permissions each call runs with. Read before you write. Report only the ID the system returned.</small>
+  </aside>
+
 </section>
 
 <section id="anomaly-duplicate">
