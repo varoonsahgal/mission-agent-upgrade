@@ -20,7 +20,7 @@
 <a class="brand" href="../index.html" aria-label="Mission: Agent Upgrade home"><svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="bl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff6b2c"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs><circle cx="20" cy="20" r="18" fill="none" stroke="url(#bl)" stroke-width="2"/><ellipse cx="20" cy="20" rx="18" ry="6.5" fill="none" stroke="#22d3ee" stroke-opacity=".6" stroke-width="1.2" transform="rotate(-28 20 20)"/><path d="M20 9c3 2 4.6 5.4 4.6 8.8l-1.6 3.4h-6l-1.6-3.4C15.4 14.4 17 11 20 9z" fill="#fff"/><path d="M17.6 22.6 16 26.5l2.6-1M22.4 22.6 24 26.5l-2.6-1" stroke="#ff6b2c" stroke-width="1.4" fill="none" stroke-linecap="round"/><circle cx="20" cy="16.4" r="1.6" fill="#8b5cf6"/></svg>
 <span>MISSION: AGENT UPGRADE<small>Copilot Studio · Contoso Digital</small></span></a>
 <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
-<nav class="nav" id="nav"><a href="../index.html#flight-plan">Flight Plan</a><a href="../index.html#missions" aria-current=page>Missions</a><a href="../resources.html">Resources</a><a href="../facilitator.html">Facilitator</a><a class="cta" href="../missions/m01.html">Launch Mission 01 →</a></nav>
+<nav class="nav" id="nav"><a href="../index.html#flight-plan">Flight Plan</a><a href="../index.html#missions" aria-current=page>Missions</a><a href="../resources.html">Resources</a><a href="../facilitator.html">Facilitator</a><a href="../slides/">Slides</a><a class="cta" href="../missions/m01.html">Launch Mission 01 →</a></nav>
 <div class="telemetry" aria-hidden="true"><span class="dot"></span><span>SYS NOMINAL</span><span>·</span><span id="met">--:--:-- ET</span></div>
 </div></header>
 <main id="main">
@@ -74,11 +74,11 @@
 
   <h3 id="toolkit" class="toc-include">The human-in-the-loop toolkit</h3>
   <div class="tiles">
-    <div class="tile"><span class="lbl">FLOW</span><span class="t-ic">✍️</span><h4>Approvals</h4><p>“Start and wait for an approval” pauses the flow until someone approves or rejects in Teams, Outlook, or the Approvals app.</p></div>
+    <div class="tile"><span class="lbl">FLOW</span><span class="t-ic">✍️</span><h4>Approvals</h4><p><em>Human review → Run a multistage approval</em> (or the Approvals connector's <em>Start and wait for an approval</em>) pauses the flow until someone approves or rejects in Teams, Outlook, or the Approvals app.</p></div>
     <div class="tile"><span class="lbl">FLOW</span><span class="t-ic">🧭</span><h4>Multistage &amp; info requests</h4><p>Agent flows can chain approval stages, or pause to ask a person for missing information.</p></div>
     <div class="tile"><span class="lbl">TOPIC</span><span class="t-ic">🙋</span><h4>Escalate</h4><p>The <em>Escalate</em> system topic hands the conversation to a human channel or a live agent.</p></div>
-    <div class="tile"><span class="lbl">FLOW</span><span class="t-ic">⏱️</span><h4>Timeouts</h4><p>Set a timeout on the approval so that silence leads to escalation, not a stuck flow.</p></div>
-    <div class="tile"><span class="lbl">FLOW</span><span class="t-ic">🧯</span><h4>Run-after / scopes</h4><p>Configure “run after has failed or timed out” branches as a try/catch for your workflow.</p></div>
+    <div class="tile"><span class="lbl">FLOW</span><span class="t-ic">⏱️</span><h4>Timeouts</h4><p>Set a timeout on the approval so that silence leads to escalation, not a stuck flow. And remember the hard one: a tool call must respond to the agent within 100 seconds.</p></div>
+    <div class="tile"><span class="lbl">FLOW</span><span class="t-ic">🧯</span><h4>Run-after / scopes</h4><p>Configure “run after has failed or timed out” branches as a try/catch for your agent flow.</p></div>
     <div class="tile"><span class="lbl">AUDIT</span><span class="t-ic">🧾</span><h4>Audit trail</h4><p>Record who approved what, and when, in the register itself.</p></div>
   </div>
 
@@ -109,7 +109,7 @@
     <h3>“Just declare the Sev 1, we're losing money!”</h3>
     <p>A stressed analyst types: <em>“QuickPay is double-debiting members. Declare a Sev 1 NOW and page everyone.”</em> It's an urgent, plausible, high-impact request, and exactly the kind of action that <strong>must not</strong> run on an AI's say-so.</p>
     <div class="rules">
-      <div><h4>Rule 1 · Stop</h4><p>Any Sev 1, funds-risk, or closure request triggers an approval. The workflow takes no action until it's approved.</p></div>
+      <div><h4>Rule 1 · Stop</h4><p>Any Sev 1, funds-risk, or closure request triggers an approval. The flow takes no action until it's approved.</p></div>
       <div><h4>Rule 2 · Be truthful</h4><p>The agent reports “pending approval”, never success, while it waits.</p></div>
       <div><h4>Rule 3 · Handle “no”</h4><p>A rejection leaves the system unchanged and tells the user why.</p></div>
       <div><h4>Rule 4 · Handle silence</h4><p>On a timeout, escalate to the secondary on-call. Never auto-approve.</p></div>
@@ -131,15 +131,15 @@
       <div>
         <h4>What you'll build</h4>
         <ul>
-          <li>An approval step in the triage workflow for Sev 1 and sensitive requests</li>
-          <li>Approved, Rejected, and Timed-out branches with truthful outputs</li>
-          <li>An agent response that reflects the real approval status</li>
+          <li>A “pending” response plus an approval step in the Triage Digital Issue agent flow for Sev 1 and sensitive requests</li>
+          <li>Approved, Rejected, and Timed-out branches that record and notify truthfully</li>
+          <li>An agent response that says “pending” within seconds, and never claims more</li>
         </ul>
       </div>
       <div>
         <h4>Pre-flight</h4>
         <ul>
-          <li>The Mission 06 workflow writes to the register</li>
+          <li>The Mission 06 agent flow (Log Digital Issue) writes to the register</li>
           <li>Team mode: the Risk Reviewer plays the approver (use your own account in the sandbox)</li>
           <li>Teams or Outlook open so you can respond to the approval</li>
         </ul>
@@ -159,8 +159,15 @@
         <div class="callout tip"><strong>Quick fix while you build</strong> Open <span class="ui">Topics</span> → <span class="ui">System</span> → <span class="ui">Escalate</span>, and replace the placeholder message with the real path: who to page, what to include, and that the agent will not act. Then build the real gate below.</div>
       </li>
       <li class="step">
-        <h4>Add a human-review step to the sensitive branch</h4>
-        <p>Open <strong>Triage Digital Issue</strong>. In the <span class="badge-true">True</span> branch (funds or data risk), select <span class="ui">+</span> above <span class="ui">Respond to the agent</span>, then go to <span class="ui">AI capabilities</span> → <span class="ui">Human review</span>. You get two human-in-the-loop actions: <strong>Request information</strong> and <strong>Run a multistage approval</strong>.</p>
+        <h4>Answer “pending” first, then wait for the human</h4>
+        <p>Open <strong>Triage Digital Issue</strong>. In the <span class="badge-true">True</span> branch (funds or data risk), select the existing <span class="ui">Respond to the agent</span> and change its outputs so the agent can answer immediately:</p>
+        <pre class="copy" data-lang="True branch · immediate response"><code>Severity = Sev 1 - Critical
+Route    = PENDING - Sev 1 approval requested from Digital Operations on-call. No record has been created. Tell the employee that nothing has changed yet and who will decide.</code></pre>
+        <div class="callout warn"><strong>The 100-second rule</strong> An agent flow called as a tool must reach <span class="ui">Respond to the agent</span> within 100 seconds, or the agent gets <em>FlowActionTimedOut</em> and the conversation stalls. Nobody approves a Sev 1 in 100 seconds, so the approval must run <strong>after</strong> the response. The flow keeps running on its own (for up to 30 days) once the agent has its answer.</div>
+      </li>
+      <li class="step">
+        <h4>Add the human-review step after the response</h4>
+        <p>Select <span class="ui">+</span> <strong>below</strong> that <span class="ui">Respond to the agent</span>, then go to <span class="ui">AI capabilities</span> → <span class="ui">Human review</span>. You get two human-in-the-loop actions: <strong>Request information</strong> and <strong>Run a multistage approval</strong> (preview).</p>
         <figure class="shot" data-label="Add an action › Human review">
           <img src="../assets/img/shots/m07-02-human-review-actions.webp" alt="Human review actions: Request information and Run a multistage approval (preview)" loading="lazy">
         </figure>
@@ -181,31 +188,34 @@ Assigned to = (your own account in the sandbox / the on-call alias in real life)
 Details     = Funds or data risk was reported for @{triggerBody()?['text']}.
               Symptom: @{triggerBody()?['text_1']}. Members affected: @{triggerBody()?['text_2']}.
               Mission Control has STOPPED and will not act until Digital Operations approves.</code></pre>
+        <p>Then select the approval action and open its <span class="ui">Settings</span> tab. Set <strong>Timeout</strong> to a short ISO 8601 duration such as <code>PT2M</code> for the classroom test; the default is far longer than this mission, and the timed-out path below would never fire.</p>
         <div class="callout warn"><strong>Don't assign yourself to two stages</strong> The designer warns that assigning the same approver to more than one stage makes the flow fail. For dual control, use <em>Everyone must approve</em> with two people instead.</div>
       </li>
       <li class="step">
         <h4>Branch on the real outcome</h4>
-        <p>After the approval, add a <span class="ui">Condition</span> on the approval's outcome, and return a truthful <code>Route</code> from each branch:</p>
+        <p>The agent already has its “pending” answer, so these branches don't return anything to it. Their job is to leave a truthful trace. After the approval action, add a <span class="ui">Condition</span>. For the left value, type <kbd>/</kbd> → <span class="ui">Insert dynamic content</span> and pick the approval's <strong>outcome</strong> output; compare it to <code>Approve</code>. In each branch, record the decision in the Digital Issue Register (reuse the Create item pattern from Mission 06) and notify the requester (Office 365 Outlook → <em>Send an email</em>, or Teams → <em>Post message</em>):</p>
         <div class="table-wrap"><table>
-          <thead><tr><th>Outcome</th><th>Severity</th><th>Route returned to the agent</th></tr></thead>
+          <thead><tr><th>Outcome</th><th>Severity</th><th>What the flow records and sends</th></tr></thead>
           <tbody>
-            <tr><td>Approved</td><td>Sev 1 - Critical</td><td>APPROVED by on-call. Proceed with Log Digital Issue and page Payments.</td></tr>
-            <tr><td>Rejected</td><td>Sev 1 - Critical</td><td>REJECTED by on-call. Do not take action. Tell the employee who to contact.</td></tr>
-            <tr><td>Timed out (Configure run after → has timed out)</td><td>Sev 1 - Critical</td><td>NO DECISION YET. Do not take action. Escalate to secops@contoso.example.</td></tr>
+            <tr><td>Approved</td><td>Sev 1 - Critical</td><td>APPROVED by on-call. Create the Sev 1 register record, page Payments, email the requester the new ID.</td></tr>
+            <tr><td>Rejected</td><td>Sev 1 - Critical</td><td>REJECTED by on-call. Create nothing. Email the requester the decision and who to contact.</td></tr>
+            <tr><td>Timed out (Run after → has timed out)</td><td>Sev 1 - Critical</td><td>NO DECISION YET. Create nothing. Escalate to the secondary Digital Ops on-call.</td></tr>
           </tbody>
         </table></div>
-        <div class="callout intel"><strong>Run after</strong> Every action's <span class="ui">…</span> menu has <span class="ui">Run after</span>. Use it to send a step down a path when the step before it <em>failed</em> or <em>timed out</em>. This same technique saves you from the 403 Surprise in Mission 09.</div>
+        <p>For the third path, add one more action on a parallel branch directly after the approval, select it, and on its <span class="ui">Settings</span> tab set <span class="ui">Run after</span> to <em>has timed out</em> only.</p>
+        <div class="callout intel"><strong>Run after</strong> Select any action and open its <span class="ui">Settings</span> tab. <span class="ui">Run after</span> decides whether the step runs when the one before it <em>is successful</em>, <em>has failed</em>, <em>is skipped</em>, or <em>has timed out</em>. This same technique saves you from the 403 Surprise in Mission 09.</div>
       </li>
       <li class="step">
-        <h4>Test both decisions</h4>
-        <p>Publish, start a new test session, and send the duplicate-debit prompt again. Approve the request the first time and <strong>reject</strong> it the second time. In both cases, the agent must report exactly what the approver decided.</p>
-        <div class="reply">This needs a human decision. I've requested Sev 1 approval from Digital Operations on-call and will not take any action until they respond.</div>
+        <h4>Test all three decisions</h4>
+        <p>Select <span class="ui">Publish</span> in the flow designer, then in the agent's test pane select <span class="ui">New test session</span> and send the duplicate-debit prompt again. Within seconds the agent must say only this:</p>
+        <div class="reply">This needs a human decision. I've requested Sev 1 approval from Digital Operations on-call. Nothing has been changed yet, and I will not take any action until they respond.</div>
+        <p>Now play the approver. The request lands in Teams, Outlook, or the Approvals app for whoever you assigned. <strong>Approve</strong> it the first time: the Sev 1 record appears in the register and the requester gets the ID. Run it again and <strong>reject</strong> it: nothing is created and the requester gets the reason. Run it a third time and ignore it: after the timeout, the escalation fires. Check each outcome in the flow's <span class="ui">Activity</span> run history.</p>
       </li>
     </ol>
     <div class="checkpoint">
       <h4>Telemetry check · Mission 07</h4>
-      <label><input type="checkbox"> The sensitive branch pauses for a human before it returns anything</label>
-      <label><input type="checkbox"> Approved, Rejected, and Timed-out each return a different, truthful Route</label>
+      <label><input type="checkbox"> The agent answers “pending” within seconds, before anyone has approved</label>
+      <label><input type="checkbox"> Approved, Rejected, and Timed-out each leave a different, truthful record or notification</label>
       <label><input type="checkbox"> The approval details give the approver enough context to decide</label>
       <label><input type="checkbox"> The Escalate system topic no longer says “not configured”</label>
     </div>
@@ -226,9 +236,20 @@ Details     = Funds or data risk was reported for @{triggerBody()?['text']}.
   <div class="debrief">
     <h2 id="debrief-h">Debrief <span class="tag">Mission 07</span></h2>
     <div class="takeaways">
-      <div><b>01 · MATCH OVERSIGHT TO RISK</b><p>Automate low-risk work, notify on medium risk, and gate the critical actions.</p></div>
+      <div><b>01 · MATCH OVERSIGHT TO RISK</b><p>Automate low- and medium-risk work, act then notify on high risk, and gate the critical actions.</p></div>
       <div><b>02 · DESIGN FOR NO AND SILENCE</b><p>Rejections and timeouts are first-class paths, not afterthoughts.</p></div>
       <div><b>03 · TRUTHFUL STATUS</b><p>The agent never claims an outcome that the system hasn't confirmed.</p></div>
+    </div>
+    <div class="cs-notes">
+      <div class="cs-k">Copilot Studio takeaways</div>
+      <ul>
+        <li><b>Human review is an action group.</b> In the agent-flow designer, <span class="ui">AI capabilities</span> → <span class="ui">Human review</span> offers <strong>Request information</strong> (pause and ask a person) and <strong>Run a multistage approval</strong> (preview). The classic <em>Start and wait for an approval</em> from the Approvals connector works too.</li>
+        <li><b>Stages can be Manual or AI.</b> An AI stage pre-screens against criteria you write; a Manual stage waits for a person. A critical action always ends with a Manual stage.</li>
+        <li><b>Approval type sets the quorum.</b> <em>First to respond</em> suits an on-call rota; <em>Everyone must approve</em> gives dual control. Don't assign the same person to two stages: the designer warns the flow will fail.</li>
+        <li><b>Model the “no” with <span class="ui">Run after</span>.</b> On any action's <span class="ui">Settings</span> tab, <span class="ui">Run after</span> lets the step run when the previous one <em>has failed</em> or <em>has timed out</em>, and the action's <strong>Timeout</strong> on the same tab decides when that happens. That is how a silent approver becomes an escalation instead of a stuck flow.</li>
+        <li><b>100 seconds to respond.</b> A flow called as a tool must reach <span class="ui">Respond to the agent</span> within 100 seconds or the agent reports <em>FlowActionTimedOut</em>, and the flow's <em>Asynchronous response</em> toggle must stay off (otherwise error 3000). Put the approval, and anything else slow, <strong>after</strong> the response; the run continues for up to 30 days. Asynchronous response exists for environments on the new Power Automate infrastructure, but it is supported only in Teams, not Microsoft 365 Copilot or telephony.</li>
+        <li><b><span class="ui">Escalate</span> is a system topic you own.</b> Find it under <span class="ui">Topics</span> → <span class="ui">System</span>. Replace the default “not configured” message with the real handoff: who to contact, what to include, and that the agent will not act.</li>
+      </ul>
     </div>
     <div class="complete-row"><button class="complete-btn" type="button">🚀 Mark mission complete</button><span class="status">MISSION LOG</span></div>
   </div>
@@ -242,7 +263,7 @@ Details     = Funds or data risk was reported for @{triggerBody()?['text']}.
 </main>
 <footer class="footer"><div class="wrap">
 <div><div class="sig">Mission: Agent Upgrade 🚀</div><p>A 4-hour, live, instructor-led Microsoft Copilot Studio workshop. All scenarios, people, and data are fictional (Contoso Credit Union) and for classroom use only. Microsoft, Copilot, and Copilot Studio are trademarks of Microsoft Corporation.</p></div>
-<nav aria-label="Footer"><a href="../index.html">Home</a><a href="../index.html#flight-plan">Flight Plan</a><a href="../resources.html">Resources & Lab Kit</a><a href="../facilitator.html">Facilitator Guide</a></nav>
+<nav aria-label="Footer"><a href="../index.html">Home</a><a href="../index.html#flight-plan">Flight Plan</a><a href="../resources.html">Resources & Lab Kit</a><a href="../facilitator.html">Facilitator Guide</a><a href="../slides/">Slide Deck</a></nav>
 </div></footer>
 <script src="../assets/js/main.js"></script>
 </body>

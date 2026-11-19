@@ -765,3 +765,13 @@ details.reveal .inner p:last-child{margin-bottom:0}
 .frules p{margin:0 0 .5rem;font-size:.92rem;color:var(--text-2)}
 .frules a{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--c)}
 .frules a:hover{color:#fff}
+
+/* Copilot Studio takeaways (debrief, pass 3) */
+.debrief .cs-notes{margin:0 0 2rem;padding:1.3rem 1.5rem;border-radius:16px;background:rgba(4,6,26,.55);border:1px solid var(--line-2);border-left:3px solid var(--accent)}
+.debrief .cs-notes .cs-k{font-family:var(--mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:.55rem;margin-bottom:.8rem}
+.debrief .cs-notes .cs-k::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent)}
+.debrief .cs-notes ul{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:.6rem 1.6rem}
+.debrief .cs-notes li{position:relative;padding-left:1.25rem;font-size:.94rem;color:var(--text-2);line-height:1.5}
+.debrief .cs-notes li::before{content:"▸";position:absolute;left:0;top:0;color:var(--accent)}
+.debrief .cs-notes li b{color:#fff;font-weight:600}
+.debrief .cs-notes code{font-size:.84em}

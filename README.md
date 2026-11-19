@@ -21,6 +21,7 @@ Learners take one fictional scenario, *Contoso Credit Union · Digital Services 
 | `missions/m01.html` … `m10.html` | Ten missions, each with a briefing, a screenshot-driven lab or challenge, and a debrief |
 | `resources.html` | Cheat sheet, glossary, comparison matrix, and links |
 | `facilitator.html` | Run-of-show, participation modes, and contingencies |
+| `slides/` | 20-slide HTML deck of the course (arrow keys or swipe; `O` overview; `F` fullscreen), built from the missions and the real Copilot Studio screenshots |
 | `lab-kit/` | Synthetic playbook, issue register CSV, rogue document, topic YAML, test scenarios, and scorecards |
 
 All data is fictional, and Contoso is a fictional company. Screenshots were captured in a real Copilot Studio environment (November 2026 UI). Copilot Studio changes often, so expect small differences.

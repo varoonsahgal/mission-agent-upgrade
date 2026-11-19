@@ -423,7 +423,7 @@
   (function () {
     var host = $("#junction"); if (!host) return;
     var T = {
-      start: { k: "Incoming report", h: "A Digital employee reports: “Members say QuickPay transfers are stuck in Pending.”", p: "Mission Control receives the message. What does the agent check first?", o: [["Are all required details present?", "complete"], ["Create a ticket right away", "rash"]] },
+      start: { k: "Incoming report", h: "A Digital employee reports: “Members say QuickPay transfers are stuck in Pending.”", p: "Mission Control receives the message. What does the agent check first?", o: [["Are all required details present?", "complete"], ["Create a record right away", "rash"]] },
       rash: { end: true, c: "#f87171", k: "Anomaly · Premature action", h: "The agent creates a record with half the facts", p: "Creating a record before validating inputs leads to junk data and duplicates. Always validate first: service, symptom, error code, members affected, platform, and first observed time." , o: [["↺ Rewind", "start"]] },
       complete: { k: "Validation gate", h: "Required details check", p: "The report names the service (P2P) and the symptom, but not how many members are affected or the error code.", o: [["Details are complete", "known"], ["Details are missing", "incomplete"]] },
       incomplete: { end: true, c: "#fbbf24", k: "Branch C · Incomplete", h: "Collect more details before acting", p: "Use Question nodes to ask for the missing fields (members affected, error code, platform). Re-check them with a Condition. The playbook rule: if the number affected is unknown, treat the issue as one severity level higher until it's confirmed.", o: [["→ Details collected, continue", "known"], ["↺ Start over", "start"]] },

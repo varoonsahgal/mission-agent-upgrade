@@ -20,7 +20,7 @@
 <a class="brand" href="../index.html" aria-label="Mission: Agent Upgrade home"><svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="bl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff6b2c"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs><circle cx="20" cy="20" r="18" fill="none" stroke="url(#bl)" stroke-width="2"/><ellipse cx="20" cy="20" rx="18" ry="6.5" fill="none" stroke="#22d3ee" stroke-opacity=".6" stroke-width="1.2" transform="rotate(-28 20 20)"/><path d="M20 9c3 2 4.6 5.4 4.6 8.8l-1.6 3.4h-6l-1.6-3.4C15.4 14.4 17 11 20 9z" fill="#fff"/><path d="M17.6 22.6 16 26.5l2.6-1M22.4 22.6 24 26.5l-2.6-1" stroke="#ff6b2c" stroke-width="1.4" fill="none" stroke-linecap="round"/><circle cx="20" cy="16.4" r="1.6" fill="#8b5cf6"/></svg>
 <span>MISSION: AGENT UPGRADE<small>Copilot Studio · Contoso Digital</small></span></a>
 <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
-<nav class="nav" id="nav"><a href="../index.html#flight-plan">Flight Plan</a><a href="../index.html#missions" aria-current=page>Missions</a><a href="../resources.html">Resources</a><a href="../facilitator.html">Facilitator</a><a class="cta" href="../missions/m01.html">Launch Mission 01 →</a></nav>
+<nav class="nav" id="nav"><a href="../index.html#flight-plan">Flight Plan</a><a href="../index.html#missions" aria-current=page>Missions</a><a href="../resources.html">Resources</a><a href="../facilitator.html">Facilitator</a><a href="../slides/">Slides</a><a class="cta" href="../missions/m01.html">Launch Mission 01 →</a></nav>
 <div class="telemetry" aria-hidden="true"><span class="dot"></span><span>SYS NOMINAL</span><span>·</span><span id="met">--:--:-- ET</span></div>
 </div></header>
 <main id="main">
@@ -38,10 +38,10 @@
   <h2 id="briefing-h">Briefing <span class="tag">Discover</span></h2>
   <div class="tx" role="note">
     <span class="tx-k">Incoming transmission</span>
-    <p>“Three reports before coffee: “app broken”, “QuickPay?? again??”, and “members can't log in idk how many.” If the agent files those as-is, I'm turning it off.”</p>
+    <p>“Three reports before coffee: ‘app broken’, ‘QuickPay?? again??’, and ‘members can't log in idk how many.’ If the agent files those as-is, I'm turning it off.”</p>
     <span class="tx-from">— Priya N. · Digital Ops lead · 08:03 ET</span>
   </div>
-  <p class="lead">Real issue reports are messy. “The app is broken.” “QuickPay?? again??” “Members can't log in, idk how many.” A smart agent doesn't just act. It <strong>decides whether it's safe and sensible to act yet.</strong></p>
+  <p class="lead">Real issue reports are messy, and Priya's three are typical. A smart agent doesn't just act. It <strong>decides whether it's safe and sensible to act yet</strong>: known, unknown, incomplete, or sensitive.</p>
 
   <h3 id="four-branches" class="toc-include">The four branches of Mission Control</h3>
   <div class="tiles">
@@ -61,9 +61,9 @@
         <tr><td><strong>Question</strong></td><td>Ask the user something and store the answer in a variable, validated by an <em>entity</em></td><td>“Which service?” → <code>Topic.Service</code> (closed list)</td></tr>
         <tr><td><strong>Condition</strong></td><td>Branch on variable values</td><td><code>Topic.MembersAffected = "Unknown"</code></td></tr>
         <tr><td><strong>Variable management</strong></td><td>Set, parse, or clear values</td><td>Bump severity one level when the count is unknown</td></tr>
-        <tr><td><strong>Call a tool / action</strong></td><td>Run a workflow or connector, then capture its outputs</td><td>Triage Digital Issue → <code>IssueId</code></td></tr>
-        <tr><td><strong>Message</strong></td><td>Respond, with variables inline</td><td>“Created {IssueId} at {Severity}.”</td></tr>
-        <tr><td><strong>Topic management</strong></td><td>Redirect, end the topic, or transfer to an agent</td><td>Redirect to <em>Escalate</em> for Sev 1</td></tr>
+        <tr><td><strong>Add a tool</strong></td><td>Run an agent flow or connector, then capture its outputs</td><td>Triage Digital Issue → <code>Severity</code>, <code>Route</code></td></tr>
+        <tr><td><strong>Message</strong></td><td>Respond, with variables inline</td><td>“Triage result: {Severity}. {Route}”</td></tr>
+        <tr><td><strong>Topic management</strong></td><td>Go to another topic, end the topic, or transfer the conversation to a human</td><td>Redirect to <em>Escalate</em> for Sev 1</td></tr>
       </tbody>
     </table>
   </div>
@@ -82,10 +82,11 @@ NTF  → synonyms: alerts, notifications, push, push alerts</code></pre>
   <h3 id="exceptions" class="toc-include">Exception handling</h3>
   <ul>
     <li><strong>Re-prompts:</strong> Question nodes can retry when an answer doesn't match the entity, then fall back (for example, to “I'll pass this to a human”).</li>
-    <li><strong>Interruptions:</strong> Users change their minds partway through a topic. Decide whether a topic can be interrupted.</li>
+    <li><strong>Interruptions:</strong> Users change their minds partway through a topic. Each Question node's <span class="ui">Question behavior</span> settings decide whether the user can switch to another topic mid-question; the lab-kit YAML sets <code>allowInterruption: true</code> on every question.</li>
     <li><strong>Tool failures:</strong> The workflow can fail. Check its output before you report success (more on this in Mission 09).</li>
     <li><strong>System topics:</strong> <em>On Error</em>, <em>Fallback</em>, and <em>Escalate</em> are your safety nets. Customize them, don't ignore them.</li>
   </ul>
+  <p>Run the simulator to see the four branches fire, then build them for real in a topic.</p>
   <aside class="frule" data-n="04" aria-label="Flight rule 04">
     <span class="frule-k">Flight rule 04</span>
     <p>Validate before you act.</p>
@@ -134,7 +135,7 @@ NTF  → synonyms: alerts, notifications, push, push alerts</code></pre>
         <thead><tr><th>#</th><th>Test prompt</th><th>Expected branch</th></tr></thead>
         <tbody>
           <tr><td>T1</td><td>“Members say the app crashes right after the splash screen since the 8.4.0 update.”</td><td><span class="sev s3">A · Known</span> → DSI-1041 guidance</td></tr>
-          <tr><td>T2</td><td>“Bill Pay shows BIL-512 when members add a new payee on Android, a few members so far.”</td><td><span class="sev s3">B · Unknown</span> → new record</td></tr>
+          <tr><td>T2</td><td>“Bill Pay shows BIL-512 when members add a new payee on Android, a few members so far.”</td><td><span class="sev s3">B · Unknown</span> → NEW ISSUE message (triage call in the stretch goal)</td></tr>
           <tr><td>T3</td><td>“Something's wrong with deposits.”</td><td><span class="sev s2">C · Incomplete</span> → follow-up questions</td></tr>
           <tr><td>T4</td><td>“A member says QuickPay debited them twice for the same transfer.”</td><td><span class="sev s1">D · Sensitive</span> → escalate</td></tr>
         </tbody>
@@ -155,25 +156,25 @@ NTF  → synonyms: alerts, notifications, push, push alerts</code></pre>
       </li>
       <li class="step">
         <h4>Choose your build path</h4>
-        <p><strong>Path A: canvas (recommended for first-timers).</strong> Use <span class="ui">+</span> → <span class="ui">Ask a question</span>, <span class="ui">Add a condition</span>, <span class="ui">Send a message</span>, and <span class="ui">Variable management</span> to build the four junctions in the map below.</p>
+        <p><strong>Path A: canvas (recommended for first-timers).</strong> Use <span class="ui">+</span> → <span class="ui">Ask a question</span>, <span class="ui">Add a condition</span>, <span class="ui">Send a message</span>, and <span class="ui">Variable management</span> to build the four junctions in the table below.</p>
         <p><strong>Path B: code editor (fast lane).</strong> Open <span class="ui">More</span> → <span class="ui">Open code editor</span>, select everything, and paste the topic from the lab kit: <a href="../lab-kit/report-digital-issue-topic.yaml" download>report-digital-issue-topic.yaml</a>. Every topic is YAML underneath, and the canvas is a visual editor for it.</p>
         <figure class="shot" data-label="Topic › Code editor">
           <img src="../assets/img/shots/m04-03-code-editor.webp" alt="Topic code editor showing YAML for the decision junction, with Save your topic dialog" loading="lazy">
-          <figcaption>On the first save, you'll be asked to name the topic. Use <code>Report a Digital Issue</code>.</figcaption>
+          <figcaption>On the first save, you'll be asked to name the topic. Use <code>Report a Digital Issue</code>. This screenshot still shows our pre-fix <code>=Topic.Service = 'P2P'</code> comparison; the lab-kit YAML has the corrected conditions (see the bug note in step 4).</figcaption>
         </figure>
         <div class="table-wrap"><table>
           <thead><tr><th>Junction</th><th>Node</th><th>Logic</th></tr></thead>
           <tbody>
             <tr><td>1 · Identify</td><td>Question → <code>Topic.Service</code></td><td>Multiple choice: the 7 service codes</td></tr>
             <tr><td>2 · Sensitive?</td><td>Question (Yes/No) → Condition</td><td><code>=Topic.FundsOrDataRisk = true</code> → Sev 1 message → <strong>End topic</strong></td></tr>
-            <tr><td>3 · Incomplete?</td><td>Question → Condition → follow-up Question</td><td><code>=Len(Topic.Symptom) &lt; 25</code> → ask for the error code, platform, and start time, then merge with <code>Set variable</code></td></tr>
+            <tr><td>3 · Incomplete?</td><td>Question → Condition → follow-up Question</td><td><code>=Len(Topic.Symptom) &lt; 25</code> → ask for the error code, platform, and start time, then merge with <span class="ui">Set a variable value</span></td></tr>
             <tr><td>4 · Known?</td><td>Condition (2 cases + else)</td><td><code>="pending" in Topic.Symptom</code> → DSI-1042 · <code>="crash" in Topic.Symptom</code> → DSI-1041 · else → <strong>new issue</strong></td></tr>
           </tbody>
         </table></div>
       </li>
       <li class="step">
         <h4>Read the result on the canvas</h4>
-        <p>Close the code editor. The YAML is rendered as nodes: <strong>Message → Question (multiple choice) → Question → Condition…</strong> Scroll through it and match each node to a junction in the table.</p>
+        <p>If you took Path B, select <span class="ui">Close code editor</span>. The YAML is rendered as nodes: <strong>Message → Question (multiple choice) → Question → Condition…</strong> If you took Path A, compare your canvas with the screenshot below. Either way, scroll through and match each node to a junction in the table.</p>
         <figure class="shot" data-label="Report a Digital Issue · canvas">
           <img src="../assets/img/shots/m04-04-topic-canvas.webp" alt="Topic canvas showing trigger, message, and multiple-choice question with seven service options" loading="lazy">
         </figure>
@@ -188,7 +189,7 @@ NTF  → synonyms: alerts, notifications, push, push alerts</code></pre>
       </li>
       <li class="step">
         <h4>Fly the four test prompts</h4>
-        <p>Use a <span class="ui">New test session</span> for each prompt in the <em>win conditions</em> table (T1–T4). Answer the follow-up questions honestly, then check which branch fired in the activity map.</p>
+        <p>Use a <span class="ui">New test session</span> for each prompt in the test-prompt table above (T1–T4). Answer the follow-up questions honestly, then open the activity map in the test pane to check which branch fired.</p>
         <div class="prompt">Members say the app crashes right after the splash screen since the 8.4.0 update.</div>
         <div class="reply">KNOWN ISSUE: matches DSI-1041. Update to 8.4.1 and restart the device. No new record is needed.</div>
         <div class="prompt">Something's wrong with deposits.</div>
@@ -226,6 +227,17 @@ NTF  → synonyms: alerts, notifications, push, push alerts</code></pre>
       <div><b>02 · NO CLONES</b><p>Check what already exists before you create anything new.</p></div>
       <div><b>03 · KNOW WHEN TO STOP</b><p>Sensitive branches should stop and escalate, not improvise.</p></div>
     </div>
+    <div class="cs-notes">
+      <div class="cs-k">Copilot Studio takeaways</div>
+      <ul>
+        <li><b>Two ways to start a topic.</b> <span class="ui">Topics</span> → <span class="ui">Add a topic</span> → <span class="ui">From blank</span> or <span class="ui">Add from description with Copilot</span>. Under generative orchestration a new topic's trigger is <em>The agent chooses</em>: it fires on its description.</li>
+        <li><b>The node set is small.</b> Question (with entity validation and multiple-choice options), Condition, Message, Variable management, Add a tool, and Topic management (redirect, end, transfer). Mission Control's whole junction is built from those six.</li>
+        <li><b>Three variable scopes.</b> <code>Topic.*</code> lives for one topic, <code>Global.*</code> for the whole conversation, and <code>System.*</code> is built in. Watch them fill in the test pane's <span class="ui">Variables</span> view.</li>
+        <li><b>Entities validate at the door.</b> Closed-list entities carry synonyms (“quickpay” → <code>P2P</code>), regex entities enforce formats, and a Question node re-prompts when the answer doesn't match. Validation you put in an entity is validation you don't write as conditions.</li>
+        <li><b>Power Fx has rules.</b> Formulas start with <code>=</code>; double quotes are text, single quotes are identifiers; a multiple-choice answer isn't a plain string. The <span class="ui">Topic checker</span> catches “Identifier not recognized” and “Incompatible type comparison” before the test pane does.</li>
+        <li><b>Topics are YAML.</b> <span class="ui">More</span> → <span class="ui">Open code editor</span> shows the whole topic as text you can paste, diff, and share. Canvas and code are the same topic; the first save asks for a name.</li>
+      </ul>
+    </div>
     <div class="complete-row"><button class="complete-btn" type="button">🚀 Mark mission complete</button><span class="status">MISSION LOG</span></div>
   </div>
 </section>
@@ -238,7 +250,7 @@ NTF  → synonyms: alerts, notifications, push, push alerts</code></pre>
 </main>
 <footer class="footer"><div class="wrap">
 <div><div class="sig">Mission: Agent Upgrade 🚀</div><p>A 4-hour, live, instructor-led Microsoft Copilot Studio workshop. All scenarios, people, and data are fictional (Contoso Credit Union) and for classroom use only. Microsoft, Copilot, and Copilot Studio are trademarks of Microsoft Corporation.</p></div>
-<nav aria-label="Footer"><a href="../index.html">Home</a><a href="../index.html#flight-plan">Flight Plan</a><a href="../resources.html">Resources & Lab Kit</a><a href="../facilitator.html">Facilitator Guide</a></nav>
+<nav aria-label="Footer"><a href="../index.html">Home</a><a href="../index.html#flight-plan">Flight Plan</a><a href="../resources.html">Resources & Lab Kit</a><a href="../facilitator.html">Facilitator Guide</a><a href="../slides/">Slide Deck</a></nav>
 </div></footer>
 <script src="../assets/js/main.js"></script>
 </body>

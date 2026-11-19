@@ -20,7 +20,7 @@
 <a class="brand" href="../index.html" aria-label="Mission: Agent Upgrade home"><svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="bl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff6b2c"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs><circle cx="20" cy="20" r="18" fill="none" stroke="url(#bl)" stroke-width="2"/><ellipse cx="20" cy="20" rx="18" ry="6.5" fill="none" stroke="#22d3ee" stroke-opacity=".6" stroke-width="1.2" transform="rotate(-28 20 20)"/><path d="M20 9c3 2 4.6 5.4 4.6 8.8l-1.6 3.4h-6l-1.6-3.4C15.4 14.4 17 11 20 9z" fill="#fff"/><path d="M17.6 22.6 16 26.5l2.6-1M22.4 22.6 24 26.5l-2.6-1" stroke="#ff6b2c" stroke-width="1.4" fill="none" stroke-linecap="round"/><circle cx="20" cy="16.4" r="1.6" fill="#8b5cf6"/></svg>
 <span>MISSION: AGENT UPGRADE<small>Copilot Studio · Contoso Digital</small></span></a>
 <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
-<nav class="nav" id="nav"><a href="../index.html#flight-plan">Flight Plan</a><a href="../index.html#missions" aria-current=page>Missions</a><a href="../resources.html">Resources</a><a href="../facilitator.html">Facilitator</a><a class="cta" href="../missions/m01.html">Launch Mission 01 →</a></nav>
+<nav class="nav" id="nav"><a href="../index.html#flight-plan">Flight Plan</a><a href="../index.html#missions" aria-current=page>Missions</a><a href="../resources.html">Resources</a><a href="../facilitator.html">Facilitator</a><a href="../slides/">Slides</a><a class="cta" href="../missions/m01.html">Launch Mission 01 →</a></nav>
 <div class="telemetry" aria-hidden="true"><span class="dot"></span><span>SYS NOMINAL</span><span>·</span><span id="met">--:--:-- ET</span></div>
 </div></header>
 <main id="main">
@@ -41,7 +41,7 @@
     <p>“I asked the agent about a Bill Pay error. It gave me a great answer and then told me to open a ticket. I was asking the agent so I wouldn't have to open a ticket.”</p>
     <span class="tx-from">— Dana O. · Digital analyst · 09:41 ET</span>
   </div>
-  <p class="lead">Conversation gets you understanding. A <strong>workflow</strong> gets you action. This is the mission where Mission Control stops saying “please open a ticket” and starts opening the ticket itself.</p>
+  <p class="lead">Conversation gets you understanding. A <strong>workflow</strong> gets you action. This is the mission where Mission Control stops saying “please open a ticket” and starts triaging the issue itself.</p>
 
   <div class="analogy">
     <div class="ic">🚀</div>
@@ -70,7 +70,7 @@
         <tr><td>Input</td><td><code>FundsOrDataRisk</code></td><td>Yes/No</td><td>Is there any risk to member funds or data?</td></tr>
         <tr><td>Output</td><td><code>Severity</code></td><td>Text</td><td>Sev 1–4, from the Contoso severity matrix</td></tr>
         <tr><td>Output</td><td><code>Route</code></td><td>Text</td><td>What the agent must do next, e.g. “STOP — escalate to on-call”</td></tr>
-        <tr><td>Output <span class="sev s3">Day 2</span></td><td><code>IssueId</code></td><td>Text</td><td>Added in Mission 06 when the workflow writes to the SharePoint register</td></tr>
+        <tr><td>Output <span class="sev s3">Day 2</span></td><td><code>IssueId</code></td><td>Text</td><td>Added in Mission 06 when the workflow writes to the Digital Issue Register in SharePoint</td></tr>
       </tbody>
     </table>
   </div>
@@ -100,6 +100,7 @@
       </tbody>
     </table>
   </div>
+  <p>In the lab you build exactly the flow in Fig. 03-A, test it on its own, then hand it to the agent as a tool.</p>
   <aside class="frule" data-n="03" aria-label="Flight rule 03">
     <span class="frule-k">Flight rule 03</span>
     <p>Judgment in the model. Arithmetic in the flow.</p>
@@ -188,7 +189,7 @@
       </li>
       <li class="step">
         <h4>True branch: STOP and route to a human</h4>
-        <p>Select the <span class="ui">+</span> inside <span class="badge-true">True</span>, add <span class="ui">Respond to the agent</span>, and add two <strong>Text</strong> outputs:</p>
+        <p>Select the <span class="ui">+</span> inside <span class="badge-true">True</span>, add <span class="ui">Respond to the agent</span>, then use <span class="ui">Add an output</span> → <span class="ui">Text</span> to create two outputs:</p>
         <pre class="copy" data-lang="True branch outputs"><code>Severity = Sev 1 - Critical
 Route    = STOP - escalate to Digital Operations on-call for human approval</code></pre>
       </li>
@@ -199,11 +200,10 @@ Route    = STOP - escalate to Digital Operations on-call for human approval</cod
         <figure class="shot" data-label="Severity expression">
           <img src="../assets/img/shots/m03-11-severity-expression.webp" alt="Expression editor with nested if() severity logic" loading="lazy">
         </figure>
-        <div class="callout intel"><strong>What's text_2?</strong> Agent-flow inputs get internal names by type and order: <code>text</code>, <code>text_1</code>, <code>text_2</code>, <code>boolean</code>. <code>MembersAffected</code> is the third Text input, so it's <code>text_2</code>. You can check this in the trigger's <span class="ui">Code view</span>.</div>
+        <div class="callout intel"><strong>What's text_2?</strong> Open the trigger's <span class="ui">Code view</span> and you'll see the inputs keyed by type and order: <code>text</code>, <code>text_1</code>, <code>text_2</code>, <code>boolean</code>. <code>MembersAffected</code> is the third Text input, so it's <code>text_2</code>. The docs don't list these keys, so Code view is the source of truth if you rename or reorder inputs.</div>
         <p>Add <code>Route</code> = <code>Check the Digital Issue Register, then share approved guidance or log a new issue</code>. Finally, delete the original <span class="ui">Respond to the agent</span> that sits after the Condition. Each branch now returns its own answer.</p>
-        <figure class="shot" data-label="Two branches, two truthful responses">
+        <figure class="shot" data-label="Condition with both branches">
           <img src="../assets/img/shots/m03-12-branches.webp" alt="Workflow with condition and Respond to the agent in both True and False branches" loading="lazy">
-          <figcaption>The whole workflow: one trigger, one decision, two truthful responses.</figcaption>
         </figure>
       </li>
       <li class="step">
@@ -230,7 +230,7 @@ Route    = STOP - escalate to Digital Operations on-call for human approval</cod
       </li>
       <li class="step">
         <h4>Test the workflow on its own</h4>
-        <p>Select <span class="ui">Test</span> → <span class="ui">Manually</span> → <span class="ui">Test</span>, fill in the inputs, and select <span class="ui">Run flow</span>. Test runs don't consume capacity.</p>
+        <p>Select <span class="ui">Test</span> → <span class="ui">Manually</span> → <span class="ui">Test</span>, fill in the inputs, leaving <code>FundsOrDataRisk</code> off so the False branch runs, and select <span class="ui">Run flow</span>. Test runs don't consume capacity for flow actions (AI tools inside a flow, such as prompts, still use Copilot Credits).</p>
         <figure class="shot" data-label="Run flow">
           <img src="../assets/img/shots/m03-16-run-flow-inputs.webp" alt="Run flow panel with Service, Symptom, MembersAffected, and FundsOrDataRisk" loading="lazy">
         </figure>
@@ -255,7 +255,7 @@ Route    = STOP - escalate to Digital Operations on-call for human approval</cod
         <h4>The wow moment: talk becomes action</h4>
         <p>Start a <span class="ui">New test session</span> and send:</p>
         <div class="prompt">Some Android members report Bill Pay payee search spins and then times out with error BIL-408. No money has moved. Please triage this issue.</div>
-        <p>Open the activity map. The agent <strong>decided on its own</strong> to call <em>Triage Digital Issue</em>, extracted every input from your sentence (<code>Service = BIL</code>, <code>MembersAffected = Some</code>, <code>FundsOrDataRisk = false</code>), ran the workflow, and used the returned <code>Severity</code> in its answer.</p>
+        <p>Open the activity map on the left of the test pane. The agent <strong>decided on its own</strong> to call <em>Triage Digital Issue</em>, extracted every input from your sentence (<code>Service = BIL</code>, <code>MembersAffected = Some</code>, <code>FundsOrDataRisk = false</code>), ran the workflow, and used the returned <code>Severity</code> in its answer.</p>
         <figure class="shot" data-label="Activity map · tool call">
           <img src="../assets/img/shots/m03-21-agent-calls-tool.webp" alt="Activity map showing Triage Digital Issue tool call with AI-filled inputs and outputs, and the agent's triage result" loading="lazy">
           <figcaption>From a single sentence to a structured workflow call to a verifiable result, Sev 3 – Medium.</figcaption>
@@ -280,7 +280,7 @@ Route    = STOP - escalate to Digital Operations on-call for human approval</cod
       <ol>
         <li>On paper or a whiteboard, draw the five boxes: Trigger → Inputs → Actions → Logic → Outputs.</li>
         <li>Fill in the severity logic using the playbook's severity matrix. What makes an issue Sev 1? What does an “Unknown” count of affected members do?</li>
-        <li>Write the exact sentence the agent should say after the workflow returns. It must include the Issue ID, and must never say “resolved.”</li>
+        <li>Write the exact sentence the agent should say after the workflow returns. It must include the Severity and the Route, and must never say “resolved.”</li>
       </ol>
     </div>
   </div>
@@ -292,7 +292,18 @@ Route    = STOP - escalate to Digital Operations on-call for human approval</cod
     <div class="takeaways">
       <div><b>01 · TALK → ACTION</b><p>A workflow gives the agent a deterministic, auditable way to act.</p></div>
       <div><b>02 · CONTRACTS</b><p>Clear input and output names and descriptions are how the agent knows what to send and what it gets back.</p></div>
-      <div><b>03 · PROOF</b><p>The returned Issue ID is your first <em>verifiable result</em>. Coming up: what happens when reports are messy.</p></div>
+      <div><b>03 · PROOF</b><p>The returned <code>Severity</code> and <code>Route</code> are your first <em>verifiable result</em>. Coming up: what happens when reports are messy.</p></div>
+    </div>
+    <div class="cs-notes">
+      <div class="cs-k">Copilot Studio takeaways</div>
+      <ul>
+        <li><b>Workflows are agent flows.</b> They run on the Power Automate engine and live under <span class="ui">Workflows</span> in the left rail, whether you start one there or from <span class="ui">Tools</span> → <span class="ui">Add a tool</span> → <span class="ui">Add new · Workflows</span>.</li>
+        <li><b>The trigger and the response are the contract.</b> <em>When an agent calls the flow</em> takes six input types (Text, Yes/No, File, Email, Number, Date); <em>Respond to the agent</em> returns the outputs. Internally, inputs are named by type and order: <code>text</code>, <code>text_1</code>, <code>text_2</code>, <code>boolean</code>. Confirm them in <span class="ui">Code view</span>.</li>
+        <li><b>Typed <code>true</code> is a string.</b> In a Condition, use <kbd>/</kbd> → <span class="ui">Insert expression</span> to get a real Boolean. Expressions such as <code>if()</code>, <code>equals()</code>, and <code>triggerBody()</code> are where deterministic business rules belong.</li>
+        <li><b>Publish before the agent can call it.</b> <span class="ui">Save draft</span> → name it in <span class="ui">Overview</span> → <span class="ui">Edit</span> → <span class="ui">Flow checker</span> → <span class="ui">Publish</span>. Warnings don't block publishing; errors do. The agent can only run a published flow.</li>
+        <li><b>Test the flow alone first.</b> <span class="ui">Test</span> → <span class="ui">Manually</span> runs don't consume capacity for flow actions (prompts and other AI tools inside the flow still use Copilot Credits), and every run is recorded under the flow's <span class="ui">Activity</span> with the branch that executed. That's also where a failing step's HTTP status shows up in Mission 09.</li>
+        <li><b>Tool descriptions drive the call.</b> When you add the flow as a tool, its <strong>Description</strong> is what the orchestrator reads to decide whether to call it. Inputs set to <span class="ui">Dynamically fill with AI</span> are extracted from the conversation, and the activity map shows exactly what was passed in and returned.</li>
+      </ul>
     </div>
     <div class="complete-row"><button class="complete-btn" type="button">🚀 Mark mission complete</button><span class="status">MISSION LOG</span></div>
   </div>
@@ -306,7 +317,7 @@ Route    = STOP - escalate to Digital Operations on-call for human approval</cod
 </main>
 <footer class="footer"><div class="wrap">
 <div><div class="sig">Mission: Agent Upgrade 🚀</div><p>A 4-hour, live, instructor-led Microsoft Copilot Studio workshop. All scenarios, people, and data are fictional (Contoso Credit Union) and for classroom use only. Microsoft, Copilot, and Copilot Studio are trademarks of Microsoft Corporation.</p></div>
-<nav aria-label="Footer"><a href="../index.html">Home</a><a href="../index.html#flight-plan">Flight Plan</a><a href="../resources.html">Resources & Lab Kit</a><a href="../facilitator.html">Facilitator Guide</a></nav>
+<nav aria-label="Footer"><a href="../index.html">Home</a><a href="../index.html#flight-plan">Flight Plan</a><a href="../resources.html">Resources & Lab Kit</a><a href="../facilitator.html">Facilitator Guide</a><a href="../slides/">Slide Deck</a></nav>
 </div></footer>
 <script src="../assets/js/main.js"></script>
 </body>

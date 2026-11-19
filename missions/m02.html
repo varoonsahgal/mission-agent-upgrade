@@ -20,7 +20,7 @@
 <a class="brand" href="../index.html" aria-label="Mission: Agent Upgrade home"><svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="bl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff6b2c"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs><circle cx="20" cy="20" r="18" fill="none" stroke="url(#bl)" stroke-width="2"/><ellipse cx="20" cy="20" rx="18" ry="6.5" fill="none" stroke="#22d3ee" stroke-opacity=".6" stroke-width="1.2" transform="rotate(-28 20 20)"/><path d="M20 9c3 2 4.6 5.4 4.6 8.8l-1.6 3.4h-6l-1.6-3.4C15.4 14.4 17 11 20 9z" fill="#fff"/><path d="M17.6 22.6 16 26.5l2.6-1M22.4 22.6 24 26.5l-2.6-1" stroke="#ff6b2c" stroke-width="1.4" fill="none" stroke-linecap="round"/><circle cx="20" cy="16.4" r="1.6" fill="#8b5cf6"/></svg>
 <span>MISSION: AGENT UPGRADE<small>Copilot Studio · Contoso Digital</small></span></a>
 <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
-<nav class="nav" id="nav"><a href="../index.html#flight-plan">Flight Plan</a><a href="../index.html#missions" aria-current=page>Missions</a><a href="../resources.html">Resources</a><a href="../facilitator.html">Facilitator</a><a class="cta" href="../missions/m01.html">Launch Mission 01 →</a></nav>
+<nav class="nav" id="nav"><a href="../index.html#flight-plan">Flight Plan</a><a href="../index.html#missions" aria-current=page>Missions</a><a href="../resources.html">Resources</a><a href="../facilitator.html">Facilitator</a><a href="../slides/">Slides</a><a class="cta" href="../missions/m01.html">Launch Mission 01 →</a></nav>
 <div class="telemetry" aria-hidden="true"><span class="dot"></span><span>SYS NOMINAL</span><span>·</span><span id="met">--:--:-- ET</span></div>
 </div></header>
 <main id="main">
@@ -41,7 +41,7 @@
     <p>“The old assistant knows the playbook cold. Don't lose that. Just make it know what it can and can't do, and stop it from making things up.”</p>
     <span class="tx-from">— Dana O. · Digital analyst</span>
   </div>
-  <p class="lead">Before you upgrade an agent, you need a blueprint. Every Copilot Studio agent is built from a small set of parts. Once you can name them, you can design anything.</p>
+  <p class="lead">Before you upgrade an agent, you need a blueprint. Every Copilot Studio agent is built from the same seven parts; this briefing names each one and shows where it lives in the console.</p>
 
   <div class="diagram" role="img" aria-label="Anatomy of a Copilot Studio agent: an orchestrator at the center, surrounded by instructions, knowledge, topics, tools, triggers, connected agents and channels.">
     <svg viewBox="0 0 900 430" xmlns="http://www.w3.org/2000/svg">
@@ -99,16 +99,19 @@
 
   <h3 id="tabs" class="toc-include">Your console: the agent tabs</h3>
   <div class="tiles">
-    <div class="tile"><span class="lbl">TAB</span><h4>Overview</h4><p>Details, model, instructions, and quick-add cards for knowledge, tools, triggers, agents, topics, and suggested prompts.</p></div>
-    <div class="tile"><span class="lbl">TAB</span><h4>Knowledge</h4><p>Every source the agent can ground answers in, plus web search.</p></div>
+    <div class="tile"><span class="lbl">TAB</span><h4>Overview</h4><p>Details, the model picker, instructions, and cards to add knowledge, tools, and triggers, with the Web Search toggle under Knowledge.</p></div>
+    <div class="tile"><span class="lbl">TAB</span><h4>Knowledge</h4><p>Every source the agent can ground answers in, with each one's indexing status.</p></div>
     <div class="tile"><span class="lbl">TAB</span><h4>Tools</h4><p>Connectors, flows, prompts, and APIs the agent can call.</p></div>
+    <div class="tile"><span class="lbl">TAB</span><h4>Agents</h4><p>Connected and child agents this agent can hand work to.</p></div>
     <div class="tile"><span class="lbl">TAB</span><h4>Topics</h4><p>Custom and system topics such as Conversation Start, Escalate, Fallback, and On Error.</p></div>
     <div class="tile"><span class="lbl">TAB</span><h4>Activity</h4><p>A per-conversation timeline of what the agent decided and why.</p></div>
     <div class="tile"><span class="lbl">TAB</span><h4>Evaluation</h4><p>Test sets that score responses against expected answers.</p></div>
-    <div class="tile"><span class="lbl">TAB</span><h4>Monitor &amp; Analytics</h4><p>Health, usage, outcomes, and satisfaction.</p></div>
+    <div class="tile"><span class="lbl">TAB</span><h4>Monitor</h4><p>Health, usage, outcomes, and user feedback once the agent is live.</p></div>
+    <div class="tile"><span class="lbl">TAB</span><h4>Channels</h4><p>Where the agent is published: Teams, Microsoft 365 Copilot, websites, and more.</p></div>
     <div class="tile"><span class="lbl">PANE</span><h4>Test your agent</h4><p>The live chat panel on the right. Use it constantly.</p></div>
   </div>
   <div class="callout tip"><strong>Extend, don't rebuild</strong> An upgrade starts with what already works: the instructions and knowledge from the Agent Builder version. You'll add structure (topics) and capability (tools) around them.</div>
+  <p>In the lab you build Mission Control from these parts: a description, production instructions, one approved knowledge source, and a first test that shows its sources.</p>
   <aside class="frule" data-n="02" aria-label="Flight rule 02">
     <span class="frule-k">Flight rule 02</span>
     <p>Descriptions are code.</p>
@@ -131,7 +134,7 @@
       <div>
         <h4>What you'll build</h4>
         <ul>
-          <li>A <strong>Mission Control</strong> agent (Agent · Standard) in your sandbox environment</li>
+          <li>A <strong>Mission Control</strong> agent, created as <strong>Agent (Standard)</strong>, in your sandbox environment</li>
           <li>A clear description and production-quality <strong>instructions</strong></li>
           <li>The <strong>Troubleshooting Playbook</strong> as an approved knowledge source</li>
           <li><strong>Web Search</strong> switched off, then a first test flight in the test pane</li>
@@ -150,10 +153,10 @@
     <ol class="steps">
       <li class="step">
         <h4>Launch a Standard agent</h4>
-        <p>In Copilot Studio, select <span class="ui">Agents</span> in the left rail. Open the chevron next to <span class="ui">New agent</span>. There are two kinds of agent. <strong>Agent (GitHub Copilot)</strong> is credit-powered. <strong>Agent (Standard)</strong> has predefined rules and flows, and its standard orchestration is included with a Microsoft 365 Copilot license. Choose <span class="ui">Agent · Standard</span>.</p>
+        <p>In Copilot Studio, select <span class="ui">Agents</span> in the left rail. Open the chevron next to <span class="ui">New agent</span>. The menu offers three starting points. <strong>Agent</strong> and <strong>Customer conversation agent</strong> are both badged <em>Uses Copilot Credits</em>: the first acts autonomously and answers questions on your behalf, the second talks directly with customers, resolves issues, and transfers to a human when needed. <strong>Agent (Standard)</strong> is the rule-based conversational agent with predefined topics and flows; it is covered by a Microsoft 365 Copilot license (among other licensing options), while the two credit-badged agents are billed through Copilot Credits that must be available in the environment. Choose <span class="ui">Agent (Standard)</span>.</p>
         <figure class="shot" data-label="Agents › New agent">
-          <img src="../assets/img/shots/m02-01-create-menu.webp" alt="New agent menu showing Agent (GitHub Copilot), Customer Assist Agent, and Agent (Standard)" loading="lazy">
-          <figcaption>“Other ways to build” → <strong>Agent · Standard</strong> gives you topics, tools, and agent flows, which you'll use for the rest of the course.</figcaption>
+          <img src="../assets/img/shots/m02-01-create-menu.webp" alt="New agent menu showing Agent (Uses Copilot Credits), Customer conversation agent, and Agent (Standard)" loading="lazy">
+          <figcaption>Under “Explore what else is possible with agents,” choose <strong>Agent (Standard)</strong>. Every lab from here on uses it.</figcaption>
         </figure>
       </li>
       <li class="step">
@@ -166,7 +169,7 @@
       </li>
       <li class="step">
         <h4>Write a description the orchestrator can use</h4>
-        <p>On <span class="ui">Overview</span> → <span class="ui">Details</span>, select <span class="ui">Edit</span> and paste this description:</p>
+        <p>On <span class="ui">Overview</span> → <span class="ui">Details</span>, select <span class="ui">Edit</span>, paste this description (the field allows up to 1,024 characters), and select <span class="ui">Save</span>:</p>
         <pre class="copy" data-lang="Description"><code>Mission Control helps Contoso Digital Services employees triage problems with member-facing digital services (Mobile App, Online Banking, QuickPay, Mobile Check Deposit, Bill Pay, Sign-in Verification, Alerts).</code></pre>
         <figure class="shot" data-label="Overview › Details">
           <img src="../assets/img/shots/m02-04-edit-details.webp" alt="Details card in edit mode with the description filled in" loading="lazy">
@@ -174,7 +177,7 @@
       </li>
       <li class="step">
         <h4>Inspect the model picker</h4>
-        <p>Open <span class="ui">Select your agent's model</span>. You'll see OpenAI and Anthropic model families, and some may be disabled by your admin. Leave the default for this course. Notice that model choice is a governance decision too: your admin controls what's available.</p>
+        <p>Open <span class="ui">Select your agent's model</span>. You'll see OpenAI and Anthropic model families, and some may be disabled by your admin. Leave the default for this course.</p>
         <figure class="shot" data-label="Overview › Model">
           <img src="../assets/img/shots/m02-05-model-picker.webp" alt="Model picker listing GPT and Claude models, with xAI disabled by admin" loading="lazy">
           <figcaption>“Disabled by your admin” is governance in action. You'll come back to this in Mission 08.</figcaption>
@@ -206,7 +209,7 @@ Rules:
       </li>
       <li class="step">
         <h4>Add the approved knowledge source</h4>
-        <p>Select <span class="ui">Add knowledge</span>. The dialog lists every source type: file upload, OneDrive, SharePoint, public websites, Dataverse, Azure AI Search, Dynamics 365, Salesforce, ServiceNow, Azure SQL, and more. Drag <a href="../lab-kit/contoso-digital-troubleshooting-playbook.md" download>contoso-digital-troubleshooting-playbook.md</a> onto <span class="ui">Upload file</span>.</p>
+        <p>Still on <span class="ui">Overview</span>, scroll to the <span class="ui">Knowledge</span> card and select <span class="ui">+ Add knowledge</span>. The dialog opens with <span class="ui">Upload file</span> at the top (drag and drop, browse, or sync from OneDrive or SharePoint), <span class="ui">Featured</span> sources such as Public websites, SharePoint, Azure AI Search, Dataverse, and Dynamics 365, and an <span class="ui">Advanced</span> tab for the rest. Drag <a href="../lab-kit/contoso-digital-troubleshooting-playbook.md" download>contoso-digital-troubleshooting-playbook.md</a> onto <span class="ui">Upload file</span>.</p>
         <figure class="shot" data-label="Add knowledge">
           <img src="../assets/img/shots/m02-07-add-knowledge.webp" alt="Add knowledge dialog showing upload zone and featured sources" loading="lazy">
         </figure>
@@ -283,6 +286,17 @@ Rules:
       <div><b>02 · DESCRIPTIONS ARE CODE</b><p>The orchestrator chooses tools and topics by their descriptions. Write them as carefully as you'd write code.</p></div>
       <div><b>03 · STILL ONLY TALKS</b><p>Your agent now answers from the playbook, but it still can't <em>do</em> anything. Mission 03 fixes that.</p></div>
     </div>
+    <div class="cs-notes">
+      <div class="cs-k">Copilot Studio takeaways</div>
+      <ul>
+        <li><b>Instructions have a shape and a limit.</b> Up to 8,000 characters. Order them role → scope → rules → tone → refusals, use “never / always / only” for hard rules, and type <kbd>/</kbd> to reference a tool or topic by name.</li>
+        <li><b>Descriptions are read by the orchestrator.</b> With generative orchestration the agent picks topics, tools, and knowledge from their names and descriptions, so the <span class="ui">Details</span> description and every tool description are design decisions, not labels.</li>
+        <li><b>Knowledge has a lifecycle.</b> Uploaded files are stored in Dataverse and show <strong>In progress</strong> on the <span class="ui">Knowledge</span> tab until indexing finishes and they turn <strong>Ready</strong>. <span class="ui">Web Search</span> is a separate toggle on <span class="ui">Overview</span>; off means approved sources only.</li>
+        <li><b>The test pane shows its work.</b> The activity map lists <em>Search sources → Referenced sources</em> with the exact passages behind an answer. Start a <span class="ui">New test session</span> after you change instructions or knowledge so old state doesn't mislead you.</li>
+        <li><b>A new Standard agent isn't empty.</b> It ships with four custom topics (Greeting, Goodbye, Start Over, Thank you) and nine system topics, including Conversation Start, Escalate, Fallback, and On Error. Customize them; don't delete them.</li>
+        <li><b>Model choice is a setting, and a policy.</b> The agent's model is picked on <span class="ui">Overview</span>, and admins can disable model families for the tenant, so “Disabled by your admin” is normal in a governed environment.</li>
+      </ul>
+    </div>
     <div class="complete-row"><button class="complete-btn" type="button">🚀 Mark mission complete</button><span class="status">MISSION LOG</span></div>
   </div>
 </section>
@@ -295,7 +309,7 @@ Rules:
 </main>
 <footer class="footer"><div class="wrap">
 <div><div class="sig">Mission: Agent Upgrade 🚀</div><p>A 4-hour, live, instructor-led Microsoft Copilot Studio workshop. All scenarios, people, and data are fictional (Contoso Credit Union) and for classroom use only. Microsoft, Copilot, and Copilot Studio are trademarks of Microsoft Corporation.</p></div>
-<nav aria-label="Footer"><a href="../index.html">Home</a><a href="../index.html#flight-plan">Flight Plan</a><a href="../resources.html">Resources & Lab Kit</a><a href="../facilitator.html">Facilitator Guide</a></nav>
+<nav aria-label="Footer"><a href="../index.html">Home</a><a href="../index.html#flight-plan">Flight Plan</a><a href="../resources.html">Resources & Lab Kit</a><a href="../facilitator.html">Facilitator Guide</a><a href="../slides/">Slide Deck</a></nav>
 </div></footer>
 <script src="../assets/js/main.js"></script>
 </body>

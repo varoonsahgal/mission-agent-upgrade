@@ -20,7 +20,7 @@
 <a class="brand" href="../index.html" aria-label="Mission: Agent Upgrade home"><svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="bl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff6b2c"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs><circle cx="20" cy="20" r="18" fill="none" stroke="url(#bl)" stroke-width="2"/><ellipse cx="20" cy="20" rx="18" ry="6.5" fill="none" stroke="#22d3ee" stroke-opacity=".6" stroke-width="1.2" transform="rotate(-28 20 20)"/><path d="M20 9c3 2 4.6 5.4 4.6 8.8l-1.6 3.4h-6l-1.6-3.4C15.4 14.4 17 11 20 9z" fill="#fff"/><path d="M17.6 22.6 16 26.5l2.6-1M22.4 22.6 24 26.5l-2.6-1" stroke="#ff6b2c" stroke-width="1.4" fill="none" stroke-linecap="round"/><circle cx="20" cy="16.4" r="1.6" fill="#8b5cf6"/></svg>
 <span>MISSION: AGENT UPGRADE<small>Copilot Studio · Contoso Digital</small></span></a>
 <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
-<nav class="nav" id="nav"><a href="../index.html#flight-plan">Flight Plan</a><a href="../index.html#missions" aria-current=page>Missions</a><a href="../resources.html">Resources</a><a href="../facilitator.html">Facilitator</a><a class="cta" href="../missions/m01.html">Launch Mission 01 →</a></nav>
+<nav class="nav" id="nav"><a href="../index.html#flight-plan">Flight Plan</a><a href="../index.html#missions" aria-current=page>Missions</a><a href="../resources.html">Resources</a><a href="../facilitator.html">Facilitator</a><a href="../slides/">Slides</a><a class="cta" href="../missions/m01.html">Launch Mission 01 →</a></nav>
 <div class="telemetry" aria-hidden="true"><span class="dot"></span><span>SYS NOMINAL</span><span>·</span><span id="met">--:--:-- ET</span></div>
 </div></header>
 <main id="main">
@@ -60,11 +60,15 @@
       </div>
       <div class="timer"><div class="t">05:00</div><div class="l">Minutes</div></div>
     </div>
-    <p>Start a <strong>new conversation</strong> in the test pane (the refresh icon at the top of the pane), then run this sequence:</p>
+    <p>Run the five prompts below in order. Select <span class="ui">New test session</span> in the test pane before each one, so nothing from the previous prompt carries over. Each prompt proves one Day 1 system.</p>
     <div class="prompt">What should I tell a member whose mobile check deposit says RDC-117?</div>
-    <div class="reply">Approved guidance from the playbook (dark, flat background; good lighting; all four corners in frame), with a citation.</div>
+    <div class="reply">Approved guidance from the playbook (dark, flat background; good lighting; all four corners in frame), with a citation. No tool call.</div>
+    <div class="prompt">Members say QuickPay transfers are stuck in Pending.</div>
+    <div class="reply">Guidance for the known QuickPay issue, from the playbook. No triage call and no new record.</div>
+    <div class="prompt">Deposits are broken.</div>
+    <div class="reply">Follow-up questions (which service, what the member sees, how many members are affected). No action until the details are complete.</div>
     <div class="prompt">I need to report an issue: Bill Pay payee search fails with BIL-512 on Android for some members.</div>
-    <div class="reply">The topic collects or confirms the details, calls the triage workflow, and returns a tracking ID and severity.</div>
+    <div class="reply">A Severity and Route from the <em>Triage Digital Issue</em> tool, whether the orchestrator calls it directly (your Mission 03 build) or the <em>Report a Digital Issue</em> topic calls it from its else branch (the Mission 04 stretch goal). A topic that stops at NEW ISSUE with no severity means that stretch goal is still open. (The Issue ID arrives in Mission 06.)</div>
     <div class="prompt">Can you reset MFA for member 4471 so they can log in?</div>
     <div class="reply">A polite refusal. MFA resets require identity verification by a human Member Services specialist.</div>
     <!-- LAB-STEPS:m05:BEGIN -->
@@ -80,7 +84,7 @@
       <label><input type="checkbox"> An incomplete report triggers follow-up questions, not an action</label>
       <label><input type="checkbox"> A known issue gets guidance with no new record</label>
       <label><input type="checkbox"> The MFA-reset request is refused</label>
-      <label><input type="checkbox"> I opened the Activity view and can see which topic or tool ran</label>
+      <label><input type="checkbox"> I opened the activity map and can see which topic or tool ran</label>
     </div>
   </div>
 </section>
@@ -100,7 +104,7 @@
 
 <section id="day2-list">
   <h2 id="day2-h">Day 2 improvement log <span class="tag">Improve</span></h2>
-  <p>Before you log off, capture at least three improvements. Typical ones from past crews:</p>
+  <p>Before you log off, write down at least three improvements. Day 2 fixes these four:</p>
   <div class="tiles">
     <div class="tile"><span class="lbl">DATA</span><h4>“Known issue” is hard-coded</h4><p>Look it up in a real register instead → Mission 06.</p></div>
     <div class="tile"><span class="lbl">SAFETY</span><h4>Sev 1 only sends a message</h4><p>It needs a real approval gate → Mission 07.</p></div>
@@ -117,6 +121,16 @@
       <div><b>TOMORROW</b><p>Connect it to real (synthetic) data, secure it, and prove it works.</p></div>
       <div><b>HOMEWORK (OPTIONAL)</b><p>Run the <a href="m01.html#challenge">Which tool fits?</a> challenge on your own backlog.</p></div>
     </div>
+    <div class="cs-notes">
+      <div class="cs-k">Copilot Studio takeaways</div>
+      <ul>
+        <li><b>Test before you publish.</b> The test pane runs your latest saved changes. Nothing reaches a published channel until you select <span class="ui">Publish</span>.</li>
+        <li><b><span class="ui">New test session</span> is your clean room.</b> It clears topic and global variables, so the previous test can't leak into this one. Start one before every prompt in a sequence.</li>
+        <li><b>The activity map is the flight recorder.</b> Open it from the test pane to see which knowledge source, topic, or tool the orchestrator chose, the inputs it filled with AI, and the outputs that came back.</li>
+        <li><b><span class="ui">Variables</span> shows what was actually captured.</b> If a question node “didn't work”, check whether <code>Topic.Service</code> holds a value before you blame the condition.</li>
+        <li><b><span class="ui">Activity</span> keeps the history.</b> The agent's Activity tab lists past sessions with their steps and status, so you can review a flight after the fact.</li>
+      </ul>
+    </div>
     <div class="complete-row"><button class="complete-btn" type="button">🚀 Mark mission complete</button><span class="status">MISSION LOG</span></div>
   </div>
 </section>
@@ -129,7 +143,7 @@
 </main>
 <footer class="footer"><div class="wrap">
 <div><div class="sig">Mission: Agent Upgrade 🚀</div><p>A 4-hour, live, instructor-led Microsoft Copilot Studio workshop. All scenarios, people, and data are fictional (Contoso Credit Union) and for classroom use only. Microsoft, Copilot, and Copilot Studio are trademarks of Microsoft Corporation.</p></div>
-<nav aria-label="Footer"><a href="../index.html">Home</a><a href="../index.html#flight-plan">Flight Plan</a><a href="../resources.html">Resources & Lab Kit</a><a href="../facilitator.html">Facilitator Guide</a></nav>
+<nav aria-label="Footer"><a href="../index.html">Home</a><a href="../index.html#flight-plan">Flight Plan</a><a href="../resources.html">Resources & Lab Kit</a><a href="../facilitator.html">Facilitator Guide</a><a href="../slides/">Slide Deck</a></nav>
 </div></footer>
 <script src="../assets/js/main.js"></script>
 </body>

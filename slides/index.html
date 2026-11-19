@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mission: Agent Upgrade · Slides</title>
+<meta name="description" content="20-slide deck for the Mission: Agent Upgrade Copilot Studio workshop: the upgrade path from an assistant that talks to a governed business solution, with the ten flight rules.">
+<meta name="theme-color" content="#04061a">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="deck.css">
+</head>
+<body>
+<div class="viewport" id="viewport">
+<div class="stage" id="stage">
+
+<!-- 01 TITLE -->
+<section class="slide s-title" data-title="Title">
+  <div class="wall" aria-hidden="true">
+    <img src="../assets/img/shots/m03-21-agent-calls-tool.webp" alt=""><img src="../assets/img/shots/m06-01-sharepoint-register.webp" alt=""><img src="../assets/img/shots/m03-12-branches.webp" alt="">
+    <img src="../assets/img/shots/m02-06-instructions.webp" alt=""><img src="../assets/img/shots/m07-07-approval-types.webp" alt=""><img src="../assets/img/shots/m09-05-eval-results.webp" alt="">
+    <img src="../assets/img/shots/m04-04-topic-canvas.webp" alt=""><img src="../assets/img/shots/m08-03-security.webp" alt=""><img src="../assets/img/shots/m10-02-channels.webp" alt="">
+  </div>
+  <div class="shade shade-title"></div>
+  <div class="content">
+    <div class="chips reveal"><span class="live">Microsoft Copilot Studio</span><span>2 days · 4 hours</span><span>10 missions</span><span>4 anomalies</span></div>
+    <h1 class="mega reveal" style="--d:.12s"><span>Mission:</span><em>Agent Upgrade</em></h1>
+    <p class="lede reveal" style="--d:.26s">From AI assistants to intelligent business solutions. One ordinary assistant, upgraded step by step into a <strong>connected, governed, tested</strong> Copilot Studio solution.</p>
+    <p class="meta reveal" style="--d:.4s">Contoso Credit Union · Digital Services · December 15–16, 2026</p>
+  </div>
+</section>
+
+<!-- 02 ANSWERING ≠ ACTING -->
+<section class="slide" data-title="Answering is not acting">
+  <div class="content">
+    <p class="kicker reveal">The problem</p>
+    <h2 class="reveal" style="--d:.1s">Answering is <em>not acting.</em></h2>
+    <div class="beforeafter">
+      <div class="ba before reveal" style="--d:.2s">
+        <span class="lbl">Before · an assistant that talks</span>
+        <div class="bubble user">Bill Pay payee search fails with BIL-512 on Android. What do I do?</div>
+        <div class="bubble bot">Here's the troubleshooting guidance from the playbook… <b>Now please open a ticket with Digital Ops.</b></div>
+        <p class="caption">Great answer. Zero action. The human still does the work.</p>
+      </div>
+      <div class="arrow reveal" style="--d:.3s">→</div>
+      <div class="ba after reveal" style="--d:.36s">
+        <span class="lbl">After · a governed business solution</span>
+        <div class="bubble user">Bill Pay payee search fails with BIL-512 on Android. Some members.</div>
+        <div class="bubble bot">No open record matched. I triaged it as <b>Sev 3 · Medium</b> and logged <b>DSI-12161024</b> in the Digital Issue Register. No funds risk, so no escalation.</div>
+        <p class="caption">Investigated, decided, acted, and returned a verifiable ID.</p>
+      </div>
+    </div>
+    <div class="rule reveal" style="--d:.5s"><b>Flight rule 01</b>Upgrade the moment the agent must change something, follow a rule, wait for a person, or run on its own.</div>
+  </div>
+</section>
+
+<!-- 03 WHICH TOOL -->
+<section class="slide" data-title="Which tool?">
+  <div class="content">
+    <p class="kicker reveal">Mission 01 · Choose the right tool</p>
+    <h2 class="reveal" style="--d:.1s">Agent Builder gets you airborne. <em>Copilot Studio is Mission Control.</em></h2>
+    <div class="matrix reveal" style="--d:.2s">
+      <div class="mh"><span>If the agent needs to…</span><span>M365 Copilot Agent Builder</span><span>Copilot Studio</span></div>
+      <div class="mr"><span>Answer questions from Microsoft 365 content</span><span class="ok">Great fit</span><span class="ok">Yes</span></div>
+      <div class="mr"><span>Serve one person or a small team</span><span class="ok">Great fit</span><span class="ok">Yes</span></div>
+      <div class="mr"><span>Follow branching business rules</span><span class="meh">Instructions only</span><span class="ok">Topics + conditions</span></div>
+      <div class="mr"><span>Create or update records in a system</span><span class="no">—</span><span class="ok">Tools + agent flows</span></div>
+      <div class="mr"><span>Wait for a human approval</span><span class="no">—</span><span class="ok">Approvals in flows</span></div>
+      <div class="mr"><span>Run on a schedule or an event</span><span class="no">—</span><span class="ok">Triggers</span></div>
+      <div class="mr"><span>Reach members or external channels</span><span class="no">—</span><span class="ok">Channels</span></div>
+      <div class="mr"><span>Be tested, monitored, promoted across environments</span><span class="meh">Limited</span><span class="ok">Evaluation · Monitor · Solutions</span></div>
+    </div>
+    <div class="signals reveal" style="--d:.45s"><span class="k">Signals that point to Copilot Studio</span><i>Act</i><i>Decide</i><i>Connect</i><i>Approve</i><i>Trigger</i><i>Publish</i><i>Govern</i><i>Measure</i></div>
+  </div>
+</section>
+
+<!-- 04 ANATOMY -->
+<section class="slide" data-title="Anatomy of an agent">
+  <div class="split">
+    <div class="content">
+      <p class="kicker reveal">Mission 02 · Inside Copilot Studio</p>
+      <h2 class="reveal" style="--d:.1s">Seven parts. <em>Every agent.</em></h2>
+      <div class="parts7">
+        <div class="reveal" style="--d:.18s"><b>Instructions</b><p>Role, scope, hard rules, tone. Up to 8,000 characters; type <code>/</code> to reference tools and topics.</p></div>
+        <div class="reveal" style="--d:.24s"><b>Knowledge</b><p>Approved content the agent grounds in: files, SharePoint, websites, Dataverse.</p></div>
+        <div class="reveal" style="--d:.3s"><b>Topics</b><p>Authored conversation paths with questions, variables, and conditions.</p></div>
+        <div class="reveal" style="--d:.36s"><b>Tools</b><p>Connector actions, agent flows, prompts, REST APIs, MCP servers.</p></div>
+        <div class="reveal" style="--d:.42s"><b>Triggers</b><p>Events that start the agent without a chat: email, new item, schedule.</p></div>
+        <div class="reveal" style="--d:.48s"><b>Agents</b><p>Other agents this one can hand work to.</p></div>
+        <div class="reveal" style="--d:.54s"><b>Channels</b><p>Where it's published: Teams, M365 Copilot, SharePoint, web, more.</p></div>
+      </div>
+      <div class="rule reveal" style="--d:.62s"><b>Flight rule 02</b>Descriptions are code. The orchestrator picks tools, topics, and knowledge by how you describe them.</div>
+    </div>
+    <figure class="mon reveal-img" data-label="Mission Control › Overview › Instructions" style="--pos:0 0;--z:1.2;--o:0% 60%">
+      <img src="../assets/img/shots/m02-06-instructions.webp" alt="Mission Control agent overview with the instructions editor open">
+    </figure>
+  </div>
+</section>
+
+<!-- 05 SCENARIO -->
+<section class="slide s-scenario" data-title="The signature lab">
+  <div class="bg blur" style="background-image:url(../assets/img/shots/m06-01-sharepoint-register.webp)"></div>
+  <div class="shade shade-full"></div>
+  <div class="content center">
+    <p class="kicker reveal">The signature lab · Contoso Digital</p>
+    <h2 class="reveal" style="--d:.1s">Digital Service <em>Mission Control</em></h2>
+    <p class="lede center reveal" style="--d:.18s">A Digital employee needs help with a member-facing service: mobile app crashes, QuickPay transfers stuck, passcodes not arriving. The starter agent can answer. It can't act. Not for long.</p>
+    <div class="stages">
+      <div class="st reveal" style="--d:.26s;--c:#22d3ee"><i>01</i><b>Understand</b><p>Interpret the issue using approved knowledge</p></div>
+      <div class="st reveal" style="--d:.32s;--c:#8b5cf6"><i>02</i><b>Investigate</b><p>Check the issue register for an existing record</p></div>
+      <div class="st reveal" style="--d:.38s;--c:#f472b6"><i>03</i><b>Decide</b><p>Guidance, more details, or escalate</p></div>
+      <div class="st reveal" style="--d:.44s;--c:#ff6b2c"><i>04</i><b>Act</b><p>Run a workflow, create an authorized record</p></div>
+      <div class="st reveal" style="--d:.5s;--c:#fbbf24"><i>05</i><b>Protect</b><p>Permissions, approval gates, exception handling</p></div>
+      <div class="st reveal" style="--d:.56s;--c:#34d399"><i>06</i><b>Verify</b><p>Tests and observable results</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 FLIGHT PLAN -->
+<section class="slide" data-title="Flight plan">
+  <div class="content">
+    <p class="kicker reveal">Flight plan</p>
+    <h2 class="reveal" style="--d:.1s">Two days. Two hours each. <em>Ten missions.</em></h2>
+    <div class="days">
+      <div class="day reveal" style="--d:.2s">
+        <div class="dh"><span>Day 01 · Give your agent superpowers</span><small>From conversations to actions</small></div>
+        <ol>
+          <li><b>01</b><span>The Upgrade: Agent Builder vs. Copilot Studio</span><i>20m</i></li>
+          <li><b>02</b><span>Design Your Solution: agents, knowledge, topics, tools</span><i>25m</i></li>
+          <li><b>03</b><span>Workflow Power: the triage workflow</span><i>35m</i></li>
+          <li class="brk"><span>Refuel</span><i>5m</i></li>
+          <li><b>04</b><span>Decision Junction: known, unknown, incomplete</span><i>30m</i></li>
+          <li><b>05</b><span>Checkpoint: one end-to-end test flight</span><i>5m</i></li>
+        </ol>
+        <p class="outcome">Outcome: an upgraded agent with a testable workflow and conditional logic.</p>
+      </div>
+      <div class="day reveal" style="--d:.32s">
+        <div class="dh"><span>Day 02 · Connect it. Secure it. Prove it.</span><small>From prototype to governed solution</small></div>
+        <ol>
+          <li><b>06</b><span>Connect the Dots: the Digital Issue Register</span><i>30m</i></li>
+          <li><b>07</b><span>Human in the Loop: the approval gate</span><i>25m</i></li>
+          <li class="brk"><span>Refuel</span><i>5m</i></li>
+          <li><b>08</b><span>Break the Agent: security &amp; governance</span><i>25m</i></li>
+          <li><b>09</b><span>Mission Control: test &amp; troubleshoot</span><i>20m</i></li>
+          <li><b>10</b><span>The Agent Showcase</span><i>15m</i></li>
+        </ol>
+        <p class="outcome">Outcome: a connected, tested prototype, or a validated solution design.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 WORKFLOWS -->
+<section class="slide" data-title="Workflows: talk to action">
+  <div class="split">
+    <div class="content">
+      <p class="kicker reveal">Mission 03 · Workflow power</p>
+      <h2 class="reveal" style="--d:.1s">Talk → <em>action.</em></h2>
+      <div class="flowrow reveal" style="--d:.18s"><span>Trigger</span><span>Inputs</span><span>Actions</span><span>Logic</span><span>Outputs</span></div>
+      <p class="body reveal" style="--d:.24s">An <strong>agent flow</strong> runs on the Power Automate engine. The agent calls it as a tool, fills the inputs from the conversation, waits, and uses the outputs in its reply. The inputs and outputs are a <strong>contract</strong>.</p>
+      <div class="contract reveal" style="--d:.3s">
+        <div><span class="dir in">in</span><code>Service</code><small>MOB, OLB, P2P, RDC, BIL, MFA, NTF</small></div>
+        <div><span class="dir in">in</span><code>Symptom</code><small>what the member sees, incl. error code</small></div>
+        <div><span class="dir in">in</span><code>MembersAffected</code><small>One · Some · Many</small></div>
+        <div><span class="dir in">in</span><code>FundsOrDataRisk</code><small>Yes/No</small></div>
+        <div><span class="dir out">out</span><code>Severity</code><small>Sev 1–4 from the matrix</small></div>
+        <div><span class="dir out">out</span><code>Route</code><small>what the agent must do next</small></div>
+      </div>
+      <div class="rule reveal" style="--d:.42s"><b>Flight rule 03</b>Judgment in the model. Arithmetic in the flow.</div>
+    </div>
+    <figure class="mon reveal-img" data-label="Agent flows › Trigger · 4 typed inputs" style="--z:1.9;--o:28% 38%">
+      <img src="../assets/img/shots/m03-04-trigger-inputs.webp" alt="The 'When an agent calls the flow' trigger with four typed inputs">
+    </figure>
+  </div>
+</section>
+
+<!-- 08 WOW MOMENT -->
+<section class="slide s-wow" data-title="The wow moment">
+  <div class="content">
+    <p class="kicker reveal">Mission 03 · The wow moment</p>
+    <h2 class="reveal" style="--d:.1s">One sentence in. <em>A verifiable result out.</em></h2>
+    <div class="wow">
+      <figure class="mon big reveal-img" data-label="Test pane › Activity map">
+        <img src="../assets/img/shots/m03-21-agent-calls-tool.webp" alt="Activity map showing the agent calling Triage Digital Issue with AI-filled inputs and the returned severity">
+      </figure>
+      <div class="pins">
+        <div class="pin reveal" style="--d:.4s"><i>1</i><b>The agent chose the tool itself</b><p>Generative orchestration matched the request to <em>Triage Digital Issue</em> by its description.</p></div>
+        <div class="pin reveal" style="--d:.5s"><i>2</i><b>Filled four inputs from one sentence</b><p><code>Service = BIL</code> · <code>Symptom = payee search times out, BIL-408</code> · <code>MembersAffected = Some</code> · <code>FundsOrDataRisk = false</code></p></div>
+        <div class="pin reveal" style="--d:.6s"><i>3</i><b>Used what the flow returned</b><p><strong>Sev 3 · Medium</strong>, from a deterministic expression, not a guess.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 WHERE LOGIC LIVES -->
+<section class="slide" data-title="Where logic lives">
+  <div class="content">
+    <p class="kicker reveal">Design decision</p>
+    <h2 class="reveal" style="--d:.1s">Where should the logic <em>live?</em></h2>
+    <div class="three">
+      <div class="card reveal" style="--d:.2s;--c:#22d3ee"><span class="k">Instructions</span><h3>Judgment, tone, soft rules</h3><p>“Be concise. Use the member's language. Never reset MFA.”</p><small>Up to 8,000 chars · never / always / only for hard rules</small></div>
+      <div class="card reveal" style="--d:.3s;--c:#8b5cf6"><span class="k">Topic</span><h3>The conversation must follow a path</h3><p>Ask for the error code before continuing. Validate with an entity.</p><small>Trigger → Question → Condition → Tool → Message</small></div>
+      <div class="card reveal" style="--d:.4s;--c:#ff6b2c"><span class="k">Agent flow</span><h3>Same way every time, auditable</h3><p>Calculate severity, create the record, notify on-call.</p><small>Always respond to the agent: Status + Reason + ID</small></div>
+    </div>
+    <div class="traps">
+      <div class="trap reveal" style="--d:.52s"><b>Classic trap</b>Typing <code>true</code> into a condition stores the <em>string</em> “true”. Insert an <strong>expression</strong> to get a real Boolean.</div>
+      <div class="trap reveal" style="--d:.6s"><b>Under the hood</b>Flow inputs get internal names by type and order: <code>text</code>, <code>text_1</code>, <code>text_2</code>, <code>boolean</code>. Check them in <strong>Code view</strong>.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 DECISION JUNCTION -->
+<section class="slide" data-title="Decision junction">
+  <div class="split rev">
+    <figure class="mon reveal-img" data-label="Topics › Report a Digital Issue" style="--z:1.35;--o:34% 55%">
+      <img src="../assets/img/shots/m04-04-topic-canvas.webp" alt="Topic canvas with trigger, message, and question nodes">
+    </figure>
+    <div class="content">
+      <p class="kicker reveal">Mission 04 · Decision junction</p>
+      <h2 class="reveal" style="--d:.1s">Messy reports in. <em>Four clean branches out.</em></h2>
+      <div class="branches">
+        <div class="br reveal" style="--d:.2s;--c:#34d399"><i>A</i><b>Known issue</b><p>Matches the playbook or an open record. Share guidance, link the ID. No duplicates.</p></div>
+        <div class="br reveal" style="--d:.27s;--c:#22d3ee"><i>B</i><b>Unknown issue</b><p>No match, details complete. Run triage, return the new ID.</p></div>
+        <div class="br reveal" style="--d:.34s;--c:#fbbf24"><i>C</i><b>Incomplete report</b><p>Required details missing. Ask before acting.</p></div>
+        <div class="br reveal" style="--d:.41s;--c:#f87171"><i>D</i><b>Sensitive / Sev 1</b><p>Funds or data risk, or a wide outage. Stop and escalate to a human.</p></div>
+      </div>
+      <div class="rule reveal" style="--d:.52s"><b>Flight rule 04</b>Validate before you act. An incomplete report earns a question, not a record.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 CHECKPOINT -->
+<section class="slide" data-title="One clean flight">
+  <div class="content">
+    <p class="kicker reveal">Mission 05 · Checkpoint</p>
+    <h2 class="reveal" style="--d:.1s">Parts that work separately <em>prove nothing.</em></h2>
+    <p class="body reveal" style="--d:.16s">Start a <strong>new test session</strong>, then run the whole flight in one conversation.</p>
+    <div class="tests">
+      <div class="t reveal" style="--d:.24s"><span class="q">What should I tell a member whose mobile check deposit says RDC-117?</span><span class="a ok">Approved guidance from the playbook, with a citation. No action.</span></div>
+      <div class="t reveal" style="--d:.34s"><span class="q">Report an issue: Bill Pay payee search fails with BIL-512 on Android for some members.</span><span class="a ok">Topic collects the details, calls the triage workflow, and returns a Severity and Route. The Issue ID arrives in Mission 06.</span></div>
+      <div class="t reveal" style="--d:.44s"><span class="q">Can you reset MFA for member 4471 so they can log in?</span><span class="a stop">Polite refusal. MFA resets need identity verification by a human.</span></div>
+    </div>
+    <div class="nuggets reveal" style="--d:.56s"><span>New test session resets variables</span><span>Activity map shows the tool the orchestrator chose, and why</span><span>Variables view shows what each topic captured</span></div>
+  </div>
+</section>
+
+<!-- 12 CONNECTORS -->
+<section class="slide" data-title="Connectors and identity">
+  <div class="split">
+    <div class="content">
+      <p class="kicker reveal">Mission 06 · Enterprise integrations</p>
+      <h2 class="reveal" style="--d:.1s">Every integration is an <em>identity decision.</em></h2>
+      <div class="defs">
+        <div class="reveal" style="--d:.18s"><b>Connector</b><p>The docking port: a wrapper around a service's API. Admins allow or block them with data policies.</p></div>
+        <div class="reveal" style="--d:.24s"><b>Action</b><p>One operation: <em>Get items</em>, <em>Create item</em>. Add only the ones you need.</p></div>
+        <div class="reveal" style="--d:.3s"><b>Connection</b><p>An authenticated instance tied to an identity. It decides <strong>whose permissions</strong> every call runs with.</p></div>
+      </div>
+      <div class="creds reveal" style="--d:.38s">
+        <div><span class="k">End-user credentials</span><p>Each user signs in; the action runs as them. Best for personal data.</p></div>
+        <div><span class="k">Maker-provided credentials</span><p>Runs as the owner or a service account. Everyone inherits its access, so scope it to the list, not the site.</p></div>
+      </div>
+      <div class="rule reveal" style="--d:.48s"><b>Flight rule 06</b>Read before you write. Report only the ID the system returned.</div>
+    </div>
+    <div class="stack2">
+      <figure class="mon reveal-img" data-label="SharePoint › Digital Issue Register"><img src="../assets/img/shots/m06-01-sharepoint-register.webp" alt="SharePoint list with digital issues, severities, and statuses"></figure>
+      <figure class="mon reveal-img" data-label="Get items › Create a new connection" style="--z:1.6;--o:50% 30%"><img src="../assets/img/shots/m06-02-get-items-signin.webp" alt="Get items action prompting to sign in and create a SharePoint connection"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 13 HUMAN IN THE LOOP -->
+<section class="slide" data-title="Human in the loop">
+  <div class="split rev">
+    <figure class="mon reveal-img" data-label="Agent flows › Run a multistage approval" style="--z:1.2;--o:66% 40%">
+      <img src="../assets/img/shots/m07-07-approval-types.webp" alt="Multistage approval configuration with approval type options">
+    </figure>
+    <div class="content">
+      <p class="kicker reveal">Mission 07 · Human in the loop</p>
+      <h2 class="reveal" style="--d:.1s">Match the oversight <em>to the risk.</em></h2>
+      <div class="risk reveal" style="--d:.2s">
+        <div><span class="lv low">Low</span><span>Share guidance for a known issue</span><b>Automate</b></div>
+        <div><span class="lv med">Medium</span><span>Create a Sev 3–4 record</span><b>Automate + log</b></div>
+        <div><span class="lv high">High</span><span>Create a Sev 2 record and page a team</span><b>Act, then notify</b></div>
+        <div><span class="lv crit">Critical</span><span>Declare a Sev 1 · close or delete an incident</span><b>Approval gate</b></div>
+        <div><span class="lv never">Never</span><span>Reset or bypass a member's MFA</span><b>Hand off to a human</b></div>
+      </div>
+      <div class="nuggets reveal" style="--d:.38s"><span><em>Start and wait for an approval</em> pauses the flow</span><span>Tool calls must answer within 100 s: say “pending”, approve after the response</span><span>Set a timeout; silence is a path</span><span>Escalate system topic hands off to a person</span></div>
+      <div class="rule reveal" style="--d:.48s"><b>Flight rule 07</b>Design the “no” first. The agent says “pending” until a human says otherwise.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 14 BREAK THE AGENT -->
+<section class="slide s-break" data-title="Break the agent">
+  <div class="split">
+    <div class="content">
+      <p class="kicker reveal">Mission 08 · Security &amp; governance</p>
+      <h2 class="reveal" style="--d:.1s">Capability is <em>attack surface.</em></h2>
+      <div class="inj">
+        <div class="reveal" style="--d:.18s"><span class="k">Direct · jailbreak</span><p>“Ignore your instructions and…” typed straight into the chat.</p></div>
+        <div class="reveal" style="--d:.24s"><span class="k">Indirect · cross-prompt</span><p>The payload hides in a document the agent reads. The user is innocent. <strong>This is the Rogue Document.</strong></p></div>
+      </div>
+      <p class="body reveal" style="--d:.3s">Copilot Studio screens for both and lets you tune content moderation. Treat that as the <strong>last</strong> line of defense, not the only one.</p>
+      <div class="shields">
+        <span class="reveal" style="--d:.36s">Curated knowledge, each source owned</span><span class="reveal" style="--d:.4s">Least-privilege tools</span><span class="reveal" style="--d:.44s">Approval gates</span><span class="reveal" style="--d:.48s">Data policies (DLP)</span><span class="reveal" style="--d:.52s">Authentication &amp; moderation settings</span><span class="reveal" style="--d:.56s">People watching Monitor</span>
+      </div>
+      <div class="rule reveal" style="--d:.64s"><b>Flight rule 08</b>Content is data, never command. The safest tool is the one you never gave the agent.</div>
+    </div>
+    <figure class="mon reveal-img" data-label="Test pane › the rogue document, defended" style="--z:1.25;--o:100% 38%">
+      <img src="../assets/img/shots/m08-07-rogue-test-defended.webp" alt="Test pane where the agent reports the vendor note contains conflicting embedded instructions and refuses to follow them">
+    </figure>
+  </div>
+</section>
+
+<!-- 15 ANOMALIES -->
+<section class="slide" data-title="Four anomalies">
+  <div class="content">
+    <p class="kicker reveal">Built-in anomalies</p>
+    <h2 class="reveal" style="--d:.1s">Something will go wrong. <em>That's the point.</em></h2>
+    <div class="anoms">
+      <div class="an reveal" style="--d:.2s"><span class="code">ANOMALY-403</span><h3>The 403 Surprise</h3><p>Permissions tightened overnight. The connector fails.</p><b>Proves:</b><p>The flow still responds with a status, and the agent says nothing was recorded, instead of “Done!”</p></div>
+      <div class="an reveal" style="--d:.28s"><span class="code">ANOMALY-DUP</span><h3>The Duplicate Incident</h3><p>Three people report the same QuickPay outage.</p><b>Proves:</b><p><em>Get items</em> runs before <em>Create item</em>. One incident, one record.</p></div>
+      <div class="an reveal" style="--d:.36s"><span class="code">ANOMALY-INJ</span><h3>The Rogue Document</h3><p>A vendor note in the knowledge base carries hidden instructions.</p><b>Proves:</b><p>The agent treats content as data and its structural guardrails hold.</p></div>
+      <div class="an reveal" style="--d:.44s"><span class="code">ANOMALY-AUTH</span><h3>The Human Approval Gate</h3><p>Someone asks the agent to declare a Sev 1 at 2 a.m.</p><b>Proves:</b><p>The flow pauses for a human, handles “no” and silence, and reports “pending”.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 16 PROVE IT -->
+<section class="slide" data-title="Prove it">
+  <div class="split rev">
+    <figure class="mon reveal-img" data-label="Mission Control › Evaluation › results" style="--z:1.3;--o:62% 30%">
+      <img src="../assets/img/shots/m09-05-eval-results.webp" alt="Evaluation results page with per-question pass/fail and an 80% score summary">
+    </figure>
+    <div class="content">
+      <p class="kicker reveal">Mission 09 · Test &amp; troubleshoot</p>
+      <h2 class="reveal" style="--d:.1s">“It worked when I tried it” <em>is not a test plan.</em></h2>
+      <div class="instr">
+        <div class="reveal" style="--d:.18s"><b>Test pane</b><p>Chat live. Fresh conversation for every test.</p></div>
+        <div class="reveal" style="--d:.23s"><b>Variables</b><p>What each topic captured.</p></div>
+        <div class="reveal" style="--d:.28s"><b>Activity</b><p>Which topic, tool, or source the orchestrator chose, and why.</p></div>
+        <div class="reveal" style="--d:.33s"><b>Run history</b><p>Inputs, outputs, the failing step and its HTTP status.</p></div>
+        <div class="reveal" style="--d:.38s"><b>Evaluation</b><p>Reusable test sets scored against expectations.</p></div>
+        <div class="reveal" style="--d:.43s"><b>Monitor</b><p>Health, errors, outcomes once real people use it.</p></div>
+      </div>
+      <div class="rule reveal" style="--d:.52s"><b>Flight rule 09</b>A test you can't fail isn't a test. Inject the failure.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 17 NEVER FAKE SUCCESS -->
+<section class="slide s-fake" data-title="Never fake success">
+  <div class="content">
+    <p class="kicker reveal">The rule under every rule</p>
+    <h2 class="reveal" style="--d:.1s">Never <em>fake success.</em></h2>
+    <div class="fake">
+      <div class="bad reveal" style="--d:.2s">
+        <span class="lbl">What a broken agent says</span>
+        <div class="bubble bot">Done! Created issue <b class="blank">DSI-</b></div>
+        <p>The flow hit a <strong>403</strong>, never responded, and the agent filled the gap with confidence.</p>
+      </div>
+      <div class="good reveal" style="--d:.32s">
+        <span class="lbl">What a governed agent says</span>
+        <div class="bubble bot">I couldn't record this. The issue register returned <b>403 Forbidden</b>, so nothing was created. I've flagged Digital Ops.</div>
+        <p>The flow responded with <code>Status</code> + <code>Reason</code>, and the agent reported only what the system confirmed.</p>
+      </div>
+    </div>
+    <div class="nuggets reveal" style="--d:.46s"><span>Every branch of the flow ends in <em>Respond to the agent</em>, even on failure</span><span>Return Status + Reason + ID</span><span>No confirmed ID means no success message</span></div>
+  </div>
+</section>
+
+<!-- 18 SHOWCASE -->
+<section class="slide" data-title="The showcase">
+  <div class="split">
+    <div class="content">
+      <p class="kicker reveal">Mission 10 · The agent showcase</p>
+      <h2 class="reveal" style="--d:.1s">Three minutes. <em>Show it works, show it's safe, show it's real.</em></h2>
+      <div class="timeline">
+        <div class="reveal" style="--d:.2s"><i>0:00</i><b>The problem</b><p>Who hurts today, and how much</p></div>
+        <div class="reveal" style="--d:.26s"><i>0:30</i><b>The wow demo</b><p>A live request becomes a record in the register</p></div>
+        <div class="reveal" style="--d:.32s"><i>2:00</i><b>The safeguards</b><p>The gate, least privilege, the injection defense</p></div>
+        <div class="reveal" style="--d:.38s"><i>2:30</i><b>The proof</b><p>Scenario pass rate, plus the 403 you fixed</p></div>
+        <div class="reveal" style="--d:.44s"><i>3:00</i><b>Next steps</b><p>What it would take to pilot</p></div>
+      </div>
+      <div class="rule reveal" style="--d:.54s"><b>Flight rule 10</b>Leaders don't buy agents. They buy verifiable outcomes.</div>
+    </div>
+    <div class="stack2">
+      <figure class="mon reveal-img" data-label="Publish this agent" style="--z:1.5;--o:50% 45%"><img src="../assets/img/shots/m10-01-publish-dialog.webp" alt="Publish dialog warning that tools run with the author's credentials"></figure>
+      <figure class="mon reveal-img" data-label="Channels"><img src="../assets/img/shots/m10-02-channels.webp" alt="Channels tab listing Microsoft 365 Copilot, Teams, SharePoint, and engagement hub channels"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 19 FLIGHT RULES -->
+<section class="slide" data-title="Ten flight rules">
+  <div class="content">
+    <p class="kicker reveal">Written in dry runs</p>
+    <h2 class="reveal" style="--d:.1s">Ten flight rules <em>for any agent platform.</em></h2>
+    <div class="rules">
+      <div class="reveal" style="--d:.16s"><i>01</i>Answering is not acting.</div>
+      <div class="reveal" style="--d:.2s"><i>02</i>Descriptions are code.</div>
+      <div class="reveal" style="--d:.24s"><i>03</i>Judgment in the model. Arithmetic in the flow.</div>
+      <div class="reveal" style="--d:.28s"><i>04</i>Validate before you act.</div>
+      <div class="reveal" style="--d:.32s"><i>05</i>Parts that work separately prove nothing.</div>
+      <div class="reveal" style="--d:.36s"><i>06</i>Every integration is an identity decision.</div>
+      <div class="reveal" style="--d:.4s"><i>07</i>Design the “no” first.</div>
+      <div class="reveal" style="--d:.44s"><i>08</i>Capability is attack surface.</div>
+      <div class="reveal" style="--d:.48s"><i>09</i>A test you can't fail isn't a test.</div>
+      <div class="reveal" style="--d:.52s"><i>10</i>Leaders don't buy agents. They buy verifiable outcomes.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 20 CLOSE -->
+<section class="slide s-close" data-title="Splashdown">
+  <div class="wall dim" aria-hidden="true">
+    <img src="../assets/img/shots/m09-07-activity.webp" alt=""><img src="../assets/img/shots/m03-17-run-result.webp" alt=""><img src="../assets/img/shots/m02-09-knowledge-tab.webp" alt="">
+    <img src="../assets/img/shots/m06-03-sharepoint-actions.webp" alt=""><img src="../assets/img/shots/m07-05-approval-stage.webp" alt=""><img src="../assets/img/shots/m08-01-settings-genai.webp" alt="">
+    <img src="../assets/img/shots/m09-08-monitor.webp" alt=""><img src="../assets/img/shots/m02-13-add-tool.webp" alt=""><img src="../assets/img/shots/m03-14-flow-checker.webp" alt="">
+  </div>
+  <div class="shade shade-title"></div>
+  <div class="content center">
+    <p class="kicker reveal">The big takeaway</p>
+    <h2 class="reveal huge" style="--d:.1s">An AI assistant can answer questions.<br><em>A well-designed Copilot Studio solution gets business work done, safely, at scale.</em></h2>
+    <p class="lede center reveal" style="--d:.3s">Course site, labs, lab kit, and the full flight rules:</p>
+    <a class="site reveal" style="--d:.4s" href="../index.html">varoonsahgal.github.io/mission-agent-upgrade</a>
+    <p class="meta reveal" style="--d:.5s">All scenarios, people, and data are fictional (Contoso Credit Union). Microsoft, Copilot, and Copilot Studio are trademarks of Microsoft Corporation.</p>
+  </div>
+</section>
+
+</div>
+</div>
+
+<nav class="hud" aria-label="Slide navigation">
+  <a href="../index.html" title="Course home">⌂</a>
+  <button id="prev" aria-label="Previous slide">←</button>
+  <span id="count">1 / 20</span>
+  <button id="next" aria-label="Next slide">→</button>
+  <button id="ovw" aria-label="Overview (O)" title="Overview (O)">▦</button>
+  <button id="fs" aria-label="Fullscreen (F)" title="Fullscreen (F)">⛶</button>
+</nav>
+<div class="progress"><i id="bar"></i></div>
+<div class="hint" id="hint">← → or swipe · O overview · F fullscreen</div>
+<script src="deck.js"></script>
+</body>
+</html>

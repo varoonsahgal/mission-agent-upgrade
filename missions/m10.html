@@ -20,7 +20,7 @@
 <a class="brand" href="../index.html" aria-label="Mission: Agent Upgrade home"><svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="bl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff6b2c"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs><circle cx="20" cy="20" r="18" fill="none" stroke="url(#bl)" stroke-width="2"/><ellipse cx="20" cy="20" rx="18" ry="6.5" fill="none" stroke="#22d3ee" stroke-opacity=".6" stroke-width="1.2" transform="rotate(-28 20 20)"/><path d="M20 9c3 2 4.6 5.4 4.6 8.8l-1.6 3.4h-6l-1.6-3.4C15.4 14.4 17 11 20 9z" fill="#fff"/><path d="M17.6 22.6 16 26.5l2.6-1M22.4 22.6 24 26.5l-2.6-1" stroke="#ff6b2c" stroke-width="1.4" fill="none" stroke-linecap="round"/><circle cx="20" cy="16.4" r="1.6" fill="#8b5cf6"/></svg>
 <span>MISSION: AGENT UPGRADE<small>Copilot Studio · Contoso Digital</small></span></a>
 <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
-<nav class="nav" id="nav"><a href="../index.html#flight-plan">Flight Plan</a><a href="../index.html#missions" aria-current=page>Missions</a><a href="../resources.html">Resources</a><a href="../facilitator.html">Facilitator</a><a class="cta" href="../missions/m01.html">Launch Mission 01 →</a></nav>
+<nav class="nav" id="nav"><a href="../index.html#flight-plan">Flight Plan</a><a href="../index.html#missions" aria-current=page>Missions</a><a href="../resources.html">Resources</a><a href="../facilitator.html">Facilitator</a><a href="../slides/">Slides</a><a class="cta" href="../missions/m01.html">Launch Mission 01 →</a></nav>
 <div class="telemetry" aria-hidden="true"><span class="dot"></span><span>SYS NOMINAL</span><span>·</span><span id="met">--:--:-- ET</span></div>
 </div></header>
 <main id="main">
@@ -50,8 +50,9 @@
     <div class="fstep"><span class="k">2:30 · 30s</span><h4>The proof</h4><p>Scenario pass rate, plus the 403 you fixed</p></div>
     <div class="fstep"><span class="k">3:00 · Q&amp;A</span><h4>Next steps</h4><p>What it would take to pilot</p></div>
   </div>
-  <div class="callout tip"><strong>Demo like Mission Control</strong> Pre-load a fresh test conversation, keep the SharePoint register open in a second tab, and show the record <em>appearing</em>. That's the moment that makes leaders lean in.</div>
+  <div class="callout tip"><strong>Demo like Mission Control</strong> Start a <span class="ui">New test session</span> before your slot, keep the Digital Issue Register list open in a second tab, and show the record <em>appearing</em>. That's the moment that makes leaders lean in.</div>
   <div class="callout intel"><strong>No live access?</strong> Observer and analyst teams present a <em>validated solution design</em>: the decision map, the safeguard worksheet, and the test matrix. It's an equally valid showcase.</div>
+  <p>Build your outline below, then publish the agent, pick its channel, and rehearse once against the clock.</p>
   <aside class="frule" data-n="10" aria-label="Flight rule 10">
     <span class="frule-k">Flight rule 10</span>
     <p>Leaders don't buy agents. They buy verifiable outcomes.</p>
@@ -69,7 +70,7 @@
       <label for="pf-problem">The problem (who, how often, what it costs)</label><textarea id="pf-problem" rows="3" data-field="problem" placeholder="Digital analysts spend ~20 min per report checking the register and re-keying details…"></textarea>
       <label for="pf-demo">Wow moment (what we'll show live)</label><textarea id="pf-demo" rows="3" data-field="demo" placeholder="A vague Bill Pay report → follow-up questions → new record DSI-2051 appears in SharePoint"></textarea>
       <label for="pf-safe">Safeguards</label><textarea id="pf-safe" rows="3" data-field="safe" placeholder="Approval gate for Sev 1; no delete tool; Rogue Document ignored; end-user credentials for reads"></textarea>
-      <label for="pf-proof">Proof (tests and results)</label><textarea id="pf-proof" rows="2" data-field="proof" placeholder="7/8 scenarios pass; 403 now fails honestly"></textarea>
+      <label for="pf-proof">Proof (tests and results)</label><textarea id="pf-proof" rows="2" data-field="proof" placeholder="Evaluation test set: 80% (8/10) at baseline, 90% after the fix; 403 now fails honestly"></textarea>
       <label for="pf-next">Next steps</label><textarea id="pf-next" rows="2" data-field="next" placeholder="Pilot with the Payments squad; move to a test environment; add a Teams channel"></textarea>
     </form>
     <div class="pitch-out" aria-live="polite">
@@ -108,7 +109,7 @@
       <div>
         <h4>Pre-flight</h4>
         <ul>
-          <li>Open a fresh test conversation</li>
+          <li>Start a <span class="ui">New test session</span> in the test pane</li>
           <li>Keep the register list open in a second tab</li>
           <li>Pitch outline copied from the builder above</li>
         </ul>
@@ -118,14 +119,14 @@
     <ol class="steps">
       <li class="step">
         <h4>Run the pre-flight review</h4>
-        <p>Select <span class="ui">Publish</span>. Before anything goes live, Copilot Studio lists the items to review. Resolve each one, or explain it in your showcase, before you publish.</p>
+        <p>Select <span class="ui">Publish</span> in the top-right of the agent. The test pane always runs your latest saved draft; channels only get what you publish. Before it goes live, the dialog lists items to review. In our dry run it flagged that <strong>the agent runs tools that use the author's credentials</strong>: with maker-provided connections, every user inherits that account's access to the register. Resolve each item, or be ready to explain it in your showcase. <span class="ui">Force newest version</span> makes Teams load the new logic on the user's next message instead of a cached version, but it resets dialog state and variables for conversations already in progress, so leave it off unless you need it. Without it, Teams can take up to an hour, or a new session, to pick up what you published.</p>
         <figure class="shot" data-label="Publish this agent">
           <img src="../assets/img/shots/m10-01-publish-dialog.webp" alt="Publish dialog with review items and Force newest version option" loading="lazy">
         </figure>
       </li>
       <li class="step">
         <h4>Choose where Mission Control lives</h4>
-        <p>Open <span class="ui">Channels</span>. With Microsoft (Entra ID) authentication, you can publish to <strong>Microsoft 365 and Teams</strong> and <strong>SharePoint</strong>, which is where Contoso Digital employees already work. Customer-engagement hubs (Genesys, Salesforce, ServiceNow…) are for handing off to a live agent.</p>
+        <p>Open <span class="ui">Channels</span>. With Microsoft (Entra ID) authentication, the available channels are <strong>Microsoft 365 and Teams</strong> and <strong>SharePoint</strong>, which is where Contoso Digital employees already work; other channels require a different authentication setting. The <span class="ui">Customer engagement hub</span> cards (Telephony, Genesys, Salesforce, ServiceNow…) are for handing a conversation off to a live agent. The status card at the top of the page repeats the review items and shows <span class="ui">Published agent status</span>; until that changes from <span class="ui">Not published</span>, no channel has anything to serve.</p>
         <figure class="shot" data-label="Channels">
           <img src="../assets/img/shots/m10-02-channels.webp" alt="Channels page: Microsoft 365 and Teams, SharePoint, customer engagement hubs" loading="lazy">
         </figure>
@@ -137,11 +138,12 @@
           <li><strong>0:30 · Known issue.</strong> The QuickPay pending prompt. The agent answers with DSI-1042 and creates no record.</li>
           <li><strong>1:15 · The wow moment.</strong> The OLB-500 prompt. Show the workflow run and the new SharePoint row with its real ID.</li>
           <li><strong>2:00 · The safeguard.</strong> The duplicate-debit prompt. The agent stops, and the approval request appears.</li>
-          <li><strong>2:40 · Proof and next step.</strong> Baseline vs. re-run evaluation score, one failure you fixed, and a pilot proposal.</li>
+          <li><strong>2:30 · Proof and next step.</strong> Baseline vs. re-run evaluation score, one failure you fixed, and a pilot proposal.</li>
         </ol>
         <div class="callout tip"><strong>Demo insurance</strong> Live demos fail. Record a backup run of each prompt (screen recording or screenshots) before your slot, and keep the activity map open so you can show the <em>why</em>, not just the answer.</div>
       </li>
     </ol>
+    <p>Then score each other. The six criteria are the questions leadership will ask on Thursday.</p>
     <!-- LAB-STEPS:m10:END -->
     <h3 id="scorecard" class="toc-include">Peer scorecard</h3>
     <div class="table-wrap">
@@ -188,11 +190,21 @@
       <div><b>FOUR ANOMALIES</b><p>403, Duplicate, Rogue Document, Approval Gate: all diagnosed and defended.</p></div>
       <div><b>DAY 2 OUTCOME</b><p>A connected, tested prototype, or a validated solution design.</p></div>
     </div>
+    <div class="cs-notes">
+      <div class="cs-k">Copilot Studio takeaways</div>
+      <ul>
+        <li><b>Draft and published are two different agents.</b> The test pane runs your latest saved draft. Teams, SharePoint, and every other channel run the last version you published. If a fix isn't showing up for users, you probably didn't publish it.</li>
+        <li><b>The publish dialog is a mini security review.</b> It flags tools that run with the author's credentials. Decide whether that's acceptable (a scoped service account) or switch the connection to end-user credentials before anyone outside the class can reach the agent.</li>
+        <li><b>Channels follow authentication.</b> With <em>Authenticate with Microsoft</em> (the default), you get two channels: Microsoft 365 and Microsoft Teams, and SharePoint. The other options under <span class="ui">Settings</span> → <span class="ui">Security</span> → <span class="ui">Authentication</span> are <em>No authentication</em> and <em>Authenticate manually</em>; they open other channels and change who can reach the agent and what knowledge it can read for them. A change here takes effect only after you publish.</li>
+        <li><b>Promote with solutions, not rebuilds.</b> Keep the agent and its flows in a solution, build in a sandbox environment, and move the solution to test and production. Environment data policies apply at each stop, so a connector that worked in the sandbox may be blocked in production.</li>
+        <li><b>Keep the evidence visible.</b> The activity map explains <em>why</em> the agent chose a tool, the flow run history proves <em>what</em> ran, and the register shows the result. Those three screens are your showcase, and later, your audit trail.</li>
+      </ul>
+    </div>
     <div class="complete-row"><button class="complete-btn" type="button">🚀 Mark mission complete</button><span class="status">MISSION LOG</span></div>
   </div>
 </section>
 
-<nav class="pn" aria-label="Mission navigation"><a class="prev" href="m09.html"><span class="k">← Mission 09</span><span class="t">Mission Control: Test &amp; Troubleshoot</span></a><a class="next" href="../resources.html"><span class="k">Post-flight →</span><span class="t">Resources &amp; lab kit</span></a></nav>
+<nav class="pn" aria-label="Mission navigation"><a class="prev" href="m09.html"><span class="k">← Mission 09</span><span class="t">Mission Control: Test &amp; Troubleshoot</span></a><a class="next" href="../resources.html"><span class="k">Post-flight →</span><span class="t">Resources &amp; Lab Kit</span></a></nav>
 </article>
 <aside class="toc" aria-label="On this page"><div class="ttl">// Flight checklist</div><ol></ol>
 <div class="mini-progress"><div class="lbl"><span>Mission log</span><span><span data-progress-count>0</span>/10</span></div><div class="bar"><i data-progress-bar></i></div></div></aside>
@@ -200,7 +212,7 @@
 </main>
 <footer class="footer"><div class="wrap">
 <div><div class="sig">Mission: Agent Upgrade 🚀</div><p>A 4-hour, live, instructor-led Microsoft Copilot Studio workshop. All scenarios, people, and data are fictional (Contoso Credit Union) and for classroom use only. Microsoft, Copilot, and Copilot Studio are trademarks of Microsoft Corporation.</p></div>
-<nav aria-label="Footer"><a href="../index.html">Home</a><a href="../index.html#flight-plan">Flight Plan</a><a href="../resources.html">Resources & Lab Kit</a><a href="../facilitator.html">Facilitator Guide</a></nav>
+<nav aria-label="Footer"><a href="../index.html">Home</a><a href="../index.html#flight-plan">Flight Plan</a><a href="../resources.html">Resources & Lab Kit</a><a href="../facilitator.html">Facilitator Guide</a><a href="../slides/">Slide Deck</a></nav>
 </div></footer>
 <script src="../assets/js/main.js"></script>
 </body>

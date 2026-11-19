@@ -20,7 +20,7 @@
 <a class="brand" href="index.html" aria-label="Mission: Agent Upgrade home"><svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="bl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff6b2c"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs><circle cx="20" cy="20" r="18" fill="none" stroke="url(#bl)" stroke-width="2"/><ellipse cx="20" cy="20" rx="18" ry="6.5" fill="none" stroke="#22d3ee" stroke-opacity=".6" stroke-width="1.2" transform="rotate(-28 20 20)"/><path d="M20 9c3 2 4.6 5.4 4.6 8.8l-1.6 3.4h-6l-1.6-3.4C15.4 14.4 17 11 20 9z" fill="#fff"/><path d="M17.6 22.6 16 26.5l2.6-1M22.4 22.6 24 26.5l-2.6-1" stroke="#ff6b2c" stroke-width="1.4" fill="none" stroke-linecap="round"/><circle cx="20" cy="16.4" r="1.6" fill="#8b5cf6"/></svg>
 <span>MISSION: AGENT UPGRADE<small>Copilot Studio · Contoso Digital</small></span></a>
 <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
-<nav class="nav" id="nav"><a href="index.html#flight-plan">Flight Plan</a><a href="index.html#missions">Missions</a><a href="resources.html">Resources</a><a href="facilitator.html" aria-current=page>Facilitator</a><a class="cta" href="missions/m01.html">Launch Mission 01 →</a></nav>
+<nav class="nav" id="nav"><a href="index.html#flight-plan">Flight Plan</a><a href="index.html#missions">Missions</a><a href="resources.html">Resources</a><a href="facilitator.html" aria-current=page>Facilitator</a><a href="slides/">Slides</a><a class="cta" href="missions/m01.html">Launch Mission 01 →</a></nav>
 <div class="telemetry" aria-hidden="true"><span class="dot"></span><span>SYS NOMINAL</span><span>·</span><span id="met">--:--:-- ET</span></div>
 </div></header>
 <main id="main">
@@ -28,7 +28,7 @@
   <div>
     <div class="crumbs"><a href="index.html">Mission: Agent Upgrade</a><span>/</span><span>Facilitator guide</span></div>
     <h1><span class="mnum">FLIGHT DIRECTOR'S CONSOLE</span>Facilitator Guide</h1>
-    <p class="lead">Run of show, minute by minute, for both cohorts. Plus crew roles, participation modes, environment reset tips, and contingency plans for when the universe doesn't cooperate.</p>
+    <p class="lead">Run of show for both cohorts, the one concept to land in each mission, crew roles, participation modes, reset steps, and contingency plans.</p>
     <div class="facts"><span class="fact"><b>Dates</b>Dec 15–16, 2026</span><span class="fact"><b>AM</b>10:00–12:00 ET</span><span class="fact"><b>PM</b>1:00–3:00 ET</span><span class="fact"><b>Total</b>4 hrs per cohort</span></div>
   </div>
 </div></section>
@@ -41,15 +41,17 @@
         <label><input type="checkbox"> A sandbox environment exists for the class, with Copilot Studio authoring enabled</label>
         <label><input type="checkbox"> Learner maker access confirmed (builders) and shared accounts assigned (teams)</label>
         <label><input type="checkbox"> Data policy allows SharePoint, Approvals, and Office 365 Outlook in the sandbox</label>
+        <label><input type="checkbox"> Connector allowlist checked against the labs: SharePoint, Standard Approvals, Office 365 Outlook, Microsoft Teams, and Office 365 Users were all on the class environment's list as of Nov 17, 2026; re-confirm the week of class</label>
         <label><input type="checkbox"> A classroom SharePoint site exists, and learners can create lists</label>
         <label><input type="checkbox"> The Digital Issue Register is pre-built as a fallback list (from the CSV)</label>
       </div>
       <div class="checkpoint rv d1"><h4>Instructor readiness</h4>
         <label><input type="checkbox"> Reference “Mission Control” agent fully built for demos</label>
         <label><input type="checkbox"> A second copy of the agent with the Rogue Document, for Mission 08</label>
-        <label><input type="checkbox"> A broken connection prepared for the 403 Surprise demo (Mission 09)</label>
+        <label><input type="checkbox"> A second SharePoint connection whose account has no access to the Digital Issue Register, ready to swap in for the 403 Surprise demo (Mission 09)</label>
         <label><input type="checkbox"> Approver account ready to act on approval requests live</label>
         <label><input type="checkbox"> Site link and lab kit shared with participants</label>
+        <label><input type="checkbox"> <a href="slides/">Slide deck</a> ready for the Day 1 kickoff and the closing takeaways</label>
       </div>
     </div>
   </div>
@@ -57,7 +59,7 @@
 
 <section class="section" id="run-of-show" style="--accent:#ff6b2c">
   <div class="wrap">
-    <div class="sh rv"><span class="eyebrow">// Run of show</span><h2>Minute by minute</h2><p class="lead">The PM cohort runs the same plan, shifted +3 hours (1:00–3:00 p.m. ET). Each mission page opens with an incoming transmission and closes with a flight rule. Read the transmission aloud to set the scene, and have the room say the flight rule back before you move on.</p></div>
+    <div class="sh rv"><span class="eyebrow">// Run of show</span><h2>Minute by minute</h2><p class="lead">The PM cohort runs the same plan, shifted +3 hours (1:00–3:00 p.m. ET). Each mission page opens with an incoming transmission and closes with a flight rule: read the transmission aloud, and have the room say the flight rule back before you move on.</p></div>
     <h3 class="rv">Day 1 · Give Your Agent Superpowers</h3>
     <div class="table-wrap rv">
       <table class="ros">
@@ -89,12 +91,35 @@
   </div>
 </section>
 
+<section class="section" id="key-points" style="--accent:#22d3ee">
+  <div class="wrap">
+    <div class="sh rv"><span class="eyebrow">// One thing per mission</span><h2>The Copilot Studio concept to land</h2><p class="lead">If a mission runs long, cut steps, not this. Each row is the one idea learners must leave with, and the stumble that most often gets in its way.</p></div>
+    <div class="table-wrap rv">
+      <table>
+        <thead><tr><th>Mission</th><th>Land this</th><th>Watch for</th></tr></thead>
+        <tbody>
+          <tr><td><a href="missions/m01.html">01</a></td><td>Agent Builder answers; Copilot Studio acts. Tools, agent flows, topics, triggers, channels, and governance are the signals that you've outgrown the easy button.</td><td>Learners treating it as either/or. It's an upgrade path: start small, move up when the agent has to change something.</td></tr>
+          <tr><td><a href="missions/m02.html">02</a></td><td>Generative orchestration picks topics, tools, and knowledge by their <em>descriptions</em>. Instructions are capped at 8,000 characters, and Web search should be off for a grounded agent.</td><td>Vague names and descriptions. Most “the agent ignored my tool” problems are description problems.</td></tr>
+          <tr><td><a href="missions/m03.html">03</a></td><td>An agent flow is a tool with a typed input/output contract. Severity, IDs, and routing are computed in the flow, never guessed by the model.</td><td>Typing <code>true</code> as text instead of an expression, and using display names in expressions when the flow only knows the internal input names (<code>text_2</code>, <code>boolean</code>).</td></tr>
+          <tr><td><a href="missions/m04.html">04</a></td><td>Topics give rule-driven paths: Question nodes with entities validate before anything acts, and Condition nodes branch into known, unknown, incomplete, and sensitive.</td><td>Acting on an incomplete report, and creating a record before checking what already exists.</td></tr>
+          <tr><td><a href="missions/m05.html">05</a></td><td>Test the whole flight in a fresh conversation. The activity map shows which tool the orchestrator chose and which inputs it filled.</td><td>Declaring victory because the pieces worked separately.</td></tr>
+          <tr><td><a href="missions/m06.html">06</a></td><td>A connection carries an identity. End-user credentials respect each person's access; maker credentials make everyone inherit the maker's. Get items before Create item.</td><td>Reporting an ID the agent made up instead of the one SharePoint returned.</td></tr>
+          <tr><td><a href="missions/m07.html">07</a></td><td><em>Start and wait for an approval</em> pauses the flow until a human decides. Approved, Rejected, and Timed out are three designed paths, and the Escalate topic hands off to a person.</td><td>The agent saying “done” while the approval is still pending.</td></tr>
+          <tr><td><a href="missions/m08.html">08</a></td><td>Content is data, never command. Curated knowledge, least-privilege tools, approval gates, and data policies stop what the built-in jailbreak and cross-prompt protections miss.</td><td>Assuming the model's protections are enough on their own.</td></tr>
+          <tr><td><a href="missions/m09.html">09</a></td><td>Activity and the flow run history tell you which step broke and why. Evaluation test sets make the scenarios re-runnable, and a failed flow must still respond with an Outcome.</td><td>Reading only the fails. A “pass” can contain a false claim.</td></tr>
+          <tr><td><a href="missions/m10.html">10</a></td><td>Publish pushes changes to channels; the test pane runs the draft. The publish dialog flags author-credential tools, and solutions move the agent between environments.</td><td>Demoing from the draft and forgetting to publish before the real audience tries it.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="roles" style="--accent:#22d3ee">
   <div class="wrap">
     <div class="sh rv"><span class="eyebrow">// Crew roles</span><h2>Team roles for collaborative mode</h2><p class="lead">Rotate roles at each break so everyone drives at least once.</p></div>
     <div class="grid g3">
       <div class="card role-card rv" style="--c:#22d3ee"><div class="icon-chip">📐</div><span class="kicker">Role 01</span><h3>Solution Designer</h3><p>Owns the <em>what</em> and the <em>why</em>. Reads the mission brief, defines inputs and outputs, decides the branches, and keeps the team on scope.</p></div>
-      <div class="card role-card rv d1" style="--c:#ff6b2c"><div class="icon-chip">🛠</div><span class="kicker">Role 02</span><h3>Builder</h3><p>Owns the keyboard. Configures the agent, topics, flows, and connectors in Copilot Studio, and narrates each click aloud.</p></div>
+      <div class="card role-card rv d1" style="--c:#ff6b2c"><div class="icon-chip">🛠</div><span class="kicker">Role 02</span><h3>Builder</h3><p>Owns the keyboard. Configures the agent, topics, agent flows, and connections in Copilot Studio, and narrates each click aloud.</p></div>
       <div class="card role-card rv d2" style="--c:#f87171"><div class="icon-chip">🛡</div><span class="kicker">Role 03</span><h3>Risk Reviewer</h3><p>Owns the “what could go wrong?” question. Challenges permissions, writes the edge-case tests, keeps score, and has the final call in games.</p></div>
     </div>
   </div>
@@ -107,8 +132,8 @@
       <table>
         <thead><tr><th>Mode</th><th>Access</th><th>During labs</th><th>At the showcase</th></tr></thead>
         <tbody>
-          <tr><td><span class="mode-badge builder">Builder</span></td><td>Individual sandbox maker access</td><td>Builds every lab step with screenshots</td><td>Live demo</td></tr>
-          <tr><td><span class="mode-badge team">Team</span></td><td>A shared authorized maker account</td><td>Rotates the Designer, Builder, and Risk Reviewer roles</td><td>Team demo</td></tr>
+          <tr><td><span class="mode-badge builder">Builder</span></td><td>Individual sandbox maker access</td><td>Builds every lab step, following the screenshot walkthrough</td><td>Live demo</td></tr>
+          <tr><td><span class="mode-badge team">Team</span></td><td>A shared authorized maker account</td><td>Rotates the Solution Designer, Builder, and Risk Reviewer roles</td><td>Team demo</td></tr>
           <tr><td><span class="mode-badge observer">Observer</span></td><td>No authoring access needed</td><td>Observer tracks: design maps, test cases, threat models</td><td>Validated solution design</td></tr>
         </tbody>
       </table>
@@ -120,21 +145,23 @@
   <div class="wrap">
     <div class="sh rv"><span class="eyebrow">// Abort procedures</span><h2>Contingency plans</h2></div>
     <div class="grid g2">
-      <details class="reveal rv" open><summary>A learner has no Copilot Studio license or access</summary><div class="inner"><p>Move them to a team or the Observer track right away. Each lab's screenshot walkthrough lets them follow every step. Pair them with a builder and make them the Risk Reviewer, which is the role with the most leverage.</p></div></details>
-      <details class="reveal rv d1"><summary>SharePoint list creation is blocked</summary><div class="inner"><p>Share the pre-built instructor register with Edit permissions, or have teams share one list. As a last resort, demo Mission 06 from the reference agent and have learners complete the connection audit.</p></div></details>
-      <details class="reveal rv"><summary>A connector is blocked by a data policy</summary><div class="inner"><p>Perfect teaching moment. Show the error, explain data policies (Mission 08 preview), and continue on the reference environment.</p></div></details>
-      <details class="reveal rv d1"><summary>Approvals don't arrive</summary><div class="inner"><p>Check the Approvals app in Teams and the Outlook inbox of the assigned approver. Approvals can take a minute to appear. Keep a recorded run ready to show what should happen.</p></div></details>
-      <details class="reveal rv"><summary>A lab runs long</summary><div class="inner"><p>Each lab has a core path and a stretch path. Cut the stretch path, and keep the telemetry check: it's how learners know they succeeded.</p></div></details>
-      <details class="reveal rv d1"><summary>The agent responds unexpectedly in the test pane</summary><div class="inner"><p>Start a new test conversation, check the Activity view to see which topic or tool was chosen, and review the tool and topic descriptions. Most surprises come from vague descriptions.</p></div></details>
+      <details class="reveal rv" open><summary>A learner has no Copilot Studio license or access</summary><div class="inner"><p>Pair them with a builder as the team's Risk Reviewer, or move them to the Observer track; the screenshot walkthroughs cover every step.</p></div></details>
+      <details class="reveal rv d1"><summary>SharePoint list creation is blocked</summary><div class="inner"><p>Share the pre-built instructor register with Edit permissions (one list per team is fine); last resort, demo Mission 06 from the reference agent while learners do the connection audit.</p></div></details>
+      <details class="reveal rv"><summary>A connector is blocked by a data policy</summary><div class="inner"><p>Show the error, name it (a data policy, Mission 08), and continue on the reference environment.</p></div></details>
+      <details class="reveal rv d1"><summary>Approvals don't arrive</summary><div class="inner"><p>Check the Approvals app in Teams and the approver's Outlook inbox, allow a minute, then run the approval from the reference agent and act on it from the instructor's approver account.</p></div></details>
+      <details class="reveal rv"><summary>A lab runs long</summary><div class="inner"><p>Cut the stretch steps, never the telemetry check: it's how learners know they succeeded.</p></div></details>
+      <details class="reveal rv d1"><summary>The agent responds unexpectedly in the test pane</summary><div class="inner"><p>Start a new test session, open Activity to see which topic or tool was chosen, then fix the description. Most surprises are description problems.</p></div></details>
+      <details class="reveal rv"><summary>A flow run fails for a learner</summary><div class="inner"><p>Open the flow → Activity → the run: the red step and its HTTP status name the cause. 403 is permissions, 404 is the wrong list or site, 400 is a bad input.</p></div></details>
+      <details class="reveal rv d1"><summary>The published agent doesn't show a fix</summary><div class="inner"><p>The channel runs the last published version. Save, Publish, and retry in a new Teams chat.</p></div></details>
     </div>
-    <div class="callout warn rv" style="margin-top:2rem"><strong>Reset between cohorts</strong> Delete test records created in the register (anything other than DSI-1041 to 1047), remove the Rogue Document from any shared agent, restore the 403-demo connection, and clear any pending approvals.</div>
+    <div class="callout warn rv" style="margin-top:2rem"><strong>Reset between cohorts</strong> Delete test records created in the register (anything other than DSI-1041 to 1047), remove the Rogue Document from any shared agent, swap the reference agent's working SharePoint connection back in, and clear any pending approvals.</div>
   </div>
 </section>
 
 </main>
 <footer class="footer"><div class="wrap">
 <div><div class="sig">Mission: Agent Upgrade 🚀</div><p>A 4-hour, live, instructor-led Microsoft Copilot Studio workshop. All scenarios, people, and data are fictional (Contoso Credit Union) and for classroom use only. Microsoft, Copilot, and Copilot Studio are trademarks of Microsoft Corporation.</p></div>
-<nav aria-label="Footer"><a href="index.html">Home</a><a href="index.html#flight-plan">Flight Plan</a><a href="resources.html">Resources & Lab Kit</a><a href="facilitator.html">Facilitator Guide</a></nav>
+<nav aria-label="Footer"><a href="index.html">Home</a><a href="index.html#flight-plan">Flight Plan</a><a href="resources.html">Resources & Lab Kit</a><a href="facilitator.html">Facilitator Guide</a><a href="slides/">Slide Deck</a></nav>
 </div></footer>
 <script src="assets/js/main.js"></script>
 </body>

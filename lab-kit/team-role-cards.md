@@ -17,7 +17,7 @@ Rotate roles at every break, so that everyone drives at least once.
 
 ## 🛠 Builder
 **You own:** the keyboard.
-- Configure the agent, topics, workflows, and connectors in Copilot Studio.
+- Configure the agent, topics, agent flows, and connections in Copilot Studio.
 - Narrate every click aloud, so that the team learns along with you.
 - Start a new test conversation for every test.
 
